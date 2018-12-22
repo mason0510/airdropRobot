@@ -5,10 +5,15 @@ class Ut {
      */
     static sleep(time = 0) {
         return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve();
-            }, time);
+            for (let i = 0; i <100 ; i++) {
+                setTimeout(() => {
+                    resolve();
+                }, i*10000);
+            }
+
+
         })
+
     };
 }
 

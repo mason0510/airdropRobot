@@ -8,7 +8,7 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "^2.6.9",
-    "eosjs": "^20.0.0-beta3",
+    "eosjs": "^20.0.0-beta2",
     "eosjs-api": "^7.0.4",
     "eosjs-ecc": "^4.0.4",
     "express": "~4.16.0",

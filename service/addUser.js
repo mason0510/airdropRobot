@@ -66,7 +66,7 @@ const removeSameName=async ()=>{
 // });
 
 
-removeSameName();
+// removeSameName();
 
 
 //判断是否在betdiceuser表  如果不在 那么插入进去
@@ -80,4 +80,66 @@ removeSameName();
 // 进行单个转账
 
 
+
+
+
+(async () => {
+    let User=require("../model/godappuser");
+    require("../db")
+    let user1=new User({
+        username:"godapp12122",
+        assets:"0.0001 EOS",
+        block_time:Date.now(),
+        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
+        memo:"godapp",
+        created:Date.now()
+    });
+
+    let user2=new User({
+        username:"zzzzz2zzzzzz",
+        assets:"0.0001 EOS",
+        block_time:Date.now(),
+        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
+        memo:"godapp",
+        created:Date.now()
+    });
+
+    let user3=new User({
+        username:"miaoman12345",
+        assets:"0.0001 EOS",
+        block_time:Date.now(),
+        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
+        memo:"godapp",
+        created:Date.now()
+    });
+    let user4=new User({
+        username:"dennis.e",
+        assets:"0.0001 EOS",
+        block_time:Date.now(),
+        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
+        memo:"godapp",
+        created:Date.now()
+    });
+    let user5=new User({
+        username:"zhangaccount",
+        assets:"0.0001 EOS",
+        block_time:Date.now(),
+        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
+        memo:"godapp",
+        created:Date.now()
+    });
+    let user6=new User({
+        username:"hicodemonkey",
+        assets:"0.0001 EOS",
+        block_time:Date.now(),
+        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
+        memo:"godapp",
+        created:Date.now()
+    });
+    User.create(user5).catch(errmsg=>{console.log("error"+errmsg)});
+    // User.create(user2).catch(errmsg=>{console.log("error"+errmsg)});
+    // User.create(user3).catch(errmsg=>{console.log("error"+errmsg)});
+    // User.create(user4).catch(errmsg=>{console.log("error"+errmsg)});
+    // User.create(user6).catch(errmsg=>{console.log("error"+errmsg)});
+})();
 
