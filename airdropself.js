@@ -10,7 +10,7 @@ let AirUser=require("./model/dice");
 
 config={
     keyProvider: ['5JgWbqPFygNyurb888NcjpLAtZEyW5cLvMDQ8586EhisrCusxBD'], // 配置私钥字符串 私钥
-    httpEndpoint: 'https://eosbp.atticlab.net', //DEV开发链url与端口 正式服务器 https://eosbp.atticlab.net
+    httpEndpoint: 'https://node1.zbeos.com', //DEV开发链url与端口 正式服务器 https://eosbp.atticlab.net
     chainId: "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906", // 通过cleos get info可以获取chainId
     expireInSeconds: 60,
     broadcast: true,
@@ -39,9 +39,9 @@ options = {
 //     })
 //
 // });
-eos.transfer('godapp.e', "zzzzz2zzzzzz", '0.0010 EOS', 'You HAVE know what GoDapp is if you\'re an EOS loyal supporter. Our website: godapp.com\n' +
+eos.transfer('godapp.e', "zhangaccount", '0.0001 EOS', 'You HAVE know what GoDapp is if you\'re an EOS loyal supporter. Our website: godapp.com\n' +
     '如果你是eos的忠实支持者，最好了解一下godapp是什么，我们的官网 godapp.com', options).catch(results=>{
-    console.log("转账失败"+results);
+    console.log("err"+results);
 })
 
 
