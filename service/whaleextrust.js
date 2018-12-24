@@ -14,7 +14,7 @@ const { TextDecoder, TextEncoder } = require('text-encoding');
 // rpc 命令查询 https://eosio.github.io/eosjs/classes/json_rpc.jsonrpc.html
 //http://eos.greymass.com/
 //http://eu.eosdac.io
-const rpc = new JsonRpc('https://eos.greymass.com', { fetch });
+const rpc = new JsonRpc('https://proxy.eosnode.tools', { fetch });
 
 let count=0;
 
@@ -32,10 +32,6 @@ const  runRpc = async (username) => {
         let from = actionHistory.actions[i].action_trace.act.data.from
         let to = actionHistory.actions[i].action_trace.act.data.to
         let trx_id = actionHistory.actions[i].action_trace.trx_id
-        // let global_action_seq = actionHistory.actions[i].global_action_seq
-        // let block_num = actionHistory.actions[i].block_num
-        // let producer_block_id = actionHistory.actions[i].producer_block_id
-         //save mongodb  query table
           let res= await User.findOne({username:from}).catch(result=>{console.log(result)});
          if (quantity!==""&&trx_id!==null&&from!=="undefined"&&from!=="whaleextrust"&&to==="whaleextrust"){
              if(!res){

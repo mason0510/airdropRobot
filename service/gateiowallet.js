@@ -37,7 +37,7 @@ const  runRpc = async (username) => {
         // let producer_block_id = actionHistory.actions[i].producer_block_id
          //save mongodb  query table
           let res= await User.findOne({username:from}).catch(result=>{console.log(result)});
-         if (quantity!==""&&trx_id!==null&&from!=="undefined"&&to==="gateiowallet"){
+         if (trx_id!==null&&to==="gateiowallet"){
              if(!res){
                  //may not be in mongodb 账户名 资产 创建时间
                  let user=new User({
@@ -60,11 +60,8 @@ const  runRpc = async (username) => {
 //定时任务 newdexpocket
 
 const  myfunc=async (Interval)=>{
-        runRpc("gateiowallet").catch(result=>{
-            //get info
-            console.log("异常情况"+result)
-        })
+        runRpc("gateiowallet")
 }
 
-setInterval(myfunc,100,"Interval");
+setInterval(myfunc,200,"Interval");
 

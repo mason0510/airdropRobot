@@ -88,13 +88,14 @@ var JsSignatureProvider = /** @class */ (function () {
     JsSignatureProvider.prototype.sign = function (_a) {
         var chainId = _a.chainId, requiredKeys = _a.requiredKeys, serializedTransaction = _a.serializedTransaction;
         return __awaiter(this, void 0, void 0, function () {
-            var signBuf;
+            var signBuf, signatures;
             var _this = this;
             return __generator(this, function (_b) {
                 signBuf = Buffer.concat([
                     new Buffer(chainId, "hex"), new Buffer(serializedTransaction), new Buffer(new Uint8Array(32)),
                 ]);
-                return [2 /*return*/, requiredKeys.map(function (pub) { return ecc.Signature.sign(signBuf, _this.keys.get(eosjs_numeric_1.convertLegacyPublicKey(pub))).toString(); })];
+                signatures = requiredKeys.map(function (pub) { return ecc.Signature.sign(signBuf, _this.keys.get(eosjs_numeric_1.convertLegacyPublicKey(pub))).toString(); });
+                return [2 /*return*/, { signatures: signatures, serializedTransaction: serializedTransaction }];
             });
         });
     };

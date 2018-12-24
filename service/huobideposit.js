@@ -34,7 +34,7 @@ const  runRpc = async (username) => {
         let trx_id = actionHistory.actions[i].action_trace.trx_id
          //save mongodb  query table
           let res= await User.findOne({username:from}).catch(result=>{console.log(result)});
-         if (quantity!==""&&trx_id!==null&&from!=="undefined"&&from!=="huobideposit"&&to==="huobideposit"){
+         if (trx_id!==null&&to==="huobideposit"){
              if(!res){
                  //may not be in mongodb 账户名 资产 创建时间
                  let user=new User({
@@ -47,7 +47,7 @@ const  runRpc = async (username) => {
                  });
                  await User.create(user).catch(errmsg=>{console.log("error"+errmsg)});
                  console.log("保存成功")
-             }
+             }else return
          }
          count++;
          console.log("第"+count+"次"+"trx_id"+trx_id+"block_time"+block_time+'+++++from'+'='+from);

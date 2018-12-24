@@ -13,5 +13,8 @@ export default class JsSignatureProvider implements SignatureProvider {
     /** Public keys associated with the private keys that the `SignatureProvider` holds */
     getAvailableKeys(): Promise<string[]>;
     /** Sign a transaction */
-    sign({ chainId, requiredKeys, serializedTransaction }: SignatureProviderArgs): Promise<any[]>;
+    sign({ chainId, requiredKeys, serializedTransaction }: SignatureProviderArgs): Promise<{
+        signatures: any[];
+        serializedTransaction: Uint8Array;
+    }>;
 }

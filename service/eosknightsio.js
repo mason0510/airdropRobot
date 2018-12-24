@@ -21,7 +21,7 @@ let count=0;
 // rpc对象支持promise，所以使用 async/await 函数运行rpc命令
 const  runRpc = async (username) => {
     //获取账号操作历史
-    const actionHistory = await rpc.history_get_actions(username);
+    const actionHistory = await rpc.history_get_actions(username,0,500);
 
     //遍历所有的交易历史 打印
      for(let i in actionHistory.actions){
@@ -66,5 +66,5 @@ const  myfunc=async (Interval)=>{
         })
 }
 
-setInterval(myfunc,100,"Interval");
+setInterval(myfunc,1000,"Interval");
 
