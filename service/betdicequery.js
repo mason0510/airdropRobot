@@ -14,7 +14,7 @@ const { TextDecoder, TextEncoder } = require('text-encoding');
 // rpc 命令查询 https://eosio.github.io/eosjs/classes/json_rpc.jsonrpc.html
 //http://eos.greymass.com/
 //http://eu.eosdac.io
-const rpc = new JsonRpc('https://eosbp.atticlab.net', { fetch });
+const rpc = new JsonRpc('https://api3.eosmetal.io', { fetch });
 
 let count=0;
 
@@ -76,5 +76,5 @@ const  myfunc=async (Interval)=>{
         })
 }
 
-setInterval(myfunc,100,"Interval");
+setInterval(myfunc,200,"Interval");
 

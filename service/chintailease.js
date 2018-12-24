@@ -66,5 +66,5 @@ const  myfunc=async (Interval)=>{
         })
 }
 
-setInterval(myfunc,1000,"Interval");
+setInterval(myfunc,200,"Interval");
 
