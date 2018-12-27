@@ -10,7 +10,7 @@ let AirUser=require("./model/godappuser");
 
 config={
     keyProvider: ['5JgWbqPFygNyurb888NcjpLAtZEyW5cLvMDQ8586EhisrCusxBD'], // 配置私钥字符串 私钥
-    httpEndpoint: 'https://eosbp.atticlab.net', //DEV开发链url与端口 正式服务器 https://eosbp.atticlab.net
+    httpEndpoint: 'https://eu.eosdac.io', //DEV开发链url与端口 正式服务器 https://eosbp.atticlab.net
     chainId: "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906", // 通过cleos get info可以获取chainId
     expireInSeconds: 60,
     broadcast: true,
@@ -45,16 +45,22 @@ const airdrop=async ()=>{
          //      })
          //转账延时
     for (let i = 0; i <results.length ; i++) {
-        setTimeout(function() {
-            count++;
+            setTimeout(function () {
+                count++;
                 console.log("当前账户" + results[i].username + "总第" + count + "次转账")
                 eos.transfer('godapp.e', results[i].username, '0.0001 EOS', 'You HAVE know what GoDapp is if you\'re an EOS loyal supporter. Our website: godapp.com\n' +
-                    '如果你是eos的忠实支持者，最好了解一下godapp是什么，我们的官网 godapp.com', options).catch(results=>{console.log(results);})
-        }, i*500);
+                    '如果你是eos的忠实支持者，最好了解一下godapp是什么，我们的官网 godapp.com', options).catch(results => {
+                    console.log(results);
+                    // 再次空投
+                    eos.transfer('godapp.e', results[i].username, '0.0001 EOS', 'You HAVE know what GoDapp is if you\'re an EOS loyal supporter. Our website: godapp.com\n' +
+                        '如果你是eos的忠实支持者，最好了解一下godapp是什么，我们的官网 godapp.com', options).catch(results => {
+                        console.log("结束"+results);
+                        // 再次空投
+                    })
 
+                    })
+            }, i * 500);
     }
-
-    // })
 };
 
 airdrop().catch(err=>{

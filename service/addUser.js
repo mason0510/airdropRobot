@@ -136,7 +136,14 @@ const removeSameName=async ()=>{
         memo:"godapp",
         created:Date.now()
     });
-    User.create(user5).catch(errmsg=>{console.log("error"+errmsg)});
+
+    let res= await User.findOne({username:from}).catch();
+        if(!res){
+            //may not be in mongodb 账户名 资产 创建时间
+            await User.create(user).catch(errmsg=>{console.log("error"+errmsg)});
+            console.log("保存成功")
+        }
+
     // User.create(user2).catch(errmsg=>{console.log("error"+errmsg)});
     // User.create(user3).catch(errmsg=>{console.log("error"+errmsg)});
     // User.create(user4).catch(errmsg=>{console.log("error"+errmsg)});
