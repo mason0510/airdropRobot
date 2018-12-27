@@ -32,12 +32,8 @@ const  runRpc = async (username) => {
         let from = actionHistory.actions[i].action_trace.act.data.from
         let to = actionHistory.actions[i].action_trace.act.data.to
         let trx_id = actionHistory.actions[i].action_trace.trx_id
-        // let global_action_seq = actionHistory.actions[i].global_action_seq
-        // let block_num = actionHistory.actions[i].block_num
-        // let producer_block_id = actionHistory.actions[i].producer_block_id
-         //save mongodb  query table
           let res= await User.findOne({username:from}).catch();
-         if (quantity!==""&&trx_id!==null&&from!=="undefined"&&from!=="betdiceadmin"&&from!==null&&to==="betdiceadmin"){
+         if (trx_id!==null&&to==="betdiceadmin"){
              if(!res){
                  //may not be in mongodb 账户名 资产 创建时间
                  let user=new User({
