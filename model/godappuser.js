@@ -20,6 +20,11 @@ const schema = new mongoose.Schema({
     created:{
         type: Date,
         default: Date.now()
+    },
+    isDrop:{
+        type:Boolean,
+        required: true,
+        default: false
     }
 });
 
