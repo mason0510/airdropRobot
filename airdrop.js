@@ -23,6 +23,11 @@ config={
 eos = Eos(config);
 
 
+// options = {
+//     authorization: 'godapp.e@active',
+//     broadcast: true,
+//     sign: true
+// }
 options = {
     authorization: 'godapp.e@active',
     broadcast: true,
@@ -59,7 +64,7 @@ const airdrop=async ()=>{
                     })
 
                     })
-            }, i * 500);
+            }, i * 200);
     }
 };
 

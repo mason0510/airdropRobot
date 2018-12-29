@@ -2,24 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddf1df99-3a25-463b-b2e0-09c50511ac70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service/add_eosmedishare.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/add_signupeoseos.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/testHttp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/airdrop_luck.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/airdrop.js" beforeDir="false" afterPath="$PROJECT_DIR$/airdrop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/airdropself.js" beforeDir="false" afterPath="$PROJECT_DIR$/airdropself.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime/build/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime/build/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime/types.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/types.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/send/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/node_modules/.bin/mime" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/.babelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/.gitmodules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/.npmrc.template" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/eosjs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-api-interfaces.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-api-interfaces.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-api-interfaces.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-api.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-api.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-jsonrpc.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-jsonrpc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-jsonrpc.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-jssig.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-jssig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-jssig.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-numeric.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-numeric.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-numeric.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-rpc-interfaces.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-rpc-interfaces.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-rpc-interfaces.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-rpcerror.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-rpcerror.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-rpcerror.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-serialize.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-serialize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-serialize.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/ripemd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/rpc-web.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/rpc-web.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/dist/rpc-web.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/docs/2.-Transaction-Examples.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/docs/3.-Browsers.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/docs/4.-Reading blockchain-Examples.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/node_modules/text-encoding/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/node_modules/text-encoding/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/node_modules/text-encoding/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/node_modules/text-encoding/lib/encoding-indexes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/node_modules/text-encoding/lib/encoding.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/node_modules/text-encoding/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/eosjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/scripts/is_latest.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-edge.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-tag.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-utils.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/abi.abi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-api-interfaces.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-api.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-ecc.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-jsonrpc.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-jssig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-numeric.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-rpc-interfaces.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-rpcerror.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/eosjs-serialize.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/ripemd.es5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/ripemd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/rpc-web.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/tests/eosjs-api.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/tests/eosjs-jsonrpc.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/tests/eosjs-jssig.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/tests/setupJest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/tests/web.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/src/transaction.abi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/tsconfig.test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/tsconfig.web.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/typedoc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/webpack.debug.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/webpack.prod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/yarn.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/addUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/addUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/betdicequery.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/betdicequery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -34,98 +102,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/gateiowallet.js">
+        <entry file="file://$PROJECT_DIR$/airdrop.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/huobideposit.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/newaccount.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1545292476751" expanded="true" signature="4075:4076" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/whaleextrust.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/chintailease.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="54" column="17" lean-forward="true" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/betdicequery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="53" lean-forward="true" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/add_signupeoseos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="120" column="37" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="37" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="12" column="39" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/service/add_eosmedishare.js">
+        <entry file="file://$PROJECT_DIR$/airdrop_luck.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="188" column="9" lean-forward="true" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
+            <state relative-caret-position="337">
+              <caret line="52" column="71" lean-forward="true" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/farmeosbank3.js">
+        <entry file="file://$PROJECT_DIR$/airdropself.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="195">
+              <caret line="13" column="78" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/fcoindeposit.js">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="17" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+            <state relative-caret-position="180">
+              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -159,7 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/index.js" />
         <option value="$PROJECT_DIR$/service/eostransaction.js" />
         <option value="$PROJECT_DIR$/service/eosscan.js" />
         <option value="$PROJECT_DIR$/model/betdiceUser2.js" />
@@ -197,7 +215,6 @@
         <option value="$PROJECT_DIR$/service/fcoindeposit.js" />
         <option value="$PROJECT_DIR$/service/chintailease.js" />
         <option value="$PROJECT_DIR$/service/enbank.e.js" />
-        <option value="$PROJECT_DIR$/airdropself.js" />
         <option value="$PROJECT_DIR$/service/addUser.js" />
         <option value="$PROJECT_DIR$/utils/common.js" />
         <option value="$PROJECT_DIR$/utils/http.js" />
@@ -206,10 +223,12 @@
         <option value="$PROJECT_DIR$/utils/test.js" />
         <option value="$PROJECT_DIR$/utils/testHttp.js" />
         <option value="$PROJECT_DIR$/service/add_signupeoseos.js" />
-        <option value="$PROJECT_DIR$/airdrop.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/model/godappuser.js" />
         <option value="$PROJECT_DIR$/service/add_eosmedishare.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/airdropself.js" />
+        <option value="$PROJECT_DIR$/airdrop.js" />
+        <option value="$PROJECT_DIR$/airdrop_luck.js" />
       </list>
     </option>
   </component>
@@ -217,10 +236,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="22" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="847" />
+    <option name="height" value="837" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -230,6 +248,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,26 +256,10 @@
               <item name="airdrop" type="b2602c69:ProjectViewProjectNode" />
               <item name="untitled1" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="airdrop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled1" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airdrop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled1" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="airdrop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled1" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -272,8 +275,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/service" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/service" />
       <recent name="$PROJECT_DIR$/model" />
     </key>
   </component>
@@ -289,29 +292,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.add_eosmedishare.js">
-    <configuration name="add_eosmedishare.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/service/add_eosmedishare.js" working-dir="$PROJECT_DIR$">
+  <component name="RunManager" selected="Node.js.airdrop_luck.js">
+    <configuration name="airdrop.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/airdrop.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="betdicequery.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/service/betdicequery.js" working-dir="$PROJECT_DIR$">
+    <configuration name="airdrop_luck.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/airdrop_luck.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="chintailease.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/service/chintailease.js" working-dir="$PROJECT_DIR$">
+    <configuration name="airdropself.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/airdropself.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="farmeosbank3.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/service/farmeosbank3.js" working-dir="$PROJECT_DIR$">
+    <configuration name="newdexquery.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/service/newdexquery.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="fcoindeposit.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/service/fcoindeposit.js" working-dir="$PROJECT_DIR$">
+    <configuration name="whaleextrust.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/service/whaleextrust.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.add_eosmedishare.js" />
-        <item itemvalue="Node.js.betdicequery.js" />
-        <item itemvalue="Node.js.chintailease.js" />
-        <item itemvalue="Node.js.farmeosbank3.js" />
-        <item itemvalue="Node.js.fcoindeposit.js" />
+        <item itemvalue="Node.js.airdrop_luck.js" />
+        <item itemvalue="Node.js.airdrop.js" />
+        <item itemvalue="Node.js.airdropself.js" />
+        <item itemvalue="Node.js.whaleextrust.js" />
+        <item itemvalue="Node.js.newdexquery.js" />
       </list>
     </recent_temporary>
   </component>
@@ -339,12 +342,13 @@
       <workItem from="1545729908839" duration="1349000" />
       <workItem from="1545733314456" duration="3699000" />
       <workItem from="1545759393170" duration="418000" />
-      <workItem from="1545788066271" duration="22497000" />
+      <workItem from="1545788066271" duration="25220000" />
+      <workItem from="1545960720143" duration="5756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156803000" />
+    <option name="totallyTimeSpent" value="165282000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -356,7 +360,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="22" y="23" width="1440" height="847" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="837" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
@@ -365,7 +369,7 @@
       <window_info content_ui="combo" id="Project" order="3" sideWeight="0.49881235" visible="true" weight="0.13037351" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.45695364" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.80529803" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34496644" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.21721855" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -416,9 +420,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../batchAccount/config/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/betdicequery的副本.js" />
     <entry file="file://$PROJECT_DIR$/test.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -604,41 +605,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/airdropself.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="42" column="50" selection-start-line="41" selection-start-column="56" selection-end-line="42" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/airdrop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="132">
-            <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="12" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -752,8 +722,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/add_eosmedishare.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
+        <state relative-caret-position="255">
           <caret line="188" column="9" lean-forward="true" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/airdrop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/airdropself.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="78" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/airdrop_luck.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="52" column="71" lean-forward="true" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
         </state>
       </provider>
     </entry>
