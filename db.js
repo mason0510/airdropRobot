@@ -7,6 +7,9 @@ let db = mongoose.connection;
 db.on('error', err=>{
   console.log(err.toString());
 });
-db.once('open', ()=>{
+let result=db.once('open', ()=>{
   console.log('mongodb connect successfully!');
+  result=true;
+  return result;
 })
+module.exports={result}
