@@ -61,11 +61,24 @@ airdrop=async (memo)=>{
     let results=await getAccounts();
     for (let i = 0; i <results.length ; i++) {
         await _airdrop(results[i].username,memo)
-        await sleep(200)
+        //await _airdrop(results[i],memo)
+        await sleep(500)
     }
     console.log("airdrop finished");
-
 }
+
+reset= async ()=>{
+    //将所有空投设置为false
+    let results= await AirUser.find({});
+    for (let i = 0; i <results.length ; i++) {
+        let query={username:results[i].username};
+        await  AirUser.findOneAndUpdate(query, { isDrop: false }, {multi: true},()=>{
+            console.log(results[i].username+"reset");
+        })
+        }
+    console.log("reset finished");
+}
+
 
 markDropped=async (account)=>{
     //记录数据库
@@ -73,6 +86,24 @@ markDropped=async (account)=>{
     let query={username:account};
 
     try {
+        //用户在数据库中才修改 没在先添加再修改
+        let res = AirUser.find(query).limit(1);
+        if (!res) {
+            console.log("用户不存在")
+            //may not be in mongodb 账户名 资产 创建时间
+            let user1 = new AirUser({
+                            username: account,
+                            assets: "0.0000 EOS",
+                            block_time: "",
+                            trx_id: "",
+                            memo: "",
+                            created: Date.now(),
+                            isDrop: false
+                        });
+            await AirUser.create(user1);
+            console.log("保存成功"+user1.username)
+        }
+
         await  AirUser.findOneAndUpdate(query, { isDrop: 'true' }, {multi: true},()=>{
             console.log(account+"success");
         })
@@ -98,7 +129,7 @@ _airdrop=async (account,memo)=>{
                 data: {
                     from: 'eosluckcoin1',
                     to: account,
-                    quantity: '10.1234 LUCK',
+                    quantity: '100.0000 LUCK',
                     memo: memo,
                 },
             }]
@@ -118,9 +149,10 @@ _airdrop=async (account,memo)=>{
 }
 
 
-start=async ()=>{
-    await airdrop("You HAVE know what GoDapp is if you\\'re an EOS loyal supporter. Our website: godapp.com\\n' +\n" +
-        "                    '如果你是eos的忠实支持者，最好了解一下godapp是什么，我们的官网 godapp.com");
+start=async ()=> {
+       // await reset();
+        await airdrop("You HAVE know what GoDapp is if you're an EOS loyal supporter. Our website: godapp.com\n" +
+            "如果你是eos的忠实支持者，最好了解一下godapp是什么，我们的官网 godapp.com");
 }
 
 start();
