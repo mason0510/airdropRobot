@@ -10,7 +10,7 @@ let dbHelper=require("./dbhelper")
 //let config=require("./db")
 
 //获取用户
-let AirUser=require("./model/godappuser");
+let AirUser=require("./model/godappusr");
 
 
 //获取eos
@@ -23,18 +23,16 @@ options = {
     sign: true
 }
 
+let count=0;
+
 //获取空投账户
 // const accounts = [
-//     // 'geydmnrzgene',
-//     // 'gy4tiobtgene',
-//     // 'bijingaaaaaa',
-//     // 'gm3doobqgene',
-//     // 'godofwealths',
-//     // 'gy2dcmjzgige',
-//     // 'fuckyoumommm',
-//     // 'airdropsdac1',
-//     // 'sayyousayme1',
-//     // 'wangruixiwww',
+//  'geydmnrzgene',
+//     'godapp12122',
+//     'zzzzz2zzzzzz',
+//     'miaoman12345',
+//     'dennis.e',
+//     'hicodemonkey',
 // ]
 const accounts=[];
 
@@ -55,6 +53,7 @@ getAccounts= async ()=>{
     }
 }
 
+
 airdrop=async (memo)=>{
     console.log("airdrop");
     if (memo==null){return}
@@ -62,7 +61,9 @@ airdrop=async (memo)=>{
     for (let i = 0; i <results.length ; i++) {
         await _airdrop(results[i].username,memo)
         //await _airdrop(results[i],memo)
-        await sleep(500)
+        await sleep(200)
+        count++
+        console.log("当前空投账户"+results[i].username+"总第"+count+"次转账")
     }
     console.log("airdrop finished");
 }
@@ -151,8 +152,7 @@ _airdrop=async (account,memo)=>{
 
 start=async ()=> {
        // await reset();
-        await airdrop("You HAVE know what GoDapp is if you're an EOS loyal supporter. Our website: godapp.com\n" +
-            "如果你是eos的忠实支持者，最好了解一下godapp是什么，我们的官网 godapp.com");
+        await airdrop("最新最燃爆的dapp游戏，你知道是什么吗？2019赚赚赚！！ 网址 godapp.com/dice");
 }
 
 start();
