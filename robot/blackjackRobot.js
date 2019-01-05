@@ -36,16 +36,22 @@ _bet=async (account,privatekey,quantity,memo)=>{
     if(!account&&!privatekey&&!memo){
         return false
     }
-    console.log("airdrop to",account+memo);
+    console.log("blackjack to",account+memo);
     try {
         await eoshelper.api.myFunc(privatekey).transact({
             actions: [{
                 account: "eosio.token",
-                name: '0',
+                name: 'transfer',
                 authorization: [{
                     actor: account,
                     permission: 'active',
-                }]
+                }],
+                data: {
+                    from: account,
+                    to: "blackjack.e",
+                    quantity:quantity,
+                    memo: memo,
+                },
             }],
         }, {
             blocksBehind: 3,
@@ -63,7 +69,7 @@ _open=async (account,privatekey,quantity,memo)=>{
     if(!account&&!privatekey&&!memo){
         return false
     }
-    console.log("airdrop to",account+memo);
+    console.log("opencard=====",account+"====="+memo);
     try {
         await eoshelper.api.myFunc(privatekey).transact({
             actions: [{
@@ -74,17 +80,15 @@ _open=async (account,privatekey,quantity,memo)=>{
                     permission: 'active',
                 }],
                 data: {
-                    from: account,
-                    to: "blackjack.e",
-                    quantity:"0.1000 EOS",
-                    memo: memo,
+                    player: account,
+                    action: 4.0,
                 },
             }],
         }, {
             blocksBehind: 3,
             expireSeconds: 30,
         });
-        console.log(account+"当前第"+count+"次下注"+"finish");
+        console.log("总第"+count+"次"+account+"开牌");
         return false;
     }catch (e) {
         console.log("error======"+e);
@@ -118,22 +122,15 @@ start=async ()=> {
     //获取投注账户
     const results=await readdb();
     for (let i = 0; i <results.length; i++) {
-        let number=Math.floor(Math.random()*19)+79
         let quantity=arr[Math.floor(Math.random()*arr.length)]
-
-        console.log(memo);
-        console.log(quantity);
-        await _bet(results[i].accountname,results[i].privatekey,quantity,memo);
-        await sleep(2000)
+        await _bet(results[i].accountname,results[i].privatekey,quantity,memo1);
+        await sleep(1000)
         //开牌
-        await _close(results[i].accountname,results[i].privatekey,quantity,memo);
+        await _open(results[i].accountname,results[i].privatekey,0,memo3);
         count++
     }
-    await setTimeout(start,100000)
+    await setTimeout(start,2000000)
 }
-
 start();
-//结束投注
 
-
-
+// _open("derqahfcowsd","5JzdXbQaqscThHCCvdepYP4ATFywQYPuQpRMkgoud8xCwxKqgxs",0,memo3);
