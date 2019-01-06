@@ -65,7 +65,7 @@ _bet=async (account,privatekey,quantity,memo)=>{
     }
     return true;
 }
-_open=async (account,privatekey,quantity,memo)=>{
+_open=async (account,privatekey,quantity,memo,action)=>{
     if(!account&&!privatekey&&!memo){
         return false
     }
@@ -81,7 +81,7 @@ _open=async (account,privatekey,quantity,memo)=>{
                 }],
                 data: {
                     player: account,
-                    action: 4.0,
+                    action: action,
                 },
             }],
         }, {
@@ -111,12 +111,14 @@ let memo2="1,,";//要牌
 let memo3="4,,";//开启
 let memo4="5,,";//弃牌
 
-
+let action2=1.0
+let action3=4.0;
+let action4=5.0;
 
 
 sleep=async (ms)=>{
     return new Promise(resolve=>setTimeout(resolve,ms))
-}
+};
 
 start=async ()=> {
     //获取投注账户
@@ -124,13 +126,21 @@ start=async ()=> {
     for (let i = 0; i <results.length; i++) {
         let quantity=arr[Math.floor(Math.random()*arr.length)]
         await _bet(results[i].accountname,results[i].privatekey,quantity,memo1);
-        await sleep(1000)
+        sleep(500);
         //开牌
-        await _open(results[i].accountname,results[i].privatekey,0,memo3);
+        if (i%2===0){
+            await _open(results[i].accountname,results[i].privatekey,0,memo3,action3);
+        }
+        else if(i%2===1) {
+            await _open(results[i].accountname,results[i].privatekey,0,memo4,action4);
+        }else {
+            await _open(results[i].accountname,results[i].privatekey,0,memo2,action2);
+            await _open(results[i].accountname,results[i].privatekey,0,memo3,action3);
+        }
         count++
     }
-    await setTimeout(start,2000000)
+    await setTimeout(start,25000)
 }
 start();
 
-// _open("derqahfcowsd","5JzdXbQaqscThHCCvdepYP4ATFywQYPuQpRMkgoud8xCwxKqgxs",0,memo3);
+//_open("aizxgztvwfnw","5JyuFGqUt8WCA6AYdbG4r89XHDfVgRjTFZ8thb331h1ESwkJLWK",0,memo3);

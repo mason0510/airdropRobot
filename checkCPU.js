@@ -6,7 +6,7 @@ Eos=require("eosjs");
 //连接数据库
 require("./db")
 //获取
-let api=require("./eoshelper");
+let api1=require("./eoshelper");
 
 //获取对应的表
 let AirUser=require("./model/godappusr1/eosusr(0-50)");
@@ -28,9 +28,10 @@ let checkAccount=async (username)=> {
             let netpercentage=(body.net_limit.used/body.net_limit.max)*100;
             let cpupercentage=(body.cpu_limit.used/body.cpu_limit.max)*100;
             let rampercentage=body.ram_usage;
-            if (netpercentage>80||cpupercentage>80||rampercentage<2990){
+            console.log(cpupercentage);
+            if (cpupercentage>45||body.cpu_limit.available===0){
                 console.log("attention======为"+username+"购买 cpu net ram");
-              // buycpuNet("godapp.e",username)
+                buycpuNet("godapp.e",username)
             }else {
                 //保存数据到数据库
                 let query={accountname:username};
@@ -52,23 +53,9 @@ let checkAccount=async (username)=> {
 //去购买cpu 和net
 
 const buycpuNet=async (bankaccount,username) => {
-            await api.transact({
+            await api1.transact({
                 actions:
                     [
-                        {
-                            account: 'eosio',
-                            // 购买内存的action名
-                            name: 'buyrambytes',
-                            authorization: [{
-                                actor: bankaccount,
-                                permission: "active",
-                            }],
-                            data: {
-                                payer: bankaccount,
-                                receiver: username,
-                                bytes: 1000,
-                            },
-                        },
                         {
                             account: 'eosio',
                             // 抵押资产的action名，用于租用带宽与cpu,抵押资产,抵押的越多，带宽和cup就越多
@@ -81,8 +68,8 @@ const buycpuNet=async (bankaccount,username) => {
                                 from: bankaccount,
                                 receiver: username,
                                 // 这里的货币单位，要查询一下系统货币的名称才能填，可能是SYS或者EOS
-                                stake_net_quantity: '2.0000 EOS',
-                                stake_cpu_quantity: '2.0000 EOS',
+                                stake_net_quantity: '0.0001 EOS',
+                                stake_cpu_quantity: '1.0000 EOS',
                                 transfer: false,
                             }
                         }]
@@ -99,15 +86,6 @@ const buycpuNet=async (bankaccount,username) => {
             });
             count++;
             console.log("===="+username+"购买结束")
-            //更新
-            let query={accountname:username};
-            AirUser.findOneAndUpdate(query,
-                {net_limit: { used: body.net_limit.used, available:body.net_limit.available, max:body.net_limit.max },
-                    cpu_limit: { used: body.cpu_limit.used, available:body.cpu_limit.available, max:body.cpu_limit.max },
-                    ram_usage: body.ram_usage},
-                {multi: true},()=>{
-                    console.log(username+"======"+"购买成功 status success");
-                })
 }
 
 

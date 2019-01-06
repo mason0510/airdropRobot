@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddf1df99-3a25-463b-b2e0-09c50511ac70" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/robot/ContractRobot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/robot/opencard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/robot/warofstar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkCPU.js" beforeDir="false" afterPath="$PROJECT_DIR$/checkCPU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eoshelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/eoshelper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robot/blackjackRobot.js" beforeDir="false" afterPath="$PROJECT_DIR$/robot/blackjackRobot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robot/diceRobot.js" beforeDir="false" afterPath="$PROJECT_DIR$/robot/diceRobot.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,10 +23,67 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/robot/ContractRobot.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eoshelper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/robot/diceRobot.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-398">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/checkCPU.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robot/blackjackRobot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="371">
+              <caret line="129" column="12" lean-forward="true" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/robot/warofstar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/airdropEos.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-261">
+              <caret line="108" selection-start-line="108" selection-end-line="108" />
             </state>
           </provider>
         </entry>
@@ -59,10 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/service/gateiowallet.js" />
-        <option value="$PROJECT_DIR$/service/whaleextrust.js" />
-        <option value="$PROJECT_DIR$/service/newdexquery.js" />
-        <option value="$PROJECT_DIR$/service/fcoindeposit.js" />
         <option value="$PROJECT_DIR$/service/chintailease.js" />
         <option value="$PROJECT_DIR$/service/enbank.e.js" />
         <option value="$PROJECT_DIR$/service/addUser.js" />
@@ -103,11 +163,15 @@
         <option value="$PROJECT_DIR$/model/godappusr1/eosusr(0-50).js" />
         <option value="$PROJECT_DIR$/airdropLuck.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/checkCPU.js" />
         <option value="$PROJECT_DIR$/airdropEos.js" />
-        <option value="$PROJECT_DIR$/eoshelper.js" />
         <option value="$PROJECT_DIR$/robot/dicerobot.js" />
         <option value="$PROJECT_DIR$/robot/blackjack.eRobot.js" />
+        <option value="$PROJECT_DIR$/opencard.js" />
+        <option value="$PROJECT_DIR$/robot/opencard.js" />
+        <option value="$PROJECT_DIR$/robot/warofstar.js" />
+        <option value="$PROJECT_DIR$/robot/ContractRobot.js" />
+        <option value="$PROJECT_DIR$/eoshelper.js" />
+        <option value="$PROJECT_DIR$/checkCPU.js" />
         <option value="$PROJECT_DIR$/robot/diceRobot.js" />
         <option value="$PROJECT_DIR$/robot/blackjackRobot.js" />
       </list>
@@ -116,10 +180,10 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="841" />
+    <option name="height" value="840" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -183,9 +247,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.blackjackRobot.js">
-    <configuration name="airdropEos.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/airdropEos.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
     <configuration name="blackjackRobot.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/blackjackRobot.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -198,16 +259,26 @@
     <configuration name="diceRobot.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/diceRobot.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="eoshelper.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/eoshelper.js" working-dir="$PROJECT_DIR$">
+    <configuration name="opencard.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/opencard.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.blackjackRobot.js" />
         <item itemvalue="Node.js.diceRobot.js" />
-        <item itemvalue="Node.js.airdropEos.js" />
         <item itemvalue="Node.js.checkCPU.js" />
-        <item itemvalue="Node.js.buyEos.js" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="Node.js.opencard.js" />
       </list>
     </recent_temporary>
   </component>
@@ -241,12 +312,12 @@
       <workItem from="1546394095594" duration="29522000" />
       <workItem from="1546570905665" duration="13883000" />
       <workItem from="1546662828536" duration="12106000" />
-      <workItem from="1546677747730" duration="10224000" />
+      <workItem from="1546677747730" duration="16874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254536000" />
+    <option name="totallyTimeSpent" value="261186000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -258,16 +329,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="841" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="840" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="1" sideWeight="0.5011876" side_tool="true" weight="0.18463707" />
+      <window_info id="npm" order="1" sideWeight="0.1039823" side_tool="true" visible="true" weight="0.14799154" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.49881235" visible="true" weight="0.16842847" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.8960177" visible="true" weight="0.14799154" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49964765" weight="0.13733333" />
-      <window_info active="true" anchor="bottom" x="160" y="127" width="1070" height="370" id="Run" order="2" sideWeight="0.8879493" visible="true" weight="0.29372495" />
+      <window_info anchor="bottom" x="160" y="127" width="1070" height="370" id="Run" order="2" sideWeight="0.8879493" weight="0.5895722" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.22429906" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -275,7 +346,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32885906" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.11205074" side_tool="true" weight="0.14190094" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49612403" weight="0.56133336" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49612403" visible="true" weight="0.3957219" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32885906" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -344,27 +415,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-jsonrpc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/betdiceUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/betdice.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -599,34 +649,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/airdropEos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-146">
-          <caret line="33" selection-start-line="33" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/godappusr1/eosusr(0-50).js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eoshelper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/checkCPU.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="114" column="8" lean-forward="true" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -644,17 +670,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/robot/opencard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eoshelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/robot/diceRobot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="88" column="81" selection-start-line="88" selection-start-column="81" selection-end-line="88" selection-end-column="81" />
+        <state relative-caret-position="-398">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkCPU.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/robot/blackjackRobot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        <state relative-caret-position="371">
+          <caret line="129" column="12" lean-forward="true" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robot/warofstar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/airdropEos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-261">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robot/ContractRobot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
