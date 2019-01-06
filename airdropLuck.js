@@ -54,6 +54,7 @@ getAccounts= async ()=>{
 }
 
 
+
 airdrop=async (memo)=>{
     console.log("airdrop");
     if (memo==null){return}

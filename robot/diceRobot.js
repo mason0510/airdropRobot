@@ -87,10 +87,10 @@ start=async ()=> {
             console.log(memo);
             console.log(quantity);
             await _bet(results[i].accountname,results[i].privatekey,quantity,memo);
-            await sleep(2000)
+            await sleep(100)
              count++
         }
-    await setTimeout(start,100000)
+    await setTimeout(start,25000)
 }
 
 start();
