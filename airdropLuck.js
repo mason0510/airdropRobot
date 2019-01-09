@@ -14,7 +14,7 @@ let AirUser=require("./model/godappusr");
 
 
 //获取eos
-let api=require("./eoshelper");
+let Eoshelper=require("./eoshelper");
 
 //转账配置
 options = {
@@ -60,11 +60,13 @@ airdrop=async (memo)=>{
     if (memo==null){return}
     let results=await getAccounts();
     for (let i = 0; i <results.length ; i++) {
+        setTimeout(async () =>{
         await _airdrop(results[i].username,memo)
         //await _airdrop(results[i],memo)
-        await sleep(200)
+        // await sleep(200)
         count++
         console.log("当前空投账户"+results[i].username+"总第"+count+"次转账")
+        }, i * 200);
     }
     console.log("airdrop finished");
 }
@@ -120,7 +122,7 @@ _airdrop=async (account,memo)=>{
     }
     console.log("airdrop to",account);
     try {
-        await api.transact({
+        await Eoshelper.api.myFunc("5KNf32JrmzQHdvvVU62FvSR8HxDHfaceqBSQxvmp5eQiw4yQNNr").transact({
             actions: [{
                 account: 'eosluckcoin1',
                 name: 'transfer',
@@ -152,7 +154,6 @@ _airdrop=async (account,memo)=>{
 
 
 start=async ()=> {
-       // await reset();
         await airdrop("最新最燃爆的dapp游戏，你知道是什么吗？2019赚赚赚！！ 网址 godapp.com/dice");
 }
 

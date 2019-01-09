@@ -105,7 +105,7 @@ readdb=async ()=>{
     return results
 };
 
-let arr=["0.1000 EOS","0.2000 EOS","0.3000 EOS","0.4000 EOS","0.5000 EOS"];
+let arr=["0.1000 EOS","0.2000 EOS","0.3000 EOS","0.4000 EOS","0.5000 EOS","1.0000 EOS"];
 let memo1="0,,";//下注
 let memo2="1,,";//要牌
 let memo3="4,,";//开启
@@ -125,22 +125,37 @@ start=async ()=> {
     const results=await readdb();
     for (let i = 0; i <results.length; i++) {
         let quantity=arr[Math.floor(Math.random()*arr.length)]
-        await _bet(results[i].accountname,results[i].privatekey,quantity,memo1);
         sleep(500);
+
+        await _bet(results[i].accountname,results[i].privatekey,quantity,memo1);
         //开牌
         if (i%2===0){
-            await _open(results[i].accountname,results[i].privatekey,0,memo3,action3);
+            for (let j = 0; j < 1; j++) {
+                sleep(1000)
+                await _open(results[i].accountname,results[i].privatekey,0,memo3,action3);
+                count++
+            }
+
         }
         else if(i%2===1) {
-            await _open(results[i].accountname,results[i].privatekey,0,memo4,action4);
-        }else {
-            await _open(results[i].accountname,results[i].privatekey,0,memo2,action2);
-            await _open(results[i].accountname,results[i].privatekey,0,memo3,action3);
-        }
-        count++
+            for (let j = 0; j < 2; j++) {
+                sleep(1000)
+                await _open(results[i].accountname,results[i].privatekey,0,memo4,action4);
+                count++
+            }
+            }
+
+        // else {
+        // for (let i = 0; i < 3; i++) {
+        //     sleep(1500)
+        //     await _open(results[i].accountname,results[i].privatekey,0,memo2,action2);
+        //     await _open(results[i].accountname,results[i].privatekey,0,memo3,action3);
+        //     count++
+        // }
+        //
+        // }
+
     }
-    await setTimeout(start,25000)
+    await setTimeout(start,0)
 }
 start();
-
-//_open("aizxgztvwfnw","5JyuFGqUt8WCA6AYdbG4r89XHDfVgRjTFZ8thb331h1ESwkJLWK",0,memo3);

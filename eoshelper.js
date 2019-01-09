@@ -34,36 +34,25 @@ const JsSignatureProvider = require('eosjs/dist/eosjs-jssig').default;
 
 // 这里的私钥填写刚才生成的私钥
 //eos
-const privateKey = "";
+// const privateKey = "";
 //LUCK
 //  const privateKey = "5KNf32JrmzQHdvvVU62FvSR8HxDHfaceqBSQxvmp5eQiw4yQNNr";
 
 
-const signatureProvider = new JsSignatureProvider([privateKey]);
+// const signatureProvider = new JsSignatureProvider([privateKey]);
 
 // rpc 对象可以运行 eos的rpc命令
-// rpc 命令查询 https://eosio.github.io/eosjs/classes/json_rpc.jsonrpc.html
+// rpc 命令查询 https://eosio.github.io/eosjs/classes/json_rpc.jsonrpc.html  https://eu.eosdac.io
 const rpc = new JsonRpc('https://eos.greymass.com', { fetch });
 
-
-// api 对象可以运行eos的合约，比如转账，创建账号等等(需要费用的操作)
-const api1 = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
-
-
-// module.exports={api,_api2:({
-//     function(pravitekey){
-//         const signatureProvider = new JsSignatureProvider([pravitekey]);
-//         return new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
-//     })()
-// }
 module.exports={
         api: {
             myFunc : function (pravitekey) {
+                        const JsSignatureProvider = require('eosjs/dist/eosjs-jssig').default;
                         const signatureProvider = new JsSignatureProvider([pravitekey]);
                 return new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
             }
         },
-        api1
 }
 
 
