@@ -1,7 +1,7 @@
 
 //获取延时工具 eos实例
 let sleep=require("../utils/sleep");
-let eoshelper=require("../eoshelper");
+let eoshelper=require("../utils/eoshelper");
 let AccountInfo=require("../utils/accountInfo");
 let EosAccount50=require("../model/godappusr1/eosusr(0-50)");
 let EosAccount=require("../model/eosAccount");
@@ -109,7 +109,7 @@ betresult=()=>{
 sleep=async (ms)=>{
     return new Promise(resolve=>setTimeout(resolve,ms))
 }
-let arr=["0.1000 EOS","0.2000 EOS","1.0000 EOS"];
+let arr=["0.1000 EOS"];
 start=async ()=> {
     //获取投注账户
             const results=await readdb();

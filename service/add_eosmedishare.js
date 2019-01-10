@@ -102,7 +102,7 @@
 //         console.log(error);
 //     });
 
-    require("../db")
+    require("../db/db")
     let User=require("../model/godappuser");
     let count=1;
     const superagent = require('superagent');

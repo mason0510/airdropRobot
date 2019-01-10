@@ -1,6 +1,6 @@
 Eos=require("eosjs");
 //连接数据库
-require("../db")
+require("../db/db")
 
 // //延时工具
 // let Ut = require("./utils/common");

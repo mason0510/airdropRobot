@@ -1,4 +1,4 @@
-require("../db")
+require("../db/db")
 
 let AirUser=require("../model/eosAccount");
 
