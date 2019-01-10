@@ -1,5 +1,5 @@
 //建立新表
-require('../db')
+require('../db/db')
 let Godappusrs=require("../model/godappusr");
 let Godappusers=require("../model/godappuser");
 let Topdapp=require("../model/topdapp");

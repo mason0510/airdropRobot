@@ -1,7 +1,7 @@
 //topusers
 'use strict'
 let User=require("../model/godappuser");
-require("../db")
+require("../db/db")
 var schedule = require('node-schedule');
 const { Api, JsonRpc, RpcError, JsSignatureProvider } = require('eosjs');
 

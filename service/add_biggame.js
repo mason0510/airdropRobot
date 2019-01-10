@@ -1,6 +1,6 @@
 'use strict'
 let User=require("../model/godappusr");
-require("../db")
+require("../db/db")
 var schedule = require('node-schedule');
 const {  JsonRpc } = require('eosjs');
 

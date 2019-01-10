@@ -1,5 +1,5 @@
 let User=require("../model/godappuser");
-require("../db")
+require("../db/db")
 const { JsonRpc } = require('eosjs');
 const fetch = require('node-fetch');
 const rpc = new JsonRpc('https://proxy.eosnode.tools', { fetch });

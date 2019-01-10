@@ -1,9 +1,10 @@
 //服务器 https://betdice.one/dice/prod/api/contest/3/1545206400/EOS/
 //设置配置 获取表实例 let User=require("../model/betdiceUser");
 // require("../db")
-require("../db")
-let Betdiceuse=require("../model/betdiceUser")
-let User=require("../model/betdice");
+require("../db/db")
+let User=require("../model/companyAccount");
+let cryptoUtil=require("../encryption/cryptoUtil");
+
 //查询user表
 const handle=async ()=>{
     //取出所有的用户
@@ -51,102 +52,92 @@ const removeundefine=async ()=>{
     })
 };
 
-const removeSameName=async ()=>{
-    console.log("removeSameName");
-
-};
 
 
-// handle().catch(result=>{
-//     console.log(result)
-// })
-
-// removeundefine().catch(result=>{
-//     console.log(result)
-// });
-
-
-// removeSameName();
-
-
-//判断是否在betdiceuser表  如果不在 那么插入进去
-
-
-
-//读取数据
-
-
-
-// 进行单个转账
 
 
 
 
 
 (async () => {
-    let User=require("../model/godappuser");
-    require("../db")
+    //加密godapp.e
+    //EOS8V2AxLbKadtV29cP1jD5YFp5DRQt4JET5PYKUoxdB6NZ8sPyt6
+   let key_a="5JgWbqPFygNyurb888NcjpLAtZEyW5cLvMDQ8586EhisrCusxBD"
+    //godice.e   EOS75PYGxeyi9jXtLVAfsNFjUPmQSLiKpFzV3gKgbcUJE7bzzx9X4
+    let key_b="5JPFHxRL7wLmWJFGaWKK2nSABxRHkajyzv3AuLCZmwjtuAZz5ji"
+    //blackjack.e  EOS6tCywei9AmE6Q5EmAxYrdY52oL9V9h8u7iernhByp1fUqLRbDE
+    let key_c="5KCjMHjyZArWGNXv9Q55vNGkYJobE7Fetv4wQMSainQBdBiGkY2"
+    //warofstar.e EOS7KyMhGEaFVB6xXPzrGhgnVP3CbwqfHxLufbWWLhqYZLymGASZp
+    let key_d="5J52McQ6bQjGxABiaVv3WfU72WZDk5C4Vp8VcSEFB752AC3cH1K"
+    //eosluckcoin1
+    let key_e="5KNf32JrmzQHdvvVU62FvSR8HxDHfaceqBSQxvmp5eQiw4yQNNr"
+
+    // 加密
+    let key1=cryptoUtil.publicEncrypt(key_a);
+    let key2=cryptoUtil.publicEncrypt(key_b);
+    let key3=cryptoUtil.publicEncrypt(key_c);
+    let key4=cryptoUtil.publicEncrypt(key_d);
+    let key5=cryptoUtil.publicEncrypt(key_e);
+
+
+    
     let user1=new User({
-        username:"godapp12122",
-        assets:"0.0001 EOS",
-        block_time:Date.now(),
-        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
-        memo:"godapp",
-        created:Date.now()
+        accountname: "godapp.e",
+        privatekey:key1,
+        publickey: "EOS8V2AxLbKadtV29cP1jD5YFp5DRQt4JET5PYKUoxdB6NZ8sPyt6",
+        net_limit: { used: 0, available: 0, max: 0},
+        cpu_limit: { used:0, available: 0, max: 0 },
+        ram_usage: 0,
+        assets: "0",
+        network:"MainNet"
     });
+
 
     let user2=new User({
-        username:"zzzzz2zzzzzz",
-        assets:"0.0001 EOS",
-        block_time:Date.now(),
-        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
-        memo:"godapp",
-        created:Date.now()
+        accountname: "godice.e",
+        privatekey:key2,
+        publickey: "EOS75PYGxeyi9jXtLVAfsNFjUPmQSLiKpFzV3gKgbcUJE7bzzx9X4",
+        net_limit: { used: 0, available: 0, max: 0},
+        cpu_limit: { used:0, available: 0, max: 0 },
+        ram_usage: 0,
+        assets: "0",
+        network:"MainNet"
     });
-
     let user3=new User({
-        username:"miaoman12345",
-        assets:"0.0001 EOS",
-        block_time:Date.now(),
-        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
-        memo:"godapp",
-        created:Date.now()
+        accountname: "blackjack.e",
+        privatekey:key3,
+        publickey: "EOS6tCywei9AmE6Q5EmAxYrdY52oL9V9h8u7iernhByp1fUqLRbDE",
+        net_limit: { used: 0, available: 0, max: 0},
+        cpu_limit: { used:0, available: 0, max: 0 },
+        ram_usage: 0,
+        assets: "0",
+        network:"MainNet"
     });
     let user4=new User({
-        username:"dennis.e",
-        assets:"0.0001 EOS",
-        block_time:Date.now(),
-        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
-        memo:"godapp",
-        created:Date.now()
+        accountname: "godappredbla",
+        privatekey:key4,
+        publickey: "EOS7KyMhGEaFVB6xXPzrGhgnVP3CbwqfHxLufbWWLhqYZLymGASZp",
+        net_limit: { used: 0, available: 0, max: 0},
+        cpu_limit: { used:0, available: 0, max: 0 },
+        ram_usage: 0,
+        assets: "0",
+        network:"MainNet"
     });
     let user5=new User({
-        username:"zhangaccount",
-        assets:"0.0001 EOS",
-        block_time:Date.now(),
-        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
-        memo:"godapp",
-        created:Date.now()
-    });
-    let user6=new User({
-        username:"hicodemonkey",
-        assets:"0.0001 EOS",
-        block_time:Date.now(),
-        trx_id:"89c357ce1043c1cabc4a04ff5484ea49dbd789bc0729be8007a716163f3f17bb",
-        memo:"godapp",
-        created:Date.now()
+        accountname: "eosluckcoin1",
+        privatekey:key5,
+        publickey: "EOS8M7A5hqsEnZxqXuSSwja7BvWsALEDVd8PceGgkvbqJ23CKNyRt",
+        net_limit: { used: 0, available: 0, max: 0},
+        cpu_limit: { used:0, available: 0, max: 0 },
+        ram_usage: 0,
+        assets: "0",
+        network:"MainNet"
     });
 
-    let res= await User.findOne({username:from}).catch();
-        if(!res){
-            //may not be in mongodb 账户名 资产 创建时间
-            await User.create(user).catch(errmsg=>{console.log("error"+errmsg)});
-            console.log("保存成功")
-        }
-
-    // User.create(user2).catch(errmsg=>{console.log("error"+errmsg)});
-    // User.create(user3).catch(errmsg=>{console.log("error"+errmsg)});
-    // User.create(user4).catch(errmsg=>{console.log("error"+errmsg)});
-    // User.create(user6).catch(errmsg=>{console.log("error"+errmsg)});
+    User.create(user1).catch(errmsg=>{console.log("error"+errmsg)});
+    User.create(user2).catch(errmsg=>{console.log("error"+errmsg)});
+    User.create(user3).catch(errmsg=>{console.log("error"+errmsg)});
+    User.create(user4).catch(errmsg=>{console.log("error"+errmsg)});
+    User.create(user5).catch(errmsg=>{console.log("error"+errmsg)});
 })();
 

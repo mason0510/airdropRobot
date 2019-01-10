@@ -1,6 +1,6 @@
 
 
-require("../db")
+require("../db/db")
 let User=require("../model/allusers");
 let count=0;
 const superagent = require('superagent');
