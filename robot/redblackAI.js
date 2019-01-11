@@ -83,7 +83,7 @@ let buyeos = async (bankaccount,username,memo) => {
                     data: {
                         from: 'godapp.e',
                         to: username,
-                        quantity: '5.0000 EOS',
+                        quantity: '10.0000 EOS',
                         memo: memo,
                     }
                 }]
@@ -233,55 +233,57 @@ start1=async ()=> {
         let name=await res[i].accountname;
         let myprivatekey=await CryptoUtil.privateDecrypt(key);
         //退还资产
-        if (assets>150){
-           await canceleos(name,"godapp.e",myprivatekey,constants.sendbackmemo);
-        }
-        if (assets<20){
+        if (0<assets<20){
             //buyeos = async (bankaccount,username,memo)
             await buyeos("godapp.e",name,constants.buyeosmemo);
         }
+        if (assets>150){
+           await canceleos(name,"godapp.e",myprivatekey,constants.sendbackmemo);
+        }
+            else {
+            return
+        }
     }
 
-    sleep(5000)
     let number = await randANumber();
     //获取下午选手和资产以及 公钥和私钥  游戏状态
-     bet(res[number],res[number].accountname,res[number].privatekey);
+     await bet(res[number],res[number].accountname,res[number].privatekey);
 
-    sleep(5000)
+    sleep(2000)
     let number2 = await randANumber();
-      bet(res[number2],res[number2].accountname,res[number2].privatekey);
-
+    await bet(res[number2],res[number2].accountname,res[number2].privatekey);
+    sleep(2000)
     let number3 = await randANumber();
-      bet(res[number3],res[number3].accountname,res[number3].privatekey);
+    await bet(res[number3],res[number3].accountname,res[number3].privatekey);
 
-    sleep(5000)
+    sleep(2000)
     let number4 = await randANumber();
-     bet(res[number4],res[number4].accountname,res[number4].privatekey);
+    await bet(res[number4],res[number4].accountname,res[number4].privatekey);
 
-    sleep(5000)
+    sleep(2000)
     let number5 = await randANumber();
-     bet(res[number5],res[number5].accountname,res[number5].privatekey);
+    await bet(res[number5],res[number5].accountname,res[number5].privatekey);
 
-    sleep(5000)
-    let number6 = await randANumber();
-    await bet(res[number6],res[number6].accountname,res[number6].privatekey);
-    sleep(5000)
-
-    let number7 = await randANumber();
-   await bet(res[number7],res[number7].accountname,res[number7].privatekey);
-
-    sleep(5000)
-    let number8 = await randANumber();
-    await bet(res[number8],res[number8].accountname,res[number8].privatekey);
+   //  sleep(5000)
+   //  let number6 = await randANumber();
+   //  await bet(res[number6],res[number6].accountname,res[number6].privatekey);
+   //  sleep(5000)
    //
-    sleep(5000)
-    let number9 = await randANumber();
-    await bet(res[number9],res[number9].accountname,res[number9].privatekey);
+   //  let number7 = await randANumber();
+   // await bet(res[number7],res[number7].accountname,res[number7].privatekey);
    //
-    sleep(5000)
-    let number10 = await randANumber();
-    await bet(res[number10],res[number10].accountname,res[number10].privatekey);
+   //  sleep(5000)
+   //  let number8 = await randANumber();
+   //  await bet(res[number8],res[number8].accountname,res[number8].privatekey);
+   // //
+   //  sleep(5000)
+   //  let number9 = await randANumber();
+   //  await bet(res[number9],res[number9].accountname,res[number9].privatekey);
+   // //
+   //  sleep(5000)
+   //  let number10 = await randANumber();
+   //  await bet(res[number10],res[number10].accountname,res[number10].privatekey);
 
-   await setTimeout(start1,0);
+   await setTimeout(start1,10000);
 }
 start1();
