@@ -17,6 +17,8 @@ let url='https://proxy.eosnode.tools/v1/chain/get_account'
 
 let dbutils =require("../utils/dbutils");
 
+let cryptoUtil=require("../encryption/cryptoUtil");
+
 queryaccount=async ()=>{
     let results= await AirUser.find({}).limit(20);
     for (let i = 0; i <results.length; i++) {
@@ -24,7 +26,7 @@ queryaccount=async ()=>{
          username=results[i].accountname;
          count++
          await checkAccount(username);
-        }, i * 10000);
+        }, i * 30000);
    }
     await setTimeout(queryaccount,200000);
 
@@ -33,7 +35,9 @@ queryaccount=async ()=>{
 
 let buyeos = async (bankaccount,username,memo) => {
     let mykey = await dbutils.mykey("godapp.e")
-    await Eoshelper.api.myFunc(mykey).transact({
+    console.log("===================="+mykey);
+    console.log(bankaccount+"===="+username+"======="+memo);
+    let result=await Eoshelper.api.myFunc("5JgWbqPFygNyurb888NcjpLAtZEyW5cLvMDQ8586EhisrCusxBD").transact({
         actions:
             [
                 {
@@ -41,13 +45,13 @@ let buyeos = async (bankaccount,username,memo) => {
                     // 抵押资产的action名，用于租用带宽与cpu,抵押资产,抵押的越多，带宽和cup就越多
                     name: 'transfer',
                     authorization: [{
-                        actor: bankaccount,
+                        actor: "godapp.e",
                         permission: 'active',
                     }],
                     data: {
                         from: 'godapp.e',
                         to: username,
-                        quantity: '1.0000 EOS',
+                        quantity: '5.0000 EOS',
                         memo: memo,
                     }
                 }]
@@ -55,17 +59,16 @@ let buyeos = async (bankaccount,username,memo) => {
     }, {
         blocksBehind: 3,
         expireSeconds: 30,
-    }).catch(
-        result => {
-            console.log("购买失败" + result);
-        }
-    )
-    count++;
-    console.log("====" + username + "购买eos结束")
+    }).then(()=>{
+        count++;
+        console.log("====" + username + "购买eos结束")
+    })
+    console.log(result);
+
 }
 
 //租赁cpu scope contract table
-let rentcpu=(username)=>{
+let rentcpu=(username,privatekey)=>{
     let request = require("request");
     let options = { method: 'POST',
         url: 'https://proxy.eosnode.tools/v1/chain/get_table_rows',
@@ -78,7 +81,7 @@ let rentcpu=(username)=>{
         }
         //0.2 eos 租赁7天 每一个
         console.log("price=========================================="+body.rows[5].price);
-        _rentcpu(body.rows[5].price,username,"from eos laomao， rent cpu ");
+        _rentcpu(body.rows[5].price,username,username,privatekey);
     });
 
 }
@@ -97,14 +100,14 @@ request(options, async function (error, response, body) {
                 let assets=await parseInt(body.core_liquid_balance,0);
                 console.log(username+"========================================"+body.core_liquid_balance);
                 if (assets<=20){
-                   await buyeos("godapp.e",username,"buy eos")
+                   await buyeos("godapp.e",username," eos insufficient")
                 }
                 let used=body.cpu_limit.used
                 let max=body.cpu_limit.max
                 let cpupecentage=used/max;
                 console.log(username+"=============================================cpu="+cpupecentage);
                 if ( cpupecentage>= 0.8) {
-                    //console.log(cpupecentage);
+                    //console.log(cpupecentage); 手动操作
                    await rentcpu(username)
                 }
 
@@ -137,26 +140,27 @@ request(options, async function (error, response, body) {
             }
 
 
-_rentcpu=async (price,account,memo)=>{
+_rentcpu=async (price,account,memo,privatekey)=>{
     if(!account){
         return false
     }
-    console.log("rent cpu for",account);
-    let mykey = await dbutils.mykey("godapp.e")
+    console.log("rent cpu for",account,privatekey);
+    let mykey = await cryptoUtil.privateDecrypt(privatekey)
+    console.log("======================="+mykey)
     try {
         await Eoshelper.api.myFunc(mykey).transact({
             actions: [{
                 account: 'eosio.token',
                 name: 'transfer',
                 authorization: [{
-                    actor: 'godapp.e',
+                    actor: account,
                     permission: 'active',
                 }],
                 data: {
-                    from: 'godapp.e',
-                    to: account,
+                    from: account,
+                    to: "bankofstaked",
                     quantity: price,
-                    memo: memo,
+                    memo: account,
                 },
             }]
         }, {
@@ -176,4 +180,13 @@ _rentcpu=async (price,account,memo)=>{
 
 queryaccount();
 
-module.exports={queryaccount,checkAccount}
+// let cpu=(async ()=>{
+//     let results= await AirUser.find({}).limit(20);
+//     for (let i = 0; i <2 ; i++) {
+//              await rentcpu(results[i].accountname,results[i].privatekey);
+//             //await rentcpu();
+//     }
+// })
+// cpu();
+
+module.exports={queryaccount,checkAccount,_rentcpu,buyeos}
