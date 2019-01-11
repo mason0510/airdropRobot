@@ -8,7 +8,7 @@ let request = require("request");
 let Time=require("../utils/time");
 let gamestatus;
 let end_time;
-let roundId;
+let roundId;/Volumes/微信 WeChat
 let count=0;
 //获取前50个账户
 const writedb=async ()=>{

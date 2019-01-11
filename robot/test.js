@@ -1,27 +1,53 @@
-// const request = require('request')
-//
-// request.post('https://flaviocopes.com/todos', {
-//     json: {
-//         todo: 'Buy the milk'
-//     }
-// }, (error, res, body) => {
-//     if (error) {
-//         console.error(error)
-//         return
-//     }
-//     console.log(`statusCode: ${res.statusCode}`)
-//     console.log(body)
-// })
+let HumanAI=require('../model/humanAI');
+let constants=require('../utils/constants');
+let CryptoUtil=require("../encryption/CryptoUtil")
 
+let canceleos = async (username,bankname,privatekey,memo) => {
+    console.log(username+"+"+privatekey);
+    await Eoshelper.api.myFunc(privatekey).transact({
+        actions:
+            [
+                {
+                    account: 'eosio.token',
+                    name: 'transfer',
+                    authorization: [{
+                        actor: username,
+                        permission: 'active',
+                    }],
+                    data: {
+                        from: username,
+                        to: 'godapp.e',
+                        quantity: '5.0000 EOS',
+                        memo: memo,
+                    }
+                }]
 
-// console.log(100000/10000.0000+" EOS");
-let betarea=["1","2","4"];
-let betnumber=[5000,10000,50000];
-let aa=async ()=>{
-    let money=await betnumber[Math.floor(Math.random()*betnumber.length)]
-    let area=await betarea[Math.floor(Math.random()*betarea.length)]
-    let memo=2018+","+"zhangaccount"+","+area+","+money;
-    console.log(memo);
+    }, {
+        blocksBehind: 3,
+        expireSeconds: 30,
+    },function (err) {
+        console.log(err);
+    })
+    count++;
+    console.log(username + "退还eos"+"5.0000 EOS");
 }
 
-aa()
+
+let test=async ()=>{
+    let res=await HumanAI.find({}).limit(20);
+    console.log(res);
+    //查看用户资产
+    for (let i = 0; i <res.length ; i++) {
+        let assets=await parseInt(res[i].assets);
+        console.log("=========="+assets);
+        //退还资产
+        if (assets>10){
+            let key=await res[i].privatekey;
+            let name=await res[i].accountname;
+            let myprivatekey=await CryptoUtil.privateDecrypt(key);
+            await canceleos(name,"godapp.e",myprivatekey,constants.sendbackmemo);
+        }
+    }
+}
+
+test();

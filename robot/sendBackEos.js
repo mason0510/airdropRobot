@@ -9,7 +9,11 @@ require("../db/db")
 let Eoshelper=require("../utils/eoshelper");
 
 //获取对应的表
-let AirUser=require("../model/godappusr1/eosusr(0-50)");
+let AirUser=require("../model/humanAI");
+
+let constants=require("../utils/constants");
+
+let cryptoUtil=require("../encryption/cryptoUtil");
 
 let count=0;
 let username;
@@ -176,20 +180,6 @@ let url='https://proxy.eosnode.tools/v1/chain/get_account'
 // });
 
 
-queryaccount=async ()=>{
-    let results= await AirUser.find({});
-    if (results.length===0)return;
-    for (let i = 0; i <results.length; i++) {
-        setTimeout( async ()=> {
-         username=results[i].accountname;
-         console.log(username);
-            count++
-         await checkAccount(username,results[i].privatekey);
-        }, i * 2000);
-   }
-    await setTimeout(queryaccount,100000);
-
-};
 
 let buycpu = async (bankaccount,username) => {
     await Eoshelper.api.myFunc("5JgWbqPFygNyurb888NcjpLAtZEyW5cLvMDQ8586EhisrCusxBD").transact({
@@ -227,6 +217,7 @@ let buycpu = async (bankaccount,username) => {
 
 
 let canceleos = async (username,bankname,privatekey,memo) => {
+    console.log(username+"+"+privatekey+"==========beigin");
     await Eoshelper.api.myFunc(privatekey).transact({
         actions:
             [
@@ -241,7 +232,7 @@ let canceleos = async (username,bankname,privatekey,memo) => {
                     data: {
                         from: username,
                         to: 'godapp.e',
-                        quantity: '5.0000 EOS',
+                        quantity: '250.1000 EOS',
                         memo: memo,
                     }
                 }]
@@ -249,31 +240,71 @@ let canceleos = async (username,bankname,privatekey,memo) => {
     }, {
         blocksBehind: 3,
         expireSeconds: 30,
-    }).catch(
-        result => {
-            console.log("退还失败" + result);
-        }
-    )
-    count++;
-    console.log("====" + username + "退还eos结束")
+    },function (err) {
+        console.log(err);
+    }).then(()=>{
+        count++;
+        console.log("====" + username + "退还eos结束")
+    })
 }
 
 
-checkAccount=(username,privatekey)=>{
+let undelegatebw = async (username,bankname,privatekey,memo) => {
+    console.log(username+"+"+privatekey+"==========beigin");
+    await Eoshelper.api.myFunc(privatekey).transact({
+        actions:
+            [
+                {
+
+                account: 'eosio',
+                // 抵押资产的action名，用于租用带宽与cpu,抵押资产,抵押的越多，带宽和cup就越多
+                name: 'undelegatebw',
+                authorization: [{
+                    actor: username,
+                    permission: 'active',
+                }],
+                data: {
+                    from: username,
+                    receiver: bankname,
+                    // 这里的货币单位，要查询一下系统货币的名称才能填，可能是SYS或者EOS
+                    stake_net_quantity: '1.0001 EOS',
+                    stake_cpu_quantity: '0.0001 EOS',
+                    transfer: false,
+                }
+            }]
+
+    }, {
+        blocksBehind: 3,
+        expireSeconds: 30,
+    },function (err) {
+        console.log(err);
+    }).then(()=>{
+        count++;
+        console.log("====" + username + "退还eos结束")
+    })
+}
+
+
+
+
+
+async function save(body){
+
+}
+
+checkAccount=(item)=>{
     let request = require("request");
     let options = { method: 'POST',
     url: 'https://proxy.eosnode.tools/v1/chain/get_account',
-    body: { account_name: username },
+    body: { account_name: item.accountname },
     json: true };
-
+// console.log("item=========="+item);
 request(options, async function (error, response, body) {
                 if (error) {
                     return
                 }
-                console.log("============="+body.core_liquid_balance);
-                if (parseInt(body.core_liquid_balance,0)>=10){
-                    console.log("=================="+username);
-                  canceleos(username,"godapp.e",privatekey,"sendback eos")
+                if (parseInt(body.core_liquid_balance,0)>=2){
+                  canceleos(item.accountname,"godapp.e",item.privatekey,constants.memo)
                 }
                 //undelegatebw 解除抵押
                 //let cpupecentage=body.cpu_limit.available/body.cpu_limit.max;
@@ -282,9 +313,8 @@ request(options, async function (error, response, body) {
                 //     //console.log(cpupecentage);
                 //    // await cancelcpu("godapp.e",username)
                 // }
-
                     //保存数据到数据库
-                let query = {accountname: username};
+                    let query = {accountname: item.accountname};
                     AirUser.findOneAndUpdate(query,
                         {
                             net_limit: {
@@ -300,8 +330,32 @@ request(options, async function (error, response, body) {
                             ram_usage: body.ram_usage,
                             assets: body.core_liquid_balance
                         },
-                        {multi: true}).catch(error=>{console.log(error);});
+                        {multi: true});
 });
 }
 
- queryaccount();
+//查询账户
+ let queryaccount=(async ()=>{
+     let results= await AirUser.find({});
+     for (let i = 0; i <results.length; i++) {
+         setTimeout(async ()=>{
+             // let eosname=results[i].accountname;
+             let eosname=results[i].accountname;
+             let privatekey=results[i].privatekey;
+             //await canceleos(eosname,"godapp.e",privatekey,constants.sendbackmemo);
+            // await undelegatebw(eosname,"godapp.e",privatekey,constants.undelegatebwmemo);
+             //取消抵押
+         },500*i);
+         count++;
+     }
+     setTimeout(queryaccount,1000)
+ })
+// queryaccount();
+let dbutils=require("../utils/dbutils");
+let accountname=async (username)=>{
+    //获取账户
+    let mykey=await dbutils.mykey(username);
+    console.log("=========="+mykey);
+   canceleos(username,"godapp.e",mykey,constants.sendbackmemo);
+}
+accountname("ilovedappccc");
