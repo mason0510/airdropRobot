@@ -30,5 +30,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-
-module.exports = mongoose.model('companyAccount', schema);
+module.exports = mongoose.model('companyaccounts', schema);

@@ -1,7 +1,13 @@
 let HumanAI=require('../model/humanAI');
 let constants=require('../utils/constants');
 let CryptoUtil=require("../encryption/CryptoUtil")
+let aa=require("../utils/dbutils");
 
+let my=async()=>{
+  let key=await CryptoUtil.privateDecrypt("ilYMp2x8MbyBvQr6hjBPt7Df5kpEgqSqKgOJhNc6IqT/Kt+RDWRztOOnbQPeRfy0aST3C1O+C3EyHADmYdIbv3ZO53ZIBJTTZ+OGoKoW4YsZS+JYlb4R7i06nKHPYJf88dlbMpeV65Vj6/f3X/loht4yg9gvWGvP6KUlN+MpWaA=");
+    console.log("=========="+key.length)
+};
+my()
 let canceleos = async (username,bankname,privatekey,memo) => {
     console.log(username+"+"+privatekey);
     await Eoshelper.api.myFunc(privatekey).transact({
@@ -50,4 +56,4 @@ let test=async ()=>{
     }
 }
 
-test();
+// test();

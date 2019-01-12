@@ -13,7 +13,6 @@ let constants=require("../utils/constants");
 let Eoshelper=require("../utils/eoshelper");
 // let {Buyeos,Rentcpu}=require("../robot/checkCPU");
 let dbutils=require("../utils/dbutils");
-
 let gamestatus;
 let end_time;
 let roundId;
@@ -22,6 +21,7 @@ let count=0;
 let strarr;
 let totalAmount=0
 let res;
+let amount
 //开始投注
 _bet=async (account,privatekey,quantity,memo)=>{
     if(!account&&!privatekey&&!memo){
@@ -83,7 +83,7 @@ let buyeos = async (bankaccount,username,memo) => {
                     data: {
                         from: 'godapp.e',
                         to: username,
-                        quantity: '10.0000 EOS',
+                        quantity: '2.5000 EOS',
                         memo: memo,
                     }
                 }]
@@ -131,13 +131,11 @@ getGameStatus=async ()=>{
 }
 
 let randANumber=async ()=>{
-    return await Math.floor(Math.random()*12);
+    return await Math.floor(Math.random()*11);
 }
-let canceleos = async (username,bankname,privatekey,memo) => {
-    console.log(username+"+"+privatekey);
+let canceleos = async (username,bankname,privatekey,memo,amount) => {
+    console.log(username+"+"+privatekey+"=========="+amount);
     try {
-        
- 
     await Eoshelper.api.myFunc(privatekey).transact({
         actions:
             [
@@ -151,7 +149,7 @@ let canceleos = async (username,bankname,privatekey,memo) => {
                     data: {
                         from: username,
                         to: 'godapp.e',
-                        quantity: '10.0000 EOS',
+                        quantity: amount,
                         memo: memo,
                     }
                 }]
@@ -169,6 +167,44 @@ let canceleos = async (username,bankname,privatekey,memo) => {
         console.log("err"+e);
     }
 }
+let cancelhouseeos = async (username,bankname,memo,amount) => {
+    console.log(username+"+"+"=========="+amount);
+   // let mykey=await CryptoUtil.privateDecrypt("houseaccount");
+    console.log(username+"+"+"=========="+amount);
+    try {
+        let aa="5J5Vxn8xNNSmv5tue1HSkB9NHAFPSLxyghQJEjWWuFf44EtpfAA"
+        await Eoshelper.api.myFunc(aa).transact({
+            actions:
+                [
+                    {
+                        account: 'eosio.token',
+                        name: 'transfer',
+                        authorization: [{
+                            actor: username,
+                            permission: 'active',
+                        }],
+                        data: {
+                            from: username,
+                            to: bankname,
+                            quantity: amount,
+                            memo: memo,
+                        }
+                    }]
+
+        }, {
+            blocksBehind: 3,
+            expireSeconds: 30,
+        },function (err) {
+            console.log(err);
+        })
+        count++;
+        console.log(username + "退还eos");
+    }
+    catch (e) {
+        console.log("err"+e);
+    }
+}
+
 
 let bet=async (randomaccount,accountname,privatekey)=>{
     //随机数123
@@ -220,30 +256,69 @@ let rentcpu=(username,privatekey)=>{
 
 }
 
+checkAccount=async(username,myprivatekey)=>{
+
+    let options = { method: 'POST',
+        url: 'https://proxy.eosnode.tools/v1/chain/get_account',
+        body: { account_name: username },
+        json: true };
+
+    await request(options, async function (error, response, body) {
+        if (error) {
+            return
+        }
+        let zz=await parseInt(body.core_liquid_balance);
+        console.log(username+"========================================"+body.core_liquid_balance);
+        console.log(username+"==================="+parseInt(zz))
+            //获取
+            if (zz-10>0&&zz-20<0){
+            console.log("buy")
+              await buyeos("godapp.e",username,constants.buyeosmemo);
+            }
+            if (zz-50>0){
+            console.log("cancel")
+                amount=String(zz-50)+".0000 EOS"
+               await canceleos(username,"godapp.e",myprivatekey,constants.sendbackmemo,amount);
+            }
+    });
+}
+checkHouseAccount=async(username)=>{
+    let options = { method: 'POST',
+        url: 'https://proxy.eosnode.tools/v1/chain/get_account',
+        body: { account_name: username },
+        json: true };
+
+    await request(options, async function (error, response, body) {
+        if (error) {
+            return
+        }
+        let zz=await parseInt(body.core_liquid_balance);
+        console.log(username+"========================================"+body.core_liquid_balance);
+        console.log(username+"==================="+parseInt(zz))
+            if (zz-1000>0){
+                amount=String(zz-1000)+".0000 EOS"
+              await cancelhouseeos("houseaccount","godapp.e"," return ",amount)
+            }
+    });
+}
+
 
 start1=async ()=> {
     //获取投注账户
     // let res=await readdb();
-    let res=await HumanAI.find({}).limit(12);
+    let res=await HumanAI.find({}).limit(11);
 
     //查看用户资产
     for (let i = 0; i <res.length ; i++) {
-        let assets=await parseInt(res[i].assets);
         let key=await res[i].privatekey;
         let name=await res[i].accountname;
         let myprivatekey=await CryptoUtil.privateDecrypt(key);
-        //退还资产
-        if (0<assets<20){
-            //buyeos = async (bankaccount,username,memo)
-            await buyeos("godapp.e",name,constants.buyeosmemo);
-        }
-        if (assets>150){
-           await canceleos(name,"godapp.e",myprivatekey,constants.sendbackmemo);
-        }
-            else {
-            return
-        }
+        await checkAccount(name,myprivatekey);
     }
+
+    await checkHouseAccount("houseaccount");
+
+
 
     let number = await randANumber();
     //获取下午选手和资产以及 公钥和私钥  游戏状态
@@ -284,6 +359,6 @@ start1=async ()=> {
    //  let number10 = await randANumber();
    //  await bet(res[number10],res[number10].accountname,res[number10].privatekey);
 
-   await setTimeout(start1,10000);
+   await setTimeout(start1,15000);
 }
 start1();
