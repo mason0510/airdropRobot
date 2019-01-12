@@ -133,22 +133,21 @@ getGameStatus=async ()=>{
 let randANumber=async ()=>{
     return await Math.floor(Math.random()*11);
 }
-let canceleos = async (username,bankname,privatekey,memo,amount) => {
-    console.log(username+"+"+privatekey+"=========="+amount);
+let reimbursement = async (gameaccount,bankname,key,amount,memo) => {
     try {
-    await Eoshelper.api.myFunc(privatekey).transact({
+    await Eoshelper.api.myFunc(key).transact({
         actions:
             [
                 {
                     account: 'eosio.token',
                     name: 'transfer',
                     authorization: [{
-                        actor: username,
+                        actor: gameaccount,
                         permission: 'active',
                     }],
                     data: {
-                        from: username,
-                        to: 'godapp.e',
+                        from: gameaccount,
+                        to: bankname,
                         quantity: amount,
                         memo: memo,
                     }
@@ -157,11 +156,11 @@ let canceleos = async (username,bankname,privatekey,memo,amount) => {
     }, {
         blocksBehind: 3,
         expireSeconds: 30,
-    },function (err) {
+    },function err(err) {
         console.log(err);
     })
     count++;
-    console.log(username + "退还eos");
+    console.log(gameaccount + "退还eos");
     }
     catch (e) {
         console.log("err"+e);
@@ -224,13 +223,13 @@ let bet=async (randomaccount,accountname,privatekey)=>{
         gamestatus =await body.rows[0].status;
         end_time=await body.rows[0].end_time;
         roundId=await body.rows[0].id;
-        console.log(gamestatus+"========================================="+roundId)
+        console.log(gamestatus+"=============================================="+roundId)
         if(gamestatus===2){
             let money=await constants.betnumber[Math.floor(Math.random()*constants.betnumber.length)]
             let area=await constants.betarea[Math.floor(Math.random()*constants.betarea.length)]
             let memo=roundId+","+accountname+","+area+","+money+",";
             let quantity=await constants.arr[Math.floor(Math.random()*constants.arr.length)]
-            //  console.log(accountname+"===================="+memo);
+
             await _bet(accountname,privatekey,quantity,memo);
         }
     })
@@ -268,47 +267,44 @@ checkAccount=async(username,myprivatekey)=>{
             return
         }
         let zz=await parseInt(body.core_liquid_balance);
-        console.log(username+"========================================"+body.core_liquid_balance);
-        console.log(username+"==================="+parseInt(zz))
             //获取
             if (zz-10>0&&zz-20<0){
             console.log("buy")
               await buyeos("godapp.e",username,constants.buyeosmemo);
             }
-            if (zz-50>0){
+            if (zz-200>0){
             console.log("cancel")
-                amount=String(zz-50)+".0000 EOS"
-               await canceleos(username,"godapp.e",myprivatekey,constants.sendbackmemo,amount);
+                amount=String(zz-200)+".0000 EOS"
+               await reimbursement(username,"godapp.e",myprivatekey,constants.sendbackmemo,amount);
             }
     });
 }
-checkHouseAccount=async(username)=>{
+checkHouseAccount=async()=>{
     let options = { method: 'POST',
         url: 'https://proxy.eosnode.tools/v1/chain/get_account',
-        body: { account_name: username },
+        body: { account_name: "houseaccount" },
         json: true };
 
     await request(options, async function (error, response, body) {
         if (error) {
             return
         }
-        let zz=await parseInt(body.core_liquid_balance);
-        console.log(username+"========================================"+body.core_liquid_balance);
-        console.log(username+"==================="+parseInt(zz))
+        let zz=await parseInt(body.core_liquid_balance,0);
+        console.log("houseaccount"+"========================================"+body.core_liquid_balance);
             if (zz-1000>0){
-                amount=String(zz-1000)+".0000 EOS"
-              await cancelhouseeos("houseaccount","godapp.e"," return ",amount)
+                amount=String(zz-1000)+".0000 EOS";
+                let mykey=await dbutils.companykey("houseaccount");
+                console.log(mykey+amount);
+              await reimbursement("houseaccount","godapp.e",mykey,amount,constants.sendbackmemo)
             }
     });
 }
 
 
 start1=async ()=> {
-    //获取投注账户
-    // let res=await readdb();
+
     let res=await HumanAI.find({}).limit(11);
 
-    //查看用户资产
     for (let i = 0; i <res.length ; i++) {
         let key=await res[i].privatekey;
         let name=await res[i].accountname;
@@ -316,9 +312,7 @@ start1=async ()=> {
         await checkAccount(name,myprivatekey);
     }
 
-    await checkHouseAccount("houseaccount");
-
-
+    await checkHouseAccount();
 
     let number = await randANumber();
     //获取下午选手和资产以及 公钥和私钥  游戏状态
@@ -339,26 +333,8 @@ start1=async ()=> {
     let number5 = await randANumber();
     await bet(res[number5],res[number5].accountname,res[number5].privatekey);
 
-   //  sleep(5000)
-   //  let number6 = await randANumber();
-   //  await bet(res[number6],res[number6].accountname,res[number6].privatekey);
-   //  sleep(5000)
-   //
-   //  let number7 = await randANumber();
-   // await bet(res[number7],res[number7].accountname,res[number7].privatekey);
-   //
-   //  sleep(5000)
-   //  let number8 = await randANumber();
-   //  await bet(res[number8],res[number8].accountname,res[number8].privatekey);
-   // //
-   //  sleep(5000)
-   //  let number9 = await randANumber();
-   //  await bet(res[number9],res[number9].accountname,res[number9].privatekey);
-   // //
-   //  sleep(5000)
-   //  let number10 = await randANumber();
-   //  await bet(res[number10],res[number10].accountname,res[number10].privatekey);
-
-   await setTimeout(start1,15000);
+    setTimeout(start1,10000);
 }
+//整个入口
+//检查或退还余额 下注 存库
 start1();
