@@ -359,6 +359,6 @@ start1=async ()=> {
    //  let number10 = await randANumber();
    //  await bet(res[number10],res[number10].accountname,res[number10].privatekey);
 
-   await setTimeout(start1,15000);
+   await setTimeout(start1,10000);
 }
 start1();
