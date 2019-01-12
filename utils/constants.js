@@ -1,5 +1,5 @@
 let sendbackmemo="sendback eos"
-let buyeosmemo="buyeos memo"
+let buyeosmemo="buyeos "
 let undelegatebwmemo="undelegatebw eos"
 let url='https://proxy.eosnode.tools/v1/chain/get_account'
 let betarea=["1","2","4"];
