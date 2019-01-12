@@ -2,180 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddf1df99-3a25-463b-b2e0-09c50511ac70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/修改了时间.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eostools/accountInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/companyAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/companyAccount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/acorn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/babylon" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/babylon" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/cleancss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/cleancss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/detect-libc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/detect-libc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/errno" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/errno" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/mime" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/mkdirp" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/mkdirp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/prebuild-install" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/prebuild-install" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/rc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/rc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/semver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/sha.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/sha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/sshpk-conv" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/sshpk-conv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/sshpk-sign" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/sshpk-sign" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/sshpk-verify" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/sshpk-verify" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/uglifyjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/uglifyjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/uuid" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/uuid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-globals/node_modules/.bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/acorn-globals/node_modules/.bin/acorn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-globals/node_modules/acorn/bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/acorn-globals/node_modules/acorn/bin/acorn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/acorn/bin/acorn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/bin/update_authors.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/acorn/bin/update_authors.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/info" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ajv/scripts/info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/prepare-tests" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ajv/scripts/prepare-tests" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ajv/scripts/travis-gh-pages" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ajv/scripts/travis-gh-pages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/babylon/bin/babylon.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/babylon/bin/babylon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/boom/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/boom/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/boom/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/images/boom.png" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/boom/images/boom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/boom/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/boom/test/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/bin/cleancss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clean-css/bin/cleancss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/node_modules/.bin/babylon" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/constantinople/node_modules/.bin/babylon" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/create-hash/node_modules/.bin/sha.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/create-hash/node_modules/.bin/sha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/create-hmac/node_modules/.bin/sha.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/create-hmac/node_modules/.bin/sha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cryptiles/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cryptiles/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cryptiles/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cryptiles/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/cryptiles/test/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detect-libc/bin/detect-libc.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/detect-libc/bin/detect-libc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ecc-jsbn/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ecc-jsbn/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ecc-jsbn/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ecc-jsbn/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ecc-jsbn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ecc-jsbn/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ecc-jsbn/lib/LICENSE-jsbn" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ecc-jsbn/lib/LICENSE-jsbn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ecc-jsbn/lib/ec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ecc-jsbn/lib/ec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ecc-jsbn/lib/sec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ecc-jsbn/lib/sec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ecc-jsbn/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ecc-jsbn/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ecc-jsbn/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ecc-jsbn/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/scripts/is_latest.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/eosjs/scripts/is_latest.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-edge.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-edge.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-tag.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-tag.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-utils.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/eosjs/scripts/publish-utils.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/errno/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/errno/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/errno/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/errno/cli.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/errno/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/errno/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/example/usage.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/example/usage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/images/hawk.png" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/images/hawk.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/lib/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/lib/client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/crypto.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/lib/crypto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/lib/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/lib/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/test/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/test/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/test/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/test/client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/test/crypto.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/test/crypto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/test/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/test/readme.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/test/readme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/test/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/test/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/test/uri.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/test/uri.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/test/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/hawk/test/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-signature/node_modules/.bin/sshpk-conv" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-signature/node_modules/.bin/sshpk-conv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-signature/node_modules/.bin/sshpk-sign" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-signature/node_modules/.bin/sshpk-sign" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-signature/node_modules/.bin/sshpk-verify" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-signature/node_modules/.bin/sshpk-verify" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-expression/node_modules/.bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-expression/node_modules/.bin/acorn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-expression/node_modules/acorn/bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-expression/node_modules/acorn/bin/acorn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/build/Release/leveldown.node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/build/Release/leveldown.node" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/build_detect_platform" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/build_detect_platform" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/db_bench.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/db_bench.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/db_impl.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/db_impl.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/log_format.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/log_format.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/version_set.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/version_set.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/version_set.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/db/version_set.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/include/leveldb/db.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/include/leveldb/db.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/include/leveldb/options.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/include/leveldb/options.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/port/port_example.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/port/port_example.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/port/port_posix.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/port/port_posix.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/port/port_posix_sse.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/port/port_posix_sse.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/table/filter_block.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/table/filter_block.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/crc32c.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/crc32c.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/env_posix.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/env_posix.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/env_posix_test.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/env_posix_test.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/env_posix_test_helper.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/env_posix_test_helper.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/env_test.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/env_test.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/options.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/leveldb/leveldb-1.20/util/options.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/COPYING" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/COPYING" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/ChangeLog" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/ChangeLog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/Makefile.am" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/Makefile.am" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/README" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/autogen.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/autogen.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/compile" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/compile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/config.guess" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/config.guess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/config.sub" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/config.sub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/configure" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/configure" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/configure.ac" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/configure.ac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/depcomp" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/depcomp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/format_description.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/format_description.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/framing_format.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/framing_format.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/install-sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/install-sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/m4/gtest.m4" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/m4/gtest.m4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/missing" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/missing" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-c.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-c.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-c.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-c.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-internal.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-internal.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-sinksource.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-sinksource.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-sinksource.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-sinksource.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-stubs-internal.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-stubs-internal.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-stubs-internal.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-stubs-internal.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-stubs-public.h.in" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-stubs-public.h.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-test.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-test.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-test.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy-test.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy.pc.in" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy.pc.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy_unittest.cc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/snappy_unittest.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/test-driver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/leveldown/deps/snappy/snappy-1.1.4/test-driver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/levelup/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/levelup/node_modules/.bin/semver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/levelup/node_modules/semver/bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/levelup/node_modules/semver/bin/semver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/levelup/test/test-10k-times.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/levelup/test/test-10k-times.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime/cli.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/bin/cmd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/bin/cmd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nan/tools/1to2.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/nan/tools/1to2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/prebuild-install/bin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/prebuild-install/bin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/pug-filters/node_modules/.bin/cleancss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/pug-filters/node_modules/.bin/cleancss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/pug-filters/node_modules/.bin/uglifyjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/pug-filters/node_modules/.bin/uglifyjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/rc/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/rc/cli.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/rc/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/rc/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/request/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/request/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/request/node_modules/.bin/uuid" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/request/node_modules/.bin/uuid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/require_optional/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/require_optional/node_modules/.bin/semver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/semver/bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/semver/bin/semver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sha.js/bin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sha.js/bin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/examples/offset.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/examples/offset.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/examples/time.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/examples/time.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sntp/test/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sshpk/bin/sshpk-conv" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sshpk/bin/sshpk-conv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sshpk/bin/sshpk-sign" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sshpk/bin/sshpk-sign" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sshpk/bin/sshpk-verify" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/sshpk/bin/sshpk-verify" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/superagent/changelog.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/superagent/changelog.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/superagent/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/superagent/node_modules/.bin/mime" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uglify-js/bin/uglifyjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uglify-js/bin/uglifyjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/bin/uuid" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/uuid/bin/uuid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robot/redblackAI.js" beforeDir="false" afterPath="$PROJECT_DIR$/robot/redblackAI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robot/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/robot/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/dbutils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/dbutils.js" afterDir="false" />
     </list>
@@ -183,7 +12,6 @@
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,74 +19,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="redblackAI.js" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robot/redblackAI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="363" column="9" lean-forward="true" selection-start-line="363" selection-start-column="9" selection-end-line="363" selection-end-column="9" />
+            <state relative-caret-position="331">
+              <caret line="227" column="79" selection-start-line="227" selection-start-column="79" selection-end-line="227" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robot/test.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+            <state relative-caret-position="105">
+              <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dbutils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/dbutils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="topdapp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/topdapp.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="godappuser.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/godappuser.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="gamestatus.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/gamestatus.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="betRecoders.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/betRecoders.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="betdiceUser.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/betdiceUser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="36" selection-start-line="19" selection-end-line="19" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="betdice.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/betdice.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="allusers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/allusers.js">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -266,8 +42,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -314,7 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/robot/clearTable.js" />
         <option value="$PROJECT_DIR$/service/add_biggame.js" />
         <option value="$PROJECT_DIR$/model/godappusr1/eosusr(0-50).js" />
         <option value="$PROJECT_DIR$/robot/warofstar.js" />
@@ -360,38 +135,23 @@
         <option value="$PROJECT_DIR$/robot/test.ts" />
         <option value="$PROJECT_DIR$/robot/sendBackEos.js" />
         <option value="$PROJECT_DIR$/robot/checkCPU.js" />
-        <option value="$PROJECT_DIR$/utils/constants.js" />
         <option value="$PROJECT_DIR$/model/companyAccount.js" />
-        <option value="$PROJECT_DIR$/utils/dbutils.js" />
         <option value="$PROJECT_DIR$/robot/test.js" />
+        <option value="$PROJECT_DIR$/eostools/accountInfo.js" />
+        <option value="$PROJECT_DIR$/utils/dbutils.js" />
         <option value="$PROJECT_DIR$/robot/redblackAI.js" />
+        <option value="$PROJECT_DIR$/utils/constants.js" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/package.json" />
-    </packageJsonPaths>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
-    <option name="y" value="91" />
-    <option name="width" value="1280" />
-    <option name="height" value="965" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="22" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="841" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -408,6 +168,11 @@
             <path>
               <item name="airdrop" type="b2602c69:ProjectViewProjectNode" />
               <item name="untitled1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="airdrop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="untitled1" type="462c0819:PsiDirectoryNode" />
+              <item name="eostools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -456,26 +221,36 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.redblackAI.js">
-    <configuration name="checkCPU.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/checkCPU.js" working-dir="$PROJECT_DIR$" />
-    <configuration name="dbutils.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/utils/dbutils.js" working-dir="$PROJECT_DIR$" />
-    <configuration name="redblackAI.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/redblackAI.js" working-dir="$PROJECT_DIR$" />
-    <configuration name="sendBackEos.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/sendBackEos.js" working-dir="$PROJECT_DIR$" />
-    <configuration name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/test.js" working-dir="$PROJECT_DIR$" />
+    <configuration name="accountInfo.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/eostools/accountInfo.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="cryptoUtil.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/encryption/cryptoUtil.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="dbutils.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/utils/dbutils.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="redblackAI.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/redblackAI.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/robot/test.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Node.js.bin/www" />
-      <item itemvalue="Node.js.checkCPU.js" />
       <item itemvalue="Node.js.dbutils.js" />
       <item itemvalue="Node.js.redblackAI.js" />
-      <item itemvalue="Node.js.sendBackEos.js" />
       <item itemvalue="Node.js.test.js" />
+      <item itemvalue="Node.js.accountInfo.js" />
+      <item itemvalue="Node.js.cryptoUtil.js" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.redblackAI.js" />
-        <item itemvalue="Node.js.test.js" />
-        <item itemvalue="Node.js.sendBackEos.js" />
         <item itemvalue="Node.js.dbutils.js" />
-        <item itemvalue="Node.js.checkCPU.js" />
+        <item itemvalue="Node.js.accountInfo.js" />
+        <item itemvalue="Node.js.cryptoUtil.js" />
+        <item itemvalue="Node.js.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -524,11 +299,12 @@
       <workItem from="1547230608571" duration="2727000" />
       <workItem from="1547233481857" duration="8762000" />
       <workItem from="1547271991635" duration="1064000" />
+      <workItem from="1547278702858" duration="9510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="408191000" />
+    <option name="totallyTimeSpent" value="418711000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -540,49 +316,50 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="22" y="23" width="1440" height="841" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.88954633" visible="true" weight="0.15049505" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.21342282" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.23467231" side_tool="true" weight="0.29144385" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.42056075" />
-      <window_info anchor="bottom" x="3" y="712" width="1530" height="104" id="Run" order="2" sideWeight="0.8865398" type="FLOATING" visible="true" weight="0.4229075" />
-      <window_info id="npm" order="1" sideWeight="0.10869565" side_tool="true" weight="0.14799154" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="10" />
-      <window_info active="true" anchor="bottom" x="26" y="683" width="1446" height="7" id="Terminal" order="10" sideWeight="0.7653277" type="FLOATING" visible="true" weight="1.0" />
+      <window_info id="npm" order="1" sideWeight="0.10869565" side_tool="true" weight="0.14799154" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49612403" weight="0.3351135" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32885906" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49753347" weight="0.53466666" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.88954633" visible="true" weight="0.18816067" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49753347" weight="0.53466666" />
+      <window_info anchor="bottom" x="236" y="389" width="1003" height="180" id="Run" order="2" sideWeight="0.8865398" weight="0.6715621" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49612403" weight="0.28838453" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.21228305" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.25100133" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.23467231" side_tool="true" weight="0.29144385" />
+      <window_info anchor="bottom" id="CSS-X-Fire" order="10" />
+      <window_info active="true" anchor="bottom" x="265" y="601" width="728" height="210" id="Terminal" order="11" sideWeight="0.7653277" visible="true" weight="0.16421896" />
+      <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32885906" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info id="npm" order="1" sideWeight="0.10869565" side_tool="true" visible="true" weight="0.14799154" />
-      <window_info anchor="bottom" x="160" y="127" width="1070" height="370" id="Run" order="2" sideWeight="0.8879493" weight="0.44697988" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.88954633" visible="true" weight="0.14799154" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="1" sideWeight="0.10869565" side_tool="true" visible="true" weight="0.14799154" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.88954633" visible="true" weight="0.14799154" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49964765" weight="0.14630872" />
+      <window_info anchor="bottom" x="160" y="127" width="1070" height="370" id="Run" order="2" sideWeight="0.8879493" weight="0.44697988" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.22416107" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.21342282" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32885906" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.11205074" side_tool="true" weight="0.14190094" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49612403" visible="true" weight="0.32080537" />
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32885906" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.21342282" />
-      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32885906" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49964765" weight="0.14630872" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.22416107" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49612403" visible="true" weight="0.32080537" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.11205074" side_tool="true" weight="0.14190094" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32885906" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,9 +401,20 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -661,63 +449,40 @@
           <line>81</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/robot/redblackAI.js</url>
+          <line>293</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/robot/redblackAI.js</url>
+          <line>294</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/robot/redblackAI.js</url>
+          <line>295</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/robot/redblackAI.js</url>
+          <line>292</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/utils/dbutils.js</url>
+          <line>70</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils/eccUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/airdrop/airdropEos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="251" column="47" lean-forward="true" selection-start-line="251" selection-start-column="47" selection-end-line="251" selection-end-column="47" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/airdrop/airdropLuck.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/redis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/leveldb.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/eosjs/dist/eosjs-jsonrpc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/subtring.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -809,13 +574,6 @@
     <entry file="file://$PROJECT_DIR$/service/add.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="17577" column="17" selection-start-line="17577" selection-start-column="17" selection-end-line="17577" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/eosjs/src/eosjs-api.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -837,32 +595,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/encryption/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.14.2/node-typings/node_modules/@types/node/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/robot/checkCPU.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1958">
           <caret line="90" column="18" selection-start-line="88" selection-end-line="117" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/encryption/cryptoUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="161" column="29" selection-start-line="161" selection-start-column="29" selection-end-line="161" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -876,13 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/companyAccount.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -927,13 +657,6 @@
     <entry file="file://$PROJECT_DIR$/model/allusers.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/dbutils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/robot/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -941,10 +664,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="17577" column="17" selection-start-line="17577" selection-start-column="17" selection-end-line="17577" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eostools/.editorconfig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/encryption/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/encryption/cryption.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/10.14.2/core-modules/path.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="1149" column="44" selection-start-line="1149" selection-start-column="44" selection-end-line="1149" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/companyAccount.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eostools/accountInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="36" lean-forward="true" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/addUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="42" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accountInfo">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/encryption/cryptoUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/dbutils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/robot/redblackAI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="363" column="9" lean-forward="true" selection-start-line="363" selection-start-column="9" selection-end-line="363" selection-end-column="9" />
+        <state relative-caret-position="331">
+          <caret line="227" column="79" selection-start-line="227" selection-start-column="79" selection-end-line="227" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
         </state>
       </provider>
     </entry>
