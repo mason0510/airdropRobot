@@ -30,16 +30,25 @@ let totalAmount=0
 let res;
 let amount;
 //开始投注
-_bet=async (account,privatekey,quantity,memo)=>{
+_bet=async (account,privatekey,quantity,memo,betarea,roundId)=>{
     //判断下注数字 如果随机出一样的 不再下注
-
+    try {
+      let playerInfos=  await tableInfo.getPlayerTable();
+        for (let i = 0; i <playerInfos.length ; i++) {
+          let player=  playerInfos.rows[i].player;
+          let game_id=  playerInfos.rows[i].game_id;
+          let bet_type=  playerInfos.rows[i].bet_type;
+          if((player===account)&&(bet_type=parseInt(betarea))&&game_id===roundId){
+              return;
+          }
+        }
 
     count++;
     console.log("playing 进行中",account+"=========="+memo);
     //对私钥进行解密
     let mykey=CryptoUtil.privateDecrypt(privatekey);
     // console.log(account+"===================="+mykey);
-    try {
+
         await eoshelper.api.myFunc(mykey).transact({
             actions: [{
                 account: "eosio.token",
@@ -103,7 +112,9 @@ let buyeos = async (bankaccount,username,memo) => {
             console.log("====" + username + "购买eos结束")
         })
     }catch (e) {
-        console.log(JSON.stringify(e))
+        console.log(JSON.stringify("下注失败"+e))
+        //清表
+
     }
 }
 
@@ -217,12 +228,12 @@ start=async ()=> {
         let key=await res[i].privatekey;
         let name=await res[i].accountname;
         let myprivatekey=await CryptoUtil.privateDecrypt(key);
-        await checkAccount(name,myprivatekey);
+        setTimeout(async()=>{
+            await checkAccount(name,myprivatekey);
+        },i*200)
     }
-
+    await sleep(500);
     await checkHouseAccount();
-
-
 
     let resnumber = await randomNumber.norepeatNumber(5).catch(()=>{
         console.log("error")
@@ -242,43 +253,39 @@ start=async ()=> {
         //获取下午选手和资产以及 公钥和私钥  游戏状态
         let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
         let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
-        await _bet(accountname0, privatekey0, "0.5000 EOS", memo0).catch((error)=>{
+        await _bet(accountname0, privatekey0, "0.5000 EOS", memo0,area0,roundId).catch((error)=>{
             console.log(error)
         });
 
-        await sleep(500);
+        await sleep(2000);
         let area1 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
         let memo1 = roundId + "," + res[resnumber[1]].accountname + "," + area1 + "," + 10000 + ",";
-        await _bet(accountname1, privatekey1, "1.0000 EOS", memo1).catch((error)=>{
+        await _bet(accountname1, privatekey1, "1.0000 EOS", memo1,area1,roundId).catch((error)=>{
             console.log(error)
         });
 
-        await sleep(500);
+        await sleep(2000);
         let area2 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
         let memo2 = roundId + "," +  res[resnumber[2]].accountname + "," + area2 + "," + 10000 + ",";
-         await _bet(accountname2,  privatekey2, "1.0000 EOS", memo2).catch((error)=>{
+         await _bet(accountname2,  privatekey2, "1.0000 EOS", memo2,area2,roundId).catch((error)=>{
              console.log(error)
          });
 
-        await sleep(500);
+        await sleep(2000);
         let area3 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
         let memo3 = roundId + "," + res[resnumber[3]].accountname + "," + area3 + "," + 50000 + ",";
-        await _bet(accountname3, privatekey3, "5.0000 EOS", memo3).catch((error)=>{
+        await _bet(accountname3, privatekey3, "5.0000 EOS", memo3,area3,roundId).catch((error)=>{
             console.log(error)
         });
 
-        await sleep(500);
+        await sleep(2000);
         let area4 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
         let memo4 = roundId + "," + res[resnumber[4]].accountname + "," + area4 + "," + 5000 + ",";
-         await _bet(res[resnumber[4]].accountname, res[resnumber[4]].privatekey, "0.5000 EOS", memo4).catch((error)=>{
+         await _bet(res[resnumber[4]].accountname, res[resnumber[4]].privatekey, "0.5000 EOS", memo4,area4,roundId).catch((error)=>{
              console.log(error)
          });
     }
      setTimeout(start,2000);
 };
-//整个入口
-//检查或退还余额 下注 存库
-// let entry=async()=>{
-//     setTimeout(start,2000)
-// }
+
 start();
