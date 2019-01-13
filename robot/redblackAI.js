@@ -13,6 +13,13 @@ let constants=require("../utils/constants");
 let Eoshelper=require("../utils/eoshelper");
 // let {Buyeos,Rentcpu}=require("../robot/checkCPU");
 let dbutils=require("../utils/dbutils");
+
+let Account=require('../eostools/accountInfo');
+
+let randomNumber=require('../utils/randomNumber');
+let time=require('../utils/time');
+let gameInfo=require('../eostools/tableInfo');
+
 let gamestatus;
 let end_time;
 let roundId;
@@ -21,7 +28,39 @@ let count=0;
 let strarr;
 let totalAmount=0
 let res;
-let amount
+let amount;
+let bet=async (randomaccount,accountname,privatekey)=>{
+    //随机数123
+    await request.post('https://proxy.eosnode.tools/v1/chain/get_table_rows', {
+        json: {
+            code: 'warofstar.e',
+            table:"gametable",
+            scope:"warofstar.e",
+            json:true
+        }
+    }, async (error, res, body) => {
+        if (error) {
+            console.error(error)
+            return
+        }
+        // console.log(`statusCode: ${res.statusCode}`)
+        gamestatus =await body.rows[0].status;
+        end_time=await body.rows[0].end_time;
+        roundId=await body.rows[0].id;
+        console.log(gamestatus+"=============================================="+roundId)
+        if(gamestatus===2){
+            let money=await constants.betnumber[Math.floor(Math.random()*constants.betnumber.length)]
+            let area=await constants.betarea[Math.floor(Math.random()*constants.betarea.length)]
+            let memo=roundId+","+accountname+","+area+","+money+",";
+            let quantity=await constants.arr[Math.floor(Math.random()*constants.arr.length)]
+
+            await _bet(accountname,privatekey,quantity,memo);
+        }
+    })
+
+}
+
+
 //开始投注
 _bet=async (account,privatekey,quantity,memo)=>{
     if(!account&&!privatekey&&!memo){
@@ -57,46 +96,47 @@ _bet=async (account,privatekey,quantity,memo)=>{
             strarr=quantity.split(" ")
             totalAmount+=await parseFloat(arr[0])
         console.log("累计下注额===================="+totalAmount)
-        return false;
     }catch (e) {
-        return false;
+        console.log(JSON.stringify(e))
     }
     return true;
 }
 
 
 let buyeos = async (bankaccount,username,memo) => {
-    let mykey = await dbutils.mykey("godapp.e")
+    let mykey = await dbutils.companykey("godapp.e")
     // console.log("===================="+mykey);
     console.log(bankaccount+"===="+username+"======="+memo);
-    let result=await Eoshelper.api.myFunc("5JgWbqPFygNyurb888NcjpLAtZEyW5cLvMDQ8586EhisrCusxBD").transact({
-        actions:
-            [
-                {
-                    account: 'eosio.token',
-                    // 抵押资产的action名，用于租用带宽与cpu,抵押资产,抵押的越多，带宽和cup就越多
-                    name: 'transfer',
-                    authorization: [{
-                        actor: "godapp.e",
-                        permission: 'active',
-                    }],
-                    data: {
-                        from: 'godapp.e',
-                        to: username,
-                        quantity: '2.5000 EOS',
-                        memo: memo,
-                    }
-                }]
+   try {
+       let result=await Eoshelper.api.myFunc(mykey).transact({
+           actions:
+               [
+                   {
+                       account: 'eosio.token',
+                       // 抵押资产的action名，用于租用带宽与cpu,抵押资产,抵押的越多，带宽和cup就越多
+                       name: 'transfer',
+                       authorization: [{
+                           actor: "godapp.e",
+                           permission: 'active',
+                       }],
+                       data: {
+                           from: 'godapp.e',
+                           to: username,
+                           quantity: '2.5000 EOS',
+                           memo: memo,
+                       }
+                   }]
 
-    }, {
-        blocksBehind: 3,
-        expireSeconds: 30,
-    }).then(()=>{
-        count++;
-        console.log("====" + username + "购买eos结束")
-    })
-    console.log(result);
-
+       }, {
+           blocksBehind: 3,
+           expireSeconds: 30,
+       }).then(()=>{
+           count++;
+           console.log("====" + username + "购买eos结束")
+       })
+   }catch (e) {
+       console.log(JSON.stringify(e))
+   }
 }
 
 
@@ -104,36 +144,8 @@ sleep=async (ms)=>{
     return new Promise(resolve=>setTimeout(resolve,ms))
 }
 
-//获取当前的轮次
-getGameStatus=async ()=>{
-    // console.log("==============");
-    await request.post('https://proxy.eosnode.tools/v1/chain/get_table_rows', {
-        json: {
-            code: 'warofstar.e',
-            table:"gametable",
-            scope:"warofstar.e",
-            json:true
-        }
-    }, async (error, res, body) => {
-        if (error) {
-            console.error(error)
-            return
-        }
-        console.log(`statusCode: ${res.statusCode}`)
-        gamestatus =await body.rows[0].status;
-        end_time=await body.rows[0].end_time;
-        roundId=await body.rows[0].id;
-        // console.log(gamestatus+"======"+roundId)
-        return gamestatus
-    }).then((status)=>{
 
-    })
-}
-
-let randANumber=async ()=>{
-    return await Math.floor(Math.random()*11);
-}
-let reimbursement = async (gameaccount,bankname,key,amount,memo) => {
+let reimbursement = async (gameaccount,bankname,key,memo,amount) => {
     try {
     await Eoshelper.api.myFunc(key).transact({
         actions:
@@ -166,94 +178,10 @@ let reimbursement = async (gameaccount,bankname,key,amount,memo) => {
         console.log("err"+e);
     }
 }
-let cancelhouseeos = async (username,bankname,memo,amount) => {
-    console.log(username+"+"+"=========="+amount);
-   // let mykey=await CryptoUtil.privateDecrypt("houseaccount");
-    console.log(username+"+"+"=========="+amount);
-    try {
-        let aa="5J5Vxn8xNNSmv5tue1HSkB9NHAFPSLxyghQJEjWWuFf44EtpfAA"
-        await Eoshelper.api.myFunc(aa).transact({
-            actions:
-                [
-                    {
-                        account: 'eosio.token',
-                        name: 'transfer',
-                        authorization: [{
-                            actor: username,
-                            permission: 'active',
-                        }],
-                        data: {
-                            from: username,
-                            to: bankname,
-                            quantity: amount,
-                            memo: memo,
-                        }
-                    }]
-
-        }, {
-            blocksBehind: 3,
-            expireSeconds: 30,
-        },function (err) {
-            console.log(err);
-        })
-        count++;
-        console.log(username + "退还eos");
-    }
-    catch (e) {
-        console.log("err"+e);
-    }
-}
 
 
-let bet=async (randomaccount,accountname,privatekey)=>{
-    //随机数123
-    await request.post('https://proxy.eosnode.tools/v1/chain/get_table_rows', {
-        json: {
-            code: 'warofstar.e',
-            table:"gametable",
-            scope:"warofstar.e",
-            json:true
-        }
-    }, async (error, res, body) => {
-        if (error) {
-            console.error(error)
-            return
-        }
-        // console.log(`statusCode: ${res.statusCode}`)
-        gamestatus =await body.rows[0].status;
-        end_time=await body.rows[0].end_time;
-        roundId=await body.rows[0].id;
-        console.log(gamestatus+"=============================================="+roundId)
-        if(gamestatus===2){
-            let money=await constants.betnumber[Math.floor(Math.random()*constants.betnumber.length)]
-            let area=await constants.betarea[Math.floor(Math.random()*constants.betarea.length)]
-            let memo=roundId+","+accountname+","+area+","+money+",";
-            let quantity=await constants.arr[Math.floor(Math.random()*constants.arr.length)]
-
-            await _bet(accountname,privatekey,quantity,memo);
-        }
-    })
-
-}
 
 //租赁cpu scope contract table
-let rentcpu=(username,privatekey)=>{
-    let request = require("request");
-    let options = { method: 'POST',
-        url: 'https://proxy.eosnode.tools/v1/chain/get_table_rows',
-        body: { scope: "bankofstaked",code:"bankofstaked",table:"plan",json:true },
-        json: true };
-
-    request(options, async function (error, response, body) {
-        if (error) {
-            return
-        }
-        //0.2 eos 租赁7天 每一个
-        // console.log("price=========================================="+body.rows[5].price);
-        _rentcpu(body.rows[5].price,username,username,privatekey);
-    });
-
-}
 
 checkAccount=async(username,myprivatekey)=>{
 
@@ -268,13 +196,11 @@ checkAccount=async(username,myprivatekey)=>{
         }
         let zz=await parseInt(body.core_liquid_balance);
             //获取
-            if (zz-10>0&&zz-20<0){
-            console.log("buy")
+            if (zz-20>0&&zz-40<0){
               await buyeos("godapp.e",username,constants.buyeosmemo);
             }
-            if (zz-200>0){
-            console.log("cancel")
-                amount=String(zz-200)+".0000 EOS"
+            if (zz-40>0){
+                amount=String(zz-40)+".0000 EOS"
                await reimbursement(username,"godapp.e",myprivatekey,constants.sendbackmemo,amount);
             }
     });
@@ -303,6 +229,8 @@ checkHouseAccount=async()=>{
 
 start1=async ()=> {
 
+    //获取合约开始时间
+
     let res=await HumanAI.find({}).limit(11);
 
     for (let i = 0; i <res.length ; i++) {
@@ -314,26 +242,27 @@ start1=async ()=> {
 
     await checkHouseAccount();
 
-    let number = await randANumber();
+    let resnumber = await randomNumber.norepeatNumber(3);
     //获取下午选手和资产以及 公钥和私钥  游戏状态
-     await bet(res[number],res[number].accountname,res[number].privatekey);
 
-    sleep(2000)
-    let number2 = await randANumber();
-    await bet(res[number2],res[number2].accountname,res[number2].privatekey);
-    sleep(2000)
-    let number3 = await randANumber();
-    await bet(res[number3],res[number3].accountname,res[number3].privatekey);
+     await bet(res[resnumber[0]],res[resnumber[0]].accountname,res[resnumber[0]].privatekey);
 
-    sleep(2000)
-    let number4 = await randANumber();
-    await bet(res[number4],res[number4].accountname,res[number4].privatekey);
+    await sleep(1000)
 
-    sleep(2000)
-    let number5 = await randANumber();
-    await bet(res[number5],res[number5].accountname,res[number5].privatekey);
+    await bet(res[resnumber[1]],res[resnumber[1]].accountname,res[resnumber[1]].privatekey);
+   await sleep(1000)
 
-    setTimeout(start1,10000);
+    await bet(res[resnumber[2]],res[resnumber[2]].accountname,res[resnumber[3]].privatekey);
+
+    await sleep(1000)
+
+    await bet(res[resnumber[3]],res[resnumber[3]].accountname,res[resnumber[3]].privatekey);
+
+    await sleep(1000)
+
+    await bet(res[resnumber[4]],res[resnumber[4]].accountname,res[resnumber[4]].privatekey);
+
+    await setTimeout(start1,15000);
 }
 //整个入口
 //检查或退还余额 下注 存库
