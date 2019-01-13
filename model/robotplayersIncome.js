@@ -24,9 +24,17 @@ const schema = new mongoose.Schema({
         type:String,
         required:true
     },
-    last_play_time:{
+    totalAmount:{
       type:String,
-      require:true
+      required:true
+    },
+    allTimes:{
+        type:Number,
+        required:true
+    },
+    AllRobot:{
+      type:String,
+        required:true
     },
     created:{
         type: Date,
