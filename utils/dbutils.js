@@ -37,6 +37,12 @@ preserveKey=async (newaccountname,privateKey,publicKey)=>{
     console.log("begin");
     try {
         Encryptkey=await cryptoUtil.publicEncrypt(privateKey);//公钥加密
+        results=await humanAI.find({});
+        for (let i = 0; i < results.length; i++) {
+            if (results[i].accountname===accountname){
+                return
+            }
+        }
         let newUser=new companyAccount({
             accountname: newaccountname,
             privatekey: Encryptkey,
@@ -68,4 +74,4 @@ preserveKey=async (newaccountname,privateKey,publicKey)=>{
     }
 }
  module.exports={companykey,myaikey,preserveKey}
-// preserveKey("houseaccount",pri,pub);
+

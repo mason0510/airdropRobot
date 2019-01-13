@@ -22,8 +22,28 @@ _checkHouseAccount=async(accountname)=>{
         });
     });
 };
+_accountInfo=async(accountname)=>{
+    return new Promise(async (resolve, reject) => {
+        console.log("begin");
+        let options = { method: 'POST',
+            url: 'https://proxy.eosnode.tools/v1/chain/get_account',
+            body: { account_name: accountname},
+            json: true };
 
-module.exports={_checkHouseAccount};
+        await request(options, async  (error, response, body) =>{
+            if (error) {
+                return;
+            }
+
+
+                return resolve(body);
+        });
+    });
+};
+
+
+
+module.exports={_checkHouseAccount,_accountInfo};
 
 
 
