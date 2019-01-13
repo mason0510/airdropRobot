@@ -38,7 +38,7 @@ _bet=async (account,privatekey,quantity,memo,betarea,roundId)=>{
         //判断下注数字 如果随机出一样的 不再下注
         try {
             let playerInfos = await tableInfo.getPlayerTable();
-            for (let i = 0; i < playerInfos.length; i++) {
+            for (let i = 0; i < playerInfos.rows.length; i++) {
                 let player = playerInfos.rows[i].player;
                 let game_id = playerInfos.rows[i].game_id;
                 let bet_type = playerInfos.rows[i].bet_type;
@@ -46,26 +46,25 @@ _bet=async (account,privatekey,quantity,memo,betarea,roundId)=>{
                 if ((player === account) && (bet_type = parseInt(betarea)) && game_id === roundId) {
                     return;
                 }
-
-                if (playerInfos[i]!==account){
-                    //有人下注
-
-                        let area = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-                    if (area===1||area===2){
-                        memo = roundId + "," + account+ "," + area + "," + 50000 + ",";
-                        quantity="5.0000 EOS"
-                    }
-                    else if (area===4){
-                            if (roundId%2===0){
-                                memo = roundId + "," + account+ "," + area + "," + 500000 + ",";
-                                quantity="50.0000 EOS"
-                            } else {
-                                memo = roundId + "," + account+ "," + area + "," + 100000 + ",";
-                                quantity="10.0000 EOS"
-                            }
-                    }
-
-                }
+                // if (playerInfos.rows[i]!==account){
+                //     //有人下注
+                //
+                //         let area = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                //     if (area===1||area===2){
+                //         memo = roundId + "," + account+ "," + area + "," + 50000 + ",";
+                //         quantity="5.0000 EOS"
+                //     }
+                //     else if (area===4){
+                //             if (roundId%2===0){
+                //                 memo = roundId + "," + account+ "," + area + "," + 500000 + ",";
+                //                 quantity="50.0000 EOS"
+                //             } else {
+                //                 memo = roundId + "," + account+ "," + area + "," + 100000 + ",";
+                //                 quantity="10.0000 EOS"
+                //             }
+                //     }
+                //
+                // }
             }
 
             count++;
@@ -247,22 +246,43 @@ checkHouseAccount=async()=>{
 start=async ()=> {
     //获取游戏状态
     let gameTable=await tableInfo.getGameTable();
-
+    let playerInfos = await tableInfo.getPlayerTable();
     console.log("==================新的开始状态"+gameTable.rows[0].id+"======"+gameTable.rows[0].status);
     let status=gameTable.rows[0].status;
     let largest_winner=gameTable.rows[0].status;
     let roundId=gameTable.rows[0].id;
 
     let res=await humanais.find({}).limit(11);
+
+
+    let newarr=[];
    // console.log("=================="+res)
     for (let i = 0; i <res.length ; i++) {
         let key=await res[i].privatekey;
         let name=await res[i].accountname;
         let myprivatekey=await CryptoUtil.privateDecrypt(key);
+        newarr.push(name);
         setTimeout(async()=>{
             await checkAccount(name,myprivatekey);
         },i*200)
     }
+    let verify=false;
+    if (playerInfos.rows.length!==0){
+        for (let j = 0; j < playerInfos.rows.length; j++) {
+            let realPlayer=playerInfos.rows[j].player;
+            console.log(realPlayer)
+            //只包含名字的新数组
+            let res=newarr.indexOf(realPlayer);
+
+            if (res!==-1){
+                console.log("=========没有新玩家")
+            }else {
+                verify=true
+                console.log("=========有新玩家"+realPlayer)
+            }
+        }
+    }
+
     await sleep(500);
     await checkHouseAccount();
 
@@ -279,43 +299,54 @@ start=async ()=> {
     let privatekey3=res[resnumber[3]].privatekey;
     let accountname4=res[resnumber[4]].accountname;
     let privatekey4=res[resnumber[4]].privatekey;
-
+    console.log("有新玩家吗？"+verify)
          if (status===2) {
-             //获取下午选手和资产以及 公钥和私钥  游戏状态
-             let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-             let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
-             await _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId).catch((error) => {
-                 console.log(error)
-             });
+             if (verify) {
+                 //获取下午选手和资产以及 公钥和私钥  游戏状态
+                 let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
+                 await _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId).catch((error) => {
+                     console.log(error)
+                 });
 
-             await sleep(2000);
-             let area1 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-             let memo1 = roundId + "," + res[resnumber[1]].accountname + "," + area1 + "," + 10000 + ",";
-             await _bet(accountname1, privatekey1, "1.0000 EOS", memo1, area1, roundId).catch((error) => {
-                 console.log(error)
-             });
+                 await sleep(2000);
+                 let area1 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 let memo1 = roundId + "," + res[resnumber[1]].accountname + "," + area1 + "," + 10000 + ",";
+                 await _bet(accountname1, privatekey1, "1.0000 EOS", memo1, area1, roundId).catch((error) => {
+                     console.log(error)
+                 });
 
-             await sleep(2000);
-             let area2 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-             let memo2 = roundId + "," + res[resnumber[2]].accountname + "," + area2 + "," + 10000 + ",";
-             await _bet(accountname2, privatekey2, "1.0000 EOS", memo2, area2, roundId).catch((error) => {
-                 console.log(error)
-             });
+                 await sleep(2000);
+                 let area2 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 let memo2 = roundId + "," + res[resnumber[2]].accountname + "," + area2 + "," + 10000 + ",";
+                 await _bet(accountname2, privatekey2, "1.0000 EOS", memo2, area2, roundId).catch((error) => {
+                     console.log(error)
+                 });
 
-             await sleep(2000);
-             let area3 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-             let memo3 = roundId + "," + res[resnumber[3]].accountname + "," + area3 + "," + 50000 + ",";
-             await _bet(accountname3, privatekey3, "5.0000 EOS", memo3, area3, roundId).catch((error) => {
-                 console.log(error)
-             });
+                 await sleep(2000);
+                 let area3 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 let memo3 = roundId + "," + res[resnumber[3]].accountname + "," + area3 + "," + 50000 + ",";
+                 await _bet(accountname3, privatekey3, "5.0000 EOS", memo3, area3, roundId).catch((error) => {
+                     console.log(error)
+                 });
 
-             await sleep(2000);
-             let area4 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-             let memo4 = roundId + "," + res[resnumber[4]].accountname + "," + area4 + "," + 5000 + ",";
-             await _bet(res[resnumber[4]].accountname, res[resnumber[4]].privatekey, "0.5000 EOS", memo4, area4, roundId).catch((error) => {
-                 console.log(error)
-             });
+                 await sleep(2000);
+                 let area4 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 let memo4 = roundId + "," + res[resnumber[4]].accountname + "," + area4 + "," + 5000 + ",";
+                 await _bet(res[resnumber[4]].accountname, res[resnumber[4]].privatekey, "0.5000 EOS", memo4, area4, roundId).catch((error) => {
+                     console.log(error)
+                 });
+             }else {
+                 let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
+                 await _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId).catch((error) => {
+                     console.log(error)
+                 });
+                await sleep(5000)
+             }
+
          }
+
      setTimeout(start,2000);
 };
 
