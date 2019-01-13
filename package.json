@@ -15,7 +15,7 @@
     "eosjs-api": "^7.0.4",
     "eosjs-ecc": "^4.0.4",
     "express": "~4.16.0",
-    "fs": "0.0.1-security",
+    "fs": "^0.0.1-security",
     "http-errors": "~1.6.2",
     "leveldown": "^4.0.1",
     "levelup": "^0.10.0",
