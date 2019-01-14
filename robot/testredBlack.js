@@ -351,21 +351,17 @@ start=async ()=> {
                  verify=false;
              }else {
                  console.log("没有新玩家  机器人正在 投注！！！！！")
+                 await sleep(4000);
                  let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
                  let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
                  await _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId,end_time,playerInfos,gameTable).catch((error) => {
                      console.log(error)
                  });
-                 verify=false;
-                // sleep(15000)
              }
-
          }
+
     console.log("====================================================================================结束");
-    try {
         setTimeout(start, 5000);
-    } catch (e) {
-    }
 };
 
 start();
