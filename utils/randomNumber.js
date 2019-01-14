@@ -26,10 +26,10 @@ module.exports={randANumber,norepeatNumber}
 // }
 // testRandom()
 
-let test=async()=>{
-let arr=await norepeatNumber(5);
-for (let i = 0; i <arr.length ; i++) {
-   console.log("=========="+arr[i]);
-}
-}
-test()
+// let test=async()=>{
+// let arr=await norepeatNumber(5);
+// for (let i = 0; i <arr.length ; i++) {
+//    console.log("=========="+arr[i]);
+// }
+// }
+// test()
