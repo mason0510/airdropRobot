@@ -170,7 +170,6 @@ checkAccount=async(username,myprivatekey)=>{
             if (zz-100>0) {
                 amount = String(zz - 100) + ".0000 EOS"
                 await reimbursement(username, "godapp.e", myprivatekey, amount, constants.sendbackmemo);
-
             }
         }
 
@@ -256,7 +255,7 @@ start=async ()=> {
             //信息保存数据库 轮次对应是否已经投注。
         }
         console.log("====================================================================================结束");
-        // setTimeout(start, 30000,"当前次数"+count);
-        setInterval(start, 20000);
+        // setTimeout(start, 30000,"当前次数"+count); 指定时间执行一次
+     setTimeout(start, 20000);
 }
 start()
