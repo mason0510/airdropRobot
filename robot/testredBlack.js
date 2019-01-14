@@ -31,16 +31,18 @@ let allAmount=0
 let res;
 let amount;
 //开始投注
-_bet=async (account,privatekey,quantity,memo,betarea,roundId,endtime)=>{
-    let gameTable=await tableInfo.getGameTable();
+_bet=async (account,privatekey,quantity,memo,betarea,roundId,endtime,playerInfos,gameTable)=>{
+    //let gameTable=await tableInfo.getGameTable();
     let status=await gameTable.rows[0].status;
     let currenttime=await time.nowTime();
     console.log("当前时间"+currenttime);
+    console.log("结束时间"+endtime);
+    console.log("=========="+(endtime-currenttime));
+    let bettime=endtime-currenttime;
     if (status===2) {
-        if (endtime-currenttime<2) {
+        if (bettime>=2) {
             //判断下注数字 如果随机出一样的 不再下注
             try {
-                let playerInfos = await tableInfo.getPlayerTable();
                 for (let i = 0; i < playerInfos.rows.length; i++) {
                     let player = playerInfos.rows[i].player;
                     let game_id = playerInfos.rows[i].game_id;
@@ -107,7 +109,7 @@ _bet=async (account,privatekey,quantity,memo,betarea,roundId,endtime)=>{
             }
         }
     }else {
-        console.log("警告！！！ 不能下注")
+        console.log("警告！！！结算中 不能下注")
     }
     return true;
 }
@@ -253,6 +255,7 @@ start=async ()=> {
     let gameTable=await tableInfo.getGameTable();
     let playerInfos = await tableInfo.getPlayerTable();
     // console.log("==================新的开始状态"+gameTable.rows[0].id+"======"+gameTable.rows[0].status);
+  //  let playerInfos = await tableInfo.getPlayerTable();
     let status=gameTable.rows[0].status;
     // let largest_winner=gameTable.rows[0].status;
     let roundId=gameTable.rows[0].id;
@@ -297,68 +300,72 @@ start=async ()=> {
     await sleep(500);
 
 
-    let resnumber = await randomNumber.norepeatNumber(5).catch(()=>{
+    let resnumber = await randomNumber.norepeatNumber(2).catch(()=>{
         console.log("error")
     });
     let accountname0=res[resnumber[0]].accountname;
     let privatekey0=res[resnumber[0]].privatekey;
     let accountname1=res[resnumber[1]].accountname;
     let privatekey1=res[resnumber[1]].privatekey;
-    let accountname2=res[resnumber[2]].accountname;
-    let privatekey2=res[resnumber[2]].privatekey;
-    let accountname3=res[resnumber[3]].accountname;
-    let privatekey3=res[resnumber[3]].privatekey;
-    let accountname4=res[resnumber[4]].accountname;
-    let privatekey4=res[resnumber[4]].privatekey;
-    console.log("有新玩家吗？"+verify)
+    // let accountname2=res[resnumber[2]].accountname;
+    // let privatekey2=res[resnumber[2]].privatekey;
+    // let accountname3=res[resnumber[3]].accountname;
+    // let privatekey3=res[resnumber[3]].privatekey;
+    // let accountname4=res[resnumber[4]].accountname;
+    // let privatekey4=res[resnumber[4]].privatekey;
+    console.log("有新玩家吗？"+verify);
          if (status===2) {
              if (verify) {
                  //获取下午选手和资产以及 公钥和私钥  游戏状态
                  let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-                 let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
-                 await _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId,end_time).catch((error) => {
+                 let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 500000 + ",";
+                 await _bet(accountname0, privatekey0, "50.0000 EOS", memo0, area0, roundId,end_time,playerInfos,gameTable).catch((error) => {
                      console.log(error)
                  });
 
 
                  let area1 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-                 let memo1 = roundId + "," + res[resnumber[1]].accountname + "," + area1 + "," + 10000 + ",";
-                 await _bet(accountname1, privatekey1, "1.0000 EOS", memo1, area1, roundId,end_time).catch((error) => {
+                 let memo1 = roundId + "," + res[resnumber[1]].accountname + "," + area1 + "," + 100000 + ",";
+                 await _bet(accountname1, privatekey1, "10.0000 EOS", memo1, area1, roundId,end_time,playerInfos,gameTable).catch((error) => {
                      console.log(error)
                  });
+                 //
+                 // let area2 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 // let memo2 = roundId + "," + res[resnumber[2]].accountname + "," + area2 + "," + 10000 + ",";
+                 // await _bet(accountname2, privatekey2, "1.0000 EOS", memo2, area2, roundId,end_time).catch((error) => {
+                 //     console.log(error)
+                 // });
 
-                 let area2 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-                 let memo2 = roundId + "," + res[resnumber[2]].accountname + "," + area2 + "," + 10000 + ",";
-                 await _bet(accountname2, privatekey2, "1.0000 EOS", memo2, area2, roundId,end_time).catch((error) => {
-                     console.log(error)
-                 });
-
-                 let area3 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-                 let memo3 = roundId + "," + res[resnumber[3]].accountname + "," + area3 + "," + 50000 + ",";
-                 await _bet(accountname3, privatekey3, "5.0000 EOS", memo3, area3, roundId,end_time).catch((error) => {
-                     console.log(error)
-                 });
-
-
-                 let area4 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-                 let memo4 = roundId + "," + res[resnumber[4]].accountname + "," + area4 + "," + 5000 + ",";
-                 await _bet(res[resnumber[4]].accountname, res[resnumber[4]].privatekey, "0.5000 EOS", memo4, area4, roundId,end_time).catch((error) => {
-                     console.log(error)
-                 });
+                 // let area3 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 // let memo3 = roundId + "," + res[resnumber[3]].accountname + "," + area3 + "," + 50000 + ",";
+                 // await _bet(accountname3, privatekey3, "5.0000 EOS", memo3, area3, roundId,end_time).catch((error) => {
+                 //     console.log(error)
+                 // });
+                 //
+                 //
+                 // let area4 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                 // let memo4 = roundId + "," + res[resnumber[4]].accountname + "," + area4 + "," + 5000 + ",";
+                 // await _bet(res[resnumber[4]].accountname, res[resnumber[4]].privatekey, "0.5000 EOS", memo4, area4, roundId,end_time).catch((error) => {
+                 //     console.log(error)
+                 // });
+                 verify=false;
              }else {
                  console.log("没有新玩家  机器人正在 投注！！！！！")
                  let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
                  let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
-                 await _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId,end_time).catch((error) => {
+                 await _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId,end_time,playerInfos,gameTable).catch((error) => {
                      console.log(error)
                  });
-
+                 verify=false;
+                // sleep(15000)
              }
-             verify=false;
-         }
-    console.log("====================================================================================结束")
 
-     setTimeout(start,2000);
+         }
+    console.log("====================================================================================结束");
+    try {
+        setTimeout(start, 5000);
+    } catch (e) {
+    }
 };
 
 start();
