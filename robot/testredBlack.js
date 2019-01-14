@@ -37,7 +37,7 @@ _bet=async (account,privatekey,quantity,memo,betarea,roundId,endtime)=>{
     let currenttime=await time.nowTime();
     console.log("当前时间"+currenttime);
     if (status===2) {
-        if (endtime-currenttime<2) {
+        if (endtime-currenttime<5) {
             //判断下注数字 如果随机出一样的 不再下注
             try {
                 let playerInfos = await tableInfo.getPlayerTable();
@@ -345,16 +345,16 @@ start=async ()=> {
                  await _bet(res[resnumber[4]].accountname, res[resnumber[4]].privatekey, "0.5000 EOS", memo4, area4, roundId,end_time).catch((error) => {
                      console.log(error)
                  });
+                 verify=false;
              }else {
                  console.log("没有新玩家  机器人正在 投注！！！！！")
+                 await sleep(4000);
                  let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
                  let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
                  await _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId,end_time).catch((error) => {
                      console.log(error)
                  });
-
              }
-             verify=false;
          }
     console.log("====================================================================================结束")
 
