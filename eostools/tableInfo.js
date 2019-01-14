@@ -125,15 +125,19 @@ getPlayerInComeTable=async ()=>{
 
 module.exports={getGameTable,getPlayerTable};
 
-// let body=async()=>{
-//     try {
-//         let body=await getPlayerTable();
-//         console.log(body.rows[0].player)
-//      //   let player1=body.rows[0].player;
-//     }catch (e) {
-//         console.log(e)
-//     }
-//
-//
-// }
-// body()
+let body=async()=>{
+    try {
+        let body=await getGameTable();
+        if (body.rows.length!==0){
+            // console.log(body.rows[0].player)
+            //   let player1=body.rows[0].player;
+            console.log("结束时间"+body.rows[0].end_time);
+            console.log("当前时间"+parseInt(Date.now()/1000));
+        }
+    }catch (e) {
+        console.log(e)
+    }
+
+
+}
+body()

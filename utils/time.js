@@ -1,7 +1,8 @@
 
-
-nowTime=()=>{
-  let currenttime=Date.now();
+//转换成秒
+nowTime=async()=>{
+  let currenttime=await Date.now();
+  //console.log(currenttime)
     return currenttime;
 };
 
