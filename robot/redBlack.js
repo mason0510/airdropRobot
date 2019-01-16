@@ -27,6 +27,12 @@ let fs=require('fs');
 //npm install node-schedule
 let schedule=require('node-schedule');
 
+let Fileoperation=require('../utils/fileoperation');
+
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
+
 let gamestatus;
 let end_time;
 let roundId;
@@ -47,40 +53,22 @@ let  verify=false;
 //let
 let isRunning=false;
 
-async function save(quantity) {
-    arr = quantity.split(" ");
-    allAmount += await parseFloat(arr[0]);
-    console.log("" + count + "次下注" + "finish" + allAmount)
-    //保存下注总额 加上上次的
-    fs.readFile('/Users/michael_zhang/WebstormProjects/untitled1/airdrop/robot/a', 'utf-8', async (err, data) => {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log(`Node.js异步读取的文件内容${data}`);
-            let arr = parseInt(data.split(","));
-            console.log("上次下注额" + arr[1]);
-            let str = count + "," + allAmount;
-            await fs.writeFile("/Users/michael_zhang/WebstormProjects/untitled1/airdrop/robot/a", str, function (err) {
-                if (err) {
-                    return;
-                }
-                console.log("写入成功")
-            })
-        }
-    })
-}
+let rule1     = new schedule.RecurrenceRule();
+//let times1    = [1,6,11,16,21,26,31,36,41,46,51,56];
+let times1    = [1,21,41];
 
 _bet=async (account,privatekey,quantity,memo,betarea,roundId,endtime,playerInfos,gameTable)=>{
     //let gameTable=await tableInfo.getGameTable();
     let status=await gameTable.rows[0].status;
-    let currenttime=await time.nowTime();
-    console.log("当前时间"+currenttime);
-    console.log("结束时间"+endtime);
+    let currenttime=await time.networktime();
+    console.log("当前网络时间"+currenttime);
+    console.log("结束时间类型"+typeof endtime);
+    console.log("结束时间"+ endtime);
     console.log("状态"+status);
-    console.log("=========="+(endtime-currenttime));
-    let bettime=endtime-currenttime;
+    var bettime=endtime*1000-currenttime;
+    console.log("=================bettime"+bettime);
     if (status===2) {
-        if (bettime>=2) {
+        if (bettime>=2000&&bettime>0) {
             //判断下注数字 如果随机出一样的 不再下注
             console.log("betting ", account + "==========" + memo);
                 let mykey = CryptoUtil.privateDecrypt(privatekey);
@@ -111,22 +99,25 @@ _bet=async (account,privatekey,quantity,memo,betarea,roundId,endtime,playerInfos
                         }, function (error) {
                             console.log(error.name + ': ' + error.message);
                         });
+                       // await save(quantity);
                         console.log("======================================================下注结果" + JSON.stringify(result));
+                        //保存结果
+                        count++;
+
+                        await Fileoperation.save(count,quantity)
+                   
                     }else {
                         playerInfos.forEach(item=>{
                             if (item.player===account&&item.bet_type!==betarea){return}
-                            console.log("已经下过此注 不允许下注")
+                            console.log("已经下过注 不允许下注")
                         })
                     }
                 // }
             }catch (e) {
                 console.log("Game is no longer active")
-
+            }finally {
+                isRunning=false;
             }
-                count++;
-            await save(quantity);
-
-
         }
         // }
     }else {
@@ -165,9 +156,8 @@ let buyeos = async (bankaccount,username,memo) => {
         }, {
             blocksBehind: 3,
             expireSeconds: 30,
-        }).then(() => {
-            count++;
         })
+        console.log("购买反馈"+result);
     } catch (e) {
         console.log(JSON.stringify("下注失败" + e))
     }
@@ -212,13 +202,13 @@ checkAccount=async(username,myprivatekey)=>{
         json: true };
     await request(options, async function (error, response, body) {
         if (!error&&response.statusCode===200) {
-            let zz=await parseInt(body.core_liquid_balance);
+            let core_liquid_balance=await parseInt(body.core_liquid_balance);
             //获取
-            if (zz-50<0){
+            if (core_liquid_balance-50<0){
                 await buyeos("godapp.e",username,constants.buyeosmemo);
             }
-            if (zz-100>0) {
-                amount = String(zz - 100) + ".0000 EOS"
+            if (core_liquid_balance-100>0) {
+                amount = String(core_liquid_balance - 100) + ".0000 EOS"
                 await reimbursement(username, "godapp.e", myprivatekey, amount, constants.sendbackmemo);
             }
         }
@@ -265,7 +255,7 @@ try {
     let res = await humanais.find({}).limit(11);
     let newarr = [];
 
-    await checkHouseAccount();
+    // await checkHouseAccount();
     //robot to godapp.e
     for (let i = 0; i < res.length; i++) {
         let key = await res[i].privatekey;
@@ -274,9 +264,8 @@ try {
         //必须串行
         let myprivatekey=await myprivatekeyPromise;
         newarr.push(name);
-        checkAccount(name, myprivatekey);
+       await checkAccount(name, myprivatekey);
     }
-
 
     if (playerInfos.rows.length !== 0) {
         for (let j = 0; j < playerInfos.rows.length; j++) {
@@ -285,7 +274,7 @@ try {
             //只包含名字的新数组
             let res = newarr.indexOf(realPlayer);
             if (res !== -1) {
-                //console.log("=========没有新玩家")
+                console.log("============没有新玩家")
             } else {
                 verify = true
                 console.log("==================================有新玩家" + realPlayer)
@@ -299,11 +288,9 @@ try {
     // let privatekey1 = res[resnumber[1]].privatekey;
 
     //await Sleep(2000);
-    console.log("必须有值"+new Date());
+    console.log("必须有值"+new Date()+"verify:"+verify);
     if (status === 2) {
         if (verify)
-
-
         {
             let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
             let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 500000 + ",";
@@ -345,11 +332,30 @@ try {
         }
 }
 
-let rule1     = new schedule.RecurrenceRule();
-//let times1    = [1,6,11,16,21,26,31,36,41,46,51,56];
-let times1    = [1,21,41];
-rule1.second  = times1;
-schedule.scheduleJob(rule1, function(){
-    start();
-
-});
+//
+// if (cluster.isMaster) {
+//     console.log(`主进程 ${process.pid} 正在运行`);
+//
+//     // 衍生工作进程。
+//     for (let i = 0; i < numCPUs; i++) {
+//         cluster.fork();
+//     }
+//
+//     cluster.on('exit', (worker, code, signal) => {
+//         console.log(`工作进程 ${worker.process.pid} 已退出`);
+//     });
+// } else {
+//     // 工作进程可以共享任何 TCP 连接。
+//     // 在本例子中，共享的是 HTTP 服务器。
+//     rule1.second  = times1;
+//     schedule.scheduleJob(rule1, function(){
+//         start();
+//
+//     });
+//
+//     console.log(`工作进程 ${process.pid} 已启动`);
+// }
+    rule1.second  = times1;
+    schedule.scheduleJob(rule1, async function(){
+         await start();
+     });

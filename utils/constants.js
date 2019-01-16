@@ -2,6 +2,7 @@ let sendbackmemo = "sendback eos"
 let buyeosmemo = "buyeos "
 let undelegatebwmemo = "undelegatebw eos"
 let url = 'https://proxy.eosnode.tools/v1/chain/get_account'
+let timeurl="http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp";
 let betarea = ["1", "2", "4"];
 // let betnumber=[5000,10000,50000,100000];
 // let arr=["0.5000 EOS","1.0000 EOS","5.0000 EOS","10.0000 EOS"];
@@ -19,7 +20,7 @@ let scope = ['godice.e', 'blackjack.e', 'warofstar.e'];
 let accountname = ["houseaccount", "godapp.e"];
 //system 
 let eosio='eosio.token';
-  module.exports={sendbackmemo,url,betarea,betnumber,arr,undelegatebwmemo,buyeosmemo,url1,url2,url3,deadlineTime,responseTime,eosio, gamestable,code,scope,accountname };
+  module.exports={timeurl,sendbackmemo,url,betarea,betnumber,arr,undelegatebwmemo,buyeosmemo,url1,url2,url3,deadlineTime,responseTime,eosio, gamestable,code,scope,accountname };
 
 
 
