@@ -207,11 +207,7 @@ checkHouseAccount=async()=>{
 }
 
 
-start=async ()=> {
-try {
-    if (isRunning){
-        return;
-    }
+let start=async ()=> {
     console.log("====================================================================================开始")
     //串行 变并行
     let gameTablePromise =  TableInfo.getGameTable();
@@ -265,31 +261,37 @@ try {
     //await Sleep(2000);
     console.log("必须有值");
     if (status === 2) {
-        if (verify) {
+        if (verify)
+        {
             let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
             let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 500000 + ",";
-             _bet(accountname0, privatekey0, "50.0000 EOS", memo0, area0, roundId, end_time, playerInfos, gameTable);
+            _bet(accountname0, privatekey0, "50.0000 EOS", memo0, area0, roundId, end_time, playerInfos, gameTable);
             // let area1 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
             // let memo1 = roundId + "," + res[resnumber[1]].accountname + "," + area1 + "," + 100000 + ",";
             //  _bet(accountname1, privatekey1, "10.0000 EOS", memo1, area1, roundId, end_time, playerInfos, gameTable);
         } else {
             //获取新一轮的 轮次
-            let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
-            let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 5000 + ",";
-             _bet(accountname0, privatekey0, "0.5000 EOS", memo0, area0, roundId, end_time, playerInfos, gameTable);
+            if (roundId%2===0){
+                let area0 =  constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + 10000 + ",";
+                _bet(accountname0, privatekey0, "1.0000 EOS", memo0, area0, roundId, end_time, playerInfos, gameTable);
+
+            }else if (roundId%2===1) {
+                let area1 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                let memo1 = roundId + "," + res[resnumber[0]].accountname + "," + area1 + "," + 5000 + ",";
+                _bet(accountname0, privatekey0, "0.5000 EOS", memo1, area1, roundId, end_time, playerInfos, gameTable);
+            }else {
+                let area1 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)]
+                let memo1 = roundId + "," + res[resnumber[0]].accountname + "," + area1 + "," + 500000 + ",";
+                _bet(accountname0, privatekey0, "50.0000 EOS", memo1, area1, roundId, end_time, playerInfos, gameTable);
+            }
         }
         //重置数据
         verify = false;
-        //信息保存数据库 轮次对应是否已经投注。
     }
     console.log("====================================================================================结束");
     // setTimeout(start, 30000,"当前次数"+count); 指定时间执行一次
 }
-        catch (e) {
-            console.log(e)
-        }finally {
-            isRunning=false;
-            setTimeout(start,80000);
-        }
-}
-start()
+
+//start()
+module.exports={start};
