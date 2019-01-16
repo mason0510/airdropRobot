@@ -38,6 +38,15 @@ getPlayerTable=async ()=>{
              }
          }, async (error, res, body) => {
              if (!error&&res.statusCode===200) {
+                // console.log(body)
+                 /**
+                  *    [ { id: 39078,
+       game_id: 11154,
+       player: 'happylilyyyy',
+       referer: 'houseaccount',
+       bet: '1.0000 EOS',
+       bet_type: 4 } ],
+                  */
                  console.log(`statusCode: ${res.statusCode}`);
                   resolve(body);
              }
@@ -91,19 +100,20 @@ getPlayerInComeTable=async ()=>{
 
 module.exports={getGameTable,getPlayerTable,getPlayerInComeTable};
 
-// let body=async()=>{
-//     try {
-//         let body=await getGameTable();
-//         if (body.rows.length!==0){
-//             // console.log(body.rows[0].player)
-//             //   let player1=body.rows[0].player;
-//             console.log("结束时间"+body.rows[0].end_time);
-//             console.log("当前时间"+parseInt(Date.now()/1000));
-//         }
-//     }catch (e) {
-//         console.log(e)
-//     }
-//
-//
-// }
-// body()
+let body=async()=>{
+    try {
+        let body=await getPlayerTable();
+        console.log(body)
+        // if (body.rows.length!==0){
+        //     // console.log(body.rows[0].player)
+        //     //   let player1=body.rows[0].player;
+        //     console.log("结束时间"+body.rows[0].end_time);
+        //     console.log("当前时间"+parseInt(Date.now()/1000));
+        // }
+    }catch (e) {
+        console.log(e)
+    }
+
+
+}
+body()

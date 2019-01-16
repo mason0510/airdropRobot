@@ -1,0 +1,30 @@
+(node:2830) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:2830) UnhandledPromiseRejectionWarning: TypeError: Cannot read property '2' of undefined
+    at Promise (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/eostools/tableInfo_superagent.js:136:33)
+    at new Promise (<anonymous>)
+    at Object.getGameTable (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/eostools/tableInfo_superagent.js:131:19)
+    at start (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/robot/redBlack.js:255:39)
+    at Job.job (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/robot/redBlack.js:357:5)
+    at Job.invoke (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/node_modules/node-schedule/lib/schedule.js:173:10)
+    at /Users/michael_zhang/WebstormProjects/untitled1/airdrop/node_modules/node-schedule/lib/schedule.js:552:11
+    at Timeout._onTimeout (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/node_modules/node-schedule/lib/schedule.js:510:7)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+(node:2830) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:2830) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:2830) UnhandledPromiseRejectionWarning: TypeError: Cannot read property '2' of undefined
+    at Promise (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/eostools/tableInfo_superagent.js:167:33)
+    at new Promise (<anonymous>)
+    at Object.getPlayerTable (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/eostools/tableInfo_superagent.js:162:19)
+    at start (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/robot/redBlack.js:256:41)
+    at Job.job (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/robot/redBlack.js:357:5)
+    at Job.invoke (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/node_modules/node-schedule/lib/schedule.js:173:10)
+    at /Users/michael_zhang/WebstormProjects/untitled1/airdrop/node_modules/node-schedule/lib/schedule.js:552:11
+    at Timeout._onTimeout (/Users/michael_zhang/WebstormProjects/untitled1/airdrop/node_modules/node-schedule/lib/schedule.js:510:7)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+(node:2830) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)
