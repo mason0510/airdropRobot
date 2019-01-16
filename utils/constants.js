@@ -17,7 +17,7 @@ let responseTime = 5000;//设置等待第一个字节从服务器到达最大时
 let gamestable = ['gametable', 'bets'];
 let code = ['godice.e', 'blackjack.e', 'warofstar.e'];
 let scope = ['godice.e', 'blackjack.e', 'warofstar.e'];
-let accountname = ["houseaccount", "godapp.e"];
+let accountname = ["houseaccount", "godapp.e",'eosjoygame1b'];
 //system 
 let eosio='eosio.token';
   module.exports={timeurl,sendbackmemo,url,betarea,betnumber,arr,undelegatebwmemo,buyeosmemo,url1,url2,url3,deadlineTime,responseTime,eosio, gamestable,code,scope,accountname };
