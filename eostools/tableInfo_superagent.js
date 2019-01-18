@@ -4,7 +4,7 @@ let constants = require('../utils/constants');
 let Sleep = require('../utils/sleep'); //
 
 getGameTable = async () => {
-    console.log("test========begin");
+    // console.log("test========begin");
     let promise = new Promise(async resolve => {
         await request.post(constants.url1 + '/v1/chain/get_table_rows').timeout({
             deadline: constants.deadlineTime,
@@ -30,7 +30,7 @@ getGameTable = async () => {
 };
 
 getPlayerTable = async () => {
-    console.log("=========begin");
+    // console.log("=========begin");
     let promise = new Promise(async resolve => {
         await request.post('https://eu.eosdac.io/v1/chain/get_table_rows').timeout({
             deadline: constants.deadlineTime,

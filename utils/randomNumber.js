@@ -18,7 +18,25 @@ let norepeatNumber=async (number)=>{
    });
     return promise;
 };
-module.exports={randANumber,norepeatNumber}
+let random_different_probability=(arr1, arr2)=> {
+    let sum = 0,
+        factor = 0,
+        random = Math.random();
+
+    for(let i = arr2.length - 1; i >= 0; i--) {
+        sum += arr2[i]; // 统计概率总和
+    };
+    random *= sum; // 生成概率随机数
+    for(let i = arr2.length - 1; i >= 0; i--) {
+        factor += arr2[i];
+        if(random <= factor)
+            return arr1[i];
+    };
+    return null;
+};
+
+
+module.exports={randANumber,norepeatNumber,random_different_probability}
 
 // let testRandom=async()=>{
 //    let res= await randANumber();

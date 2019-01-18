@@ -1,7 +1,7 @@
 
 'use strict'
 let mongoose = require('mongoose');
-let config = require('../config');
+let config = require('../config/config');
 mongoose.connect(`mongodb://localhost:27017/${config.DB}`)
 
 let db = mongoose.connection;
