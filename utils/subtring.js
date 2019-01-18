@@ -1,19 +1,13 @@
-str="10.0001 EOS"
-// let arr = str.toString().split(" ");
-let arr;
-if (typeof str[0] == 'string') {
-    arr = str[0,5].split(' ')
-    //console.log(arr);
-} else {
-    arr = [];
+let str_Split_type1=(processedElement)=>{
+    if (typeof processedElement!=="string") return;
+    let res=processedElement.split("_");
+    return res;
+};
+//,
+let str_Split_type2=(processedElement)=>{
+    if (typeof processedElement!=="string") return;
+    let res=processedElement.split("_");
+    return res;
+};
 
-}
-arr=str.split(" ")
-console.log(arr[0]);
-console.log(parseFloat(arr[0]));
-
-let sum=0;
-for (let i = 0; i < 100; i++) {
-    sum+=i
-}
-console.log(sum);
+module.exports={str_Split_type1,str_Split_type2};

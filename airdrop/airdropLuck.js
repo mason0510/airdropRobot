@@ -87,36 +87,38 @@ reset= async ()=>{
 }
 
 
-markDropped=async (account)=>{
+markDropped=async ()=>{
     //记录数据库
+    let res = await AirUser.find().limit(1);
+    console.log("=========="+res);
 
-    let query={username:account};
-
-    try {
-        //用户在数据库中才修改 没在先添加再修改
-        let res = AirUser.find(query).limit(1);
-        if (!res) {
-            console.log("用户不存在")
-            //may not be in mongodb 账户名 资产 创建时间
-            let user1 = new AirUser({
-                            username: account,
-                            assets: "0.0000 EOS",
-                            block_time: "",
-                            trx_id: "",
-                            memo: "",
-                            created: Date.now(),
-                            isDrop: false
-                        });
-            await AirUser.create(user1);
-            console.log("保存成功"+user1.username)
-        }
-
-        await  AirUser.findOneAndUpdate(query, { isDrop: 'true' }, {multi: true},()=>{
-            console.log(account+"success");
-        })
-    }catch (e) {
-        throw "err"
-    }
+    // let query={username:account};
+    //
+    // try {
+    //     //用户在数据库中才修改 没在先添加再修改
+    //     let res = AirUser.find(query).limit(1);
+    //     if (!res) {
+    //         console.log("用户不存在")
+    //         //may not be in mongodb 账户名 资产 创建时间
+    //         let user1 = new AirUser({
+    //                         username: account,
+    //                         assets: "0.0000 EOS",
+    //                         block_time: "",
+    //                         trx_id: "",
+    //                         memo: "",
+    //                         created: Date.now(),
+    //                         isDrop: false
+    //                     });
+    //         await AirUser.create(user1);
+    //         console.log("保存成功"+user1.username)
+    //     }
+    //
+    //     await  AirUser.findOneAndUpdate(query, { isDrop: 'true' }, {multi: true},()=>{
+    //         console.log(account+"success");
+    //     })
+    // }catch (e) {
+    //     throw "err"
+    // }
 }
 
 _airdrop=async (account,memo)=>{
@@ -162,4 +164,4 @@ start=async ()=> {
         await airdrop("最新最燃爆的dapp游戏，你知道是什么吗？2019赚赚赚！！ 网址 godapp.com/redvsblue");
 }
 
-start();
+markDropped()

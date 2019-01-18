@@ -1,5 +1,5 @@
 //define table and 绑定数据
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
     accountname: {
         type: String,

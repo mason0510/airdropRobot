@@ -1,0 +1,8 @@
+apps:
+    - script   : app.js
+name: airdrop
+instances: max
+exec_mode: cluster
+watch  : true
+env:
+    NODE_ENV: production
