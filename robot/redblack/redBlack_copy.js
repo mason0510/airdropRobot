@@ -12,7 +12,6 @@ let request = require("request");
 let CryptoUtil=require('../../encryption/cryptoUtil');
 let constants=require("../../utils/constants");
 let Eoshelper=require("../../utils/eoshelper");
-// let {Buyeos,Rentcpu}=require("../robot/checkCPU");
 let dbutils=require("../../utils/dbutils");
 
 let Account=require('../../eostools/accountInfo');
@@ -42,8 +41,6 @@ let newTurn=0;
 //开始投注
 let  verify=false;
 
-//let
-let isRunning=false;
 
 _bet=async (account,privatekey,quantity,memo,betarea,roundId,endtime,playerInfos,gameTable)=>{
     //let gameTable=await tableInfo.getGameTable();
