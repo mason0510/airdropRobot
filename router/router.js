@@ -1,37 +1,29 @@
 let express=require('express');
-let Start=require('../robot/redBlack');
+let RedBlue=require('../robot/redblack/redBlack');
 let router=express.Router();
+let constants=require('../utils/constants');
 //引入服务层controller
 let accountService = require('../service/accountservice');
 
-let test;
-router.get('/start',async (req,res)=>{
-     test=await Start.start();
-     console.log("==========router"+test);
-    res.send({code:0,msg:test});
+let Bacarrat= require('../robot/bacarrat/bacarrat');
+
+// let test;
+router.get('/',async (req,res)=>{
+    res.send("test");
 });
 
-router.get('/:usrname',async (req,res)=>{
-    let user = await accountService.getUserByUsername(req.params.username);
-    res.success(user);
-});
 
-router.post('./login',async (req,res)=>{
-    let token = await accountService.login(req.body);
-    res.send(token);
+router.get("/:name",async(req,res,next)=>{
+   if (req.params.name==="baccarat"||req.params.name==="redvsblue"){
+       next();
+   }
+},async(req,res)=>{
+    if (req.params.name==="baccarat") {
+        await Bacarrat.start();
+        res.send("baccarat success");
+    }else if(req.params.name==="redvsblue"){
+        await RedBlue.start();
+        res.send("redvsblue success");
+    }
 });
-
-router.post('/register', async (req, res) =>{
-    await accountService.register(req.body)
-    res.success()
-});
-
-router.delete('/user/:id',async function (req,res,next) {
-   if (req.params.id===0)next('route');
-   else next();
-},async function (req,res,) {
-    await accountService.deleteUser(req.params.id)
-    res.success()
-});
-
 module.exports=router;

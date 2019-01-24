@@ -1,7 +1,8 @@
 require("../db/db");
 let cryptoUtil=require("../encryption/cryptoUtil");
 let companyAccount=require("../model/companyAccount");
-let humanAI=require("../model/humanAI");
+let humanAiAccount=require("../model/humanAI");
+//let humanAI=require("../model/humanAI");
 let accountInfo=require("../eostools/accountInfo");
 let key="";
 let results="";
@@ -21,23 +22,57 @@ companykey=async (accountname)=>{
   return key
 };
 
+redblackkey=async(accountname)=>{
+    results=await humanAiAccount.find({});
+    for (let i = 0; i < results.length; i++) {
+        if (results[i].accountname===accountname){
+            key=await cryptoUtil.privateDecrypt(results[i].privatekey);
+            //console.log(key);
+        }
+    }
+    return key
+};
+redblackpublickey=async(accountname)=>{
+    results=await humanAiAccount.find({});
+    for (let i = 0; i < results.length; i++) {
+        if (results[i].accountname===accountname){
+            key=await results[i].publickey;
+            //console.log("================="+key);
+        }
+    }
+    return key
+};
+
+
 myaikey=async (accountname)=>{
-    results=await humanAI.find({});
+    results=await humanAiAccount.find({});
     if (results.length===0)return
     for (let i = 0; i < results.length; i++) {
-         if (results[i].accountname===accountname){
-         key=await cryptoUtil.privateDecrypt(results[i].privatekey)
-         //console.log("=========="+key);
-      }
+        if (results[i].accountname===accountname){
+            key=await cryptoUtil.privateDecrypt(results[i].privatekey)
+            //console.log("=========="+key);
+        }
     }
     return key
 }
+// myaipublickey=async (accountname)=>{
+//     results=await humanAiAccount.find({});
+//     if (results.length===0)return
+//     for (let i = 0; i < results.length; i++) {
+//         if (results[i].accountname===accountname){
+//             key=await cryptoUtil.privateDecrypt(results[i].privatekey)
+//             //console.log("=========="+key);
+//         }
+//     }
+//     return key
+// }
+
 
 preserveKey=async (newaccountname,privateKey,publicKey)=>{
     console.log("begin");
     try {
         Encryptkey=await cryptoUtil.publicEncrypt(privateKey);//公钥加密
-        results=await humanAI.find({});
+        results=await humanAiAccount.find({});
         for (let i = 0; i < results.length; i++) {
             if (results[i].accountname===accountname){
                 return
@@ -62,7 +97,7 @@ preserveKey=async (newaccountname,privateKey,publicKey)=>{
             await companyAccount.create(newUser);
             //校验
             let key=await companykey(newaccountname);
-            console.log("=========="+key);
+           // console.log("=========="+key);
             if (key===privateKey){
                 console.log("finish");
             }else {
@@ -72,6 +107,7 @@ preserveKey=async (newaccountname,privateKey,publicKey)=>{
     }catch (e) {
             console.log(JSON.stringify(e.json, null, 2));
     }
-}
- module.exports={companykey,myaikey,preserveKey}
+};
+ module.exports={companykey,myaikey,preserveKey,redblackkey,redblackpublickey};
 
+redblackkey("yiyiranranfc");
