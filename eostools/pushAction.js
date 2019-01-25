@@ -2,12 +2,13 @@ let eoshelper = require("../utils/eoshelper");
 let CryptoUtil = require('../encryption/cryptoUtil');
 let time=require('../utils/time');
 let Fileoperation = require('../utils/fileoperation');
+let constants=require("../utils/constants");
 let count=0;
 _bet = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
     let promise;
         let status = await gameTable.rows[0].status;
         let currenttime = await time.networktime();
-        // console.log("当前网络时间" + currenttime);
+        console.log("当前网络时间" + currenttime);
         console.log(endtime);
         let bettime = Number(endtime * 1000 - currenttime);
         console.log("=================bettime" + bettime);
@@ -31,7 +32,7 @@ _bet = async (account, privatekey, quantity, memo, betarea, roundId, endtime, pl
                                }],
                                data: {
                                    from: account,
-                                   to: "warofstar.e",
+                                   to: constants.contractAccount[1],
                                    quantity: quantity,
                                    memo: memo,
                                },

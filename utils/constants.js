@@ -1,9 +1,13 @@
-let sendbackmemo = "sendback eos"
+let sendbackmemo = "sendback eos";
 let buyeosmemo = "buyeos "
-let undelegatebwmemo = "undelegatebw eos"
-let url = 'https://proxy.eosnode.tools/v1/chain/get_account'
+let undelegatebwmemo = "undelegatebw eos";
+let url = 'https://proxy.eosnode.tools/v1/chain/get_account';
 let timeurl="http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp";
 let betarea = ["1", "2", "4"];
+
+let baccarat_area = ["1", "2", "3","4","5"];
+
+
 // let betnumber=[5000,10000,50000,100000];
 // let arr=["0.5000 EOS","1.0000 EOS","5.0000 EOS","10.0000 EOS"];
 let betnumber = [5000, 10000, 50000];
@@ -14,13 +18,24 @@ let url3 = "https://proxy.eosnode.tools";
 let deadlineTime = 1000000;//
 // 整个请求的超时时间 
 let responseTime = 5000;//设置等待第一个字节从服务器到达最大时间 
-let gamestable = ['gametable', 'bets'];
-let code = ['godice.e', 'blackjack.e', 'warofstar.e'];
-let scope = ['godice.e', 'blackjack.e', 'warofstar.e'];
+let gamestable = ['gametable', 'bets',"history","results"];
+let code = ['godice.e', 'blackjack.e', 'warofstar.e',"baccarat.e"];
+let scope = ['godice.e', 'blackjack.e', 'warofstar.e',"baccarat.e"];
 let accountname = ["houseaccount", "godapp.e",'eosjoygame1b'];
 //system 
 let eosio='eosio.token';
-  module.exports={timeurl,sendbackmemo,url,betarea,betnumber,arr,undelegatebwmemo,buyeosmemo,url1,url2,url3,deadlineTime,responseTime,eosio, gamestable,code,scope,accountname };
+
+
+//rent cpu账户 bankofstaked
+let rent_cpu=["bankofstaked"];
+let eos_quancity=["1.0000 EOS"];
+
+//contracts
+let contractAccount=["warofstar.e","baccarat.e"];
+
+//常量
+
+    module.exports={contractAccount,eos_quancity,rent_cpu,timeurl,sendbackmemo,url,betarea,betnumber,arr,undelegatebwmemo,buyeosmemo,url1,url2,url3,deadlineTime,responseTime,eosio, gamestable,code,scope,accountname };
 
 
 

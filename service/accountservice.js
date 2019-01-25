@@ -1,6 +1,6 @@
 const User = require('../model/user');
 const config = require('../config/configdb')
-const crypto = require('lxj-crypto');
+//const crypto = require('lxj-crypto');
 
 //操作数据库such as
 getUserByname=async (username)=>{
@@ -39,31 +39,5 @@ addUser=async (user)=> {
     await User.create(user)
 };
 
-/**
- * 登陆
- */
-/**
- * 登录的方法
- * @param user
- * @returns token
- */
-login=async (user)=> {
-    // 1. 对密码进行加密
-    user.password = crypto.md5Hmac(user.password, user.username)
-    // 2. 进行查询
-    let res = await User.findOne({username:user.username, password: user.password});
-    if(!res){
-        throw Error("用户名或者密码错误")
-    }
 
-    // 说明用户名和密码验证成功，需要生产token返回给客户端，以后客户端的header中带上这个token
-    // token 生产方法：用aes进行对指定的data加密
-    let tokenData = {
-        username: user.username,
-        expire: Date.now() + config.TokenDuration
-    };
-    let token = crypto.aesEncrypt(JSON.stringify(tokenData), config.TokenKey);
-    return token
-}
-
-module.exports={getUserByname,login,addUser,checkCanInsertUser};
+module.exports={getUserByname,addUser,checkCanInsertUser};
