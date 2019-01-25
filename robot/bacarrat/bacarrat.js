@@ -69,7 +69,8 @@ let isRunning = false;
 //let times1    = [1,6,11,16,21,26,31,36,41,46,51,56];
 let times1 = [1, 21, 41];
 
-let bet_amount = ['0.5000 EOS', '1.0000 EOS', '5.0000 EOS', '10.0000 EOS', '50.0000 EOS'];
+
+let bet_amount = ['0.1000 EOS', '1.0000 EOS', '5.0000 EOS', '10.0000 EOS', '50.0000 EOS'];
 //没有玩家
 let bet_probability = [0.38, 0.3, 0.2, 0.1, 0.02];
 //有玩家
@@ -78,12 +79,13 @@ let bet_probability_realPlayer = [0.28, 0.1, 0.2, 0.3, 0.12];
 let gettxInfo;
 let promise;
 start = async () => {
-    let gameTablePromise = TableInfo.getGameTable();
-    let playerInfosPromise = TableInfo.getPlayerTable();
+
+    let gameTablePromise = TableInfo.baccarat_getGameTable();
+    let playerInfosPromise = TableInfo.baccarat_getPlayerTable();
     let gameTable = await gameTablePromise;
     let playerInfos = await playerInfosPromise;
-    console.log(gameTable.rows);
-    console.log(playerInfos.rows);
+    console.log("gametable"+gameTable.rows);
+    console.log("playerInfos"+playerInfos.rows);
     let status = gameTable.rows[0].status;
     let roundId = gameTable.rows[0].id;
     let end_time = gameTable.rows[0].end_time;
@@ -99,14 +101,15 @@ start = async () => {
     //console.log(quantity2);
     //console.log(robot_amount);
         for (let i = 0; i < res.length; i++) {
-            if (i>11&&i<23){
+            if (i>=11&&i<=21){
                 let name = await res[i].accountname;
-                console.log("=========="+name);
+                //console.log("=========="+name);
                 newarr.push(res[i]);
             }
         }
 
     if (status === 2) {
+            console.log("====================baccarat====================begin");
         if (playerInfos.rows.length !== 0||playerInfos!=null) {
             for (let j = 0; j < playerInfos.rows.length; j++) {
                 let realPlayer = playerInfos.rows[j].player;
@@ -134,14 +137,14 @@ start = async () => {
         promise=new Promise(async (resolve,reject)=>{
             if (verify) {
                 //开奖概率10 设置概率
-                let area0 = await constants.betarea[Math.floor(Math.random() * constants.betarea.length)];
-                let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + realPlayer_amount.toString() + ",";
-               bet_result=await PushAcition._bet(accountname0, privatekey0, quantity1, memo0, area0, roundId, end_time, playerInfos, gameTable);
+                let area0 = await constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
+                let memo0 = roundId + "," + newarr[resnumber].accountname + "," + area0 + "," + realPlayer_amount.toString() + ",";
+               bet_result=await PushAcition._betBaccarat(accountname0, privatekey0, quantity1, memo0, area0, roundId, end_time, playerInfos, gameTable);
             } else {
                 //获取新一轮的,轮次
-                let area0 = constants.betarea[Math.floor(Math.random() * constants.betarea.length)];
-                let memo0 = roundId + "," + res[resnumber[0]].accountname + "," + area0 + "," + robot_amount.toString() + ",";
-               gettxInfo= await PushAcition._bet(accountname0, privatekey0, quantity2, memo0, area0, roundId, end_time, playerInfos, gameTable).then(async (res)=>{
+                let area0 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
+                let memo0 = roundId + "," + newarr[resnumber].accountname + "," + area0 + "," + robot_amount.toString() + ",";
+               gettxInfo= await PushAcition._betBaccarat(accountname0, privatekey0, quantity2, memo0, area0, roundId, end_time, playerInfos, gameTable).then(async (res)=>{
                    console.log("===============下注结果"+res);
                     bet_result=res;
                     resolve (bet_result);
@@ -155,11 +158,11 @@ start = async () => {
     return promise;
 };
 module.exports = {start};
-//
- function testres(){
-    let res= start();
-    console.log("testres============================="+res);
-}
-//
-//
-testres();
+
+//  function testres(){
+//     let res= start();
+//     console.log("testres============================="+res);
+// }
+// //
+// //
+// testres();

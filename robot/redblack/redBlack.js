@@ -16,7 +16,7 @@ let CryptoUtil = require('../../encryption/cryptoUtil');
 
 let Eoshelper = require("../../utils/eoshelper");
 // let {Buyeos,Rentcpu}=require("../robot/checkCPU");
-// let dbutils = require("../utils/dbutils");
+ let dbutils = require("../../utils/dbutils");
 
 let Account = require('../../eostools/accountInfo');
 
@@ -78,6 +78,7 @@ let bet_probability_realPlayer = [0.28, 0.1, 0.2, 0.3, 0.12];
 let gettxInfo;
 let promise;
 start = async () => {
+    console.log("====================redBlue====================begin");
     let gameTablePromise = TableInfo.getGameTable();
     let playerInfosPromise = TableInfo.getPlayerTable();
     let gameTable = await gameTablePromise;
@@ -149,7 +150,7 @@ start = async () => {
     }
     return promise;
 };
-module.exports = start;
+module.exports = {start};
 
 //  function testres(){
 //     let res= start();
@@ -158,3 +159,4 @@ module.exports = start;
 //
 //
 // testres();
+//start();
