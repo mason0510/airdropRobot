@@ -45,6 +45,8 @@ let HumanAi = require("../../model/humanAI");
 
 let result = require('../../db/db');
 
+let Iemainder_redis=require('../../utils/remainder_redis');
+
 
 let gamestatus;
 let end_time;
@@ -78,8 +80,8 @@ let bet_probability_realPlayer = [0.28, 0.1, 0.2, 0.3, 0.12];
 
 let gettxInfo;
 let promise;
-start = async () => {
-
+start = async (arrInternal) => {
+    
     let gameTablePromise = TableInfo.baccarat_getGameTable();
     let playerInfosPromise = TableInfo.baccarat_getPlayerTable();
     let gameTable = await gameTablePromise;
@@ -89,7 +91,11 @@ start = async () => {
     let status = gameTable.rows[0].status;
     let roundId = gameTable.rows[0].id;
     let end_time = gameTable.rows[0].end_time;
+    
+    console.log("==========开始=========",arrInternal);
     let res = await HumanAi.find({}).limit(23);
+
+    console.log("==========结束=========",arrInternal);
     let newarr = [];
     let bet_result;
     let quantity1 = RandomNumber.random_different_probability(bet_amount, bet_probability_realPlayer);
@@ -159,9 +165,11 @@ start = async () => {
 };
 module.exports = {start};
 
-//  function testres(){
-//     let res= start();
+//  async function testres(){
+//     let arr=await Iemainder_redis.getRobotAccounts();
+//     // let res= start(arr);
 //     console.log("testres============================="+res);
+//     console.log("arr=============================:",arr);
 // }
 // //
 // //

@@ -79,7 +79,6 @@ _bet = async (account, privatekey, quantity, memo, betarea, roundId, endtime, pl
 };
 _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
     console.log("======================当前下注"+account+"+"+quantity+"+"+memo);
-    // console.log("memo======================memo"+memo);
     let promise;
     let status = await gameTable.rows[0].status;
     // let currenttime = await time.networktime();
@@ -87,6 +86,7 @@ _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, end
     // let bettime = Number(endtime * 1000 - currenttime);
     // let newtime=Math.abs(bettime);
     if (status===2) {
+        console.log("privatekey:======================当前私钥"+privatekey);
         let mykey = CryptoUtil.privateDecrypt(privatekey);
         console.log("=========="+mykey);
         try {

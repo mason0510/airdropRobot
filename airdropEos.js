@@ -198,7 +198,7 @@ const accounts=[];
 
 sleep=async (ms)=>{
     return new Promise(resolve=>setTimeout(resolve,ms))
-}
+};
 
 
 getAccounts= async ()=>{
@@ -222,8 +222,8 @@ airdrop=async (memo)=>{
             await _airdrop(results[i].username,memo)
             //await _airdrop(results[i],memo)
             // await sleep(200)
-            count++
-            console.log("当前空投账户"+results[i].username+"总第"+count+"次转账")
+            count++;
+            console.log("当前空投账户"+results[i].username+"总第"+count+"次转账");
         }, i * 1000);
     }
     console.log("airdrop finished");
@@ -309,7 +309,7 @@ _airdrop=async (account,memo)=>{
     }
     return true;
 
-}
+};
 
 
 start=async ()=> {

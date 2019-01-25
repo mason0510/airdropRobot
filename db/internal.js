@@ -70,10 +70,27 @@ async function get_beginTime(){
     })
     })
 }
+async function  set_verify(verify) {
+    let key="verify";
+    await client.set(key,verify,redis.print)
+}
+
+async function get_verify(){
+    return new Promise(async (resolve)=>{
+        await client.get("verify", async (err,reply)=>{
+            // console.log("reply"+reply);
+            //获取时间
+            console.log("verify:"+reply);
+            resolve (reply);
+        })
+    })
+}
 
 // save();
 // get();
-module.exports={set_count,set_beginTime,get_count,get_beginTime};
+module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify};
+set_verify(false);
+get_verify();
 
 // set_count(1);
 
