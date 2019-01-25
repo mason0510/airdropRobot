@@ -79,22 +79,22 @@ start = async (arrInternal) => {
     let quantity2 = RandomNumber.random_different_probability(bet_amount, bet_probability);
     let robot_amount = parseFloat(quantity2) * 10000;
 
-    if (status === 2) {
+    if (status !== 2) {return console.log("游戏不活跃");}
+
         console.log("====================baccarat====================begin");
         if (playerInfos.rows.length !== 0 || playerInfos != null) {
             for (let j = 0; j < playerInfos.rows.length; j++) {
                 let realPlayer = playerInfos.rows[j].player;
                 //console.log(realPlayer);
                 //只包含名字的新数组
-                if (res !== -1) {
-                    let res = newarr[j].indexOf(realPlayer);
-                    if (res !== -1) {
-                        console.log("=====================================================");
-                    } else {
+                    if (newarr===null||playerInfos===null){return }
+                    let res = newarr[j].includes(realPlayer);
+                    console.log("res:=================================="+res);
+                    if (res) {
                         await Internal.set_verify(true);
                         console.log("==================================有新玩家" + realPlayer)
-                    }
-                }
+                    } 
+
             }
         }
 
@@ -128,7 +128,7 @@ start = async (arrInternal) => {
             }
             await Internal.set_verify(false)
         });
-    }
+
     return promise;
 };
 module.exports = {start};

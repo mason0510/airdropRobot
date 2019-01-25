@@ -228,7 +228,7 @@ let getRobotAccounts=async ()=>{
     for (let i = 0; i <accountArr.length ; i++) {
         console.log(accountArr[i]);
     }
-    setTimeout(getRobotAccounts,1000);
+    // setTimeout(getRobotAccounts,1000);
 };
 module.exports={getRobotAccounts};
 
