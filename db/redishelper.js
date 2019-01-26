@@ -4,6 +4,7 @@ require('./db')
 let redis = require('redis');
 let util = require('util');
 let client = redis.createClient('redis://127.0.0.1:6379');
+
 let getAsync = util.promisify(client.get).bind(client)
 let lrangeAsync = util.promisify(client.lrange).bind(client)
 let existsAsync = util.promisify(client.exists).bind(client)
