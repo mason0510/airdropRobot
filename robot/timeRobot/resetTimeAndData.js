@@ -9,7 +9,7 @@ setTimeandCount=(async ()=>{
     let time=await Time.nowTime();
     console.log("设置前的时间",time);
     await Internal.set_beginTime(time);
-    await Internal.set_count(1);
+    await Internal.set_count(19);
     let btime= await Internal.get_beginTime();
     let count= await Internal.get_count();
     console.log(btime+"=========="+count);

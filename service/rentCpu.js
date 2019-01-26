@@ -1,5 +1,4 @@
 
-
 require('../db/db');
 let HumanUser=require("../model/humanAI");//privatekey
 const accounts=[];
@@ -18,6 +17,7 @@ getAccounts= async ()=>{
         return accounts;
     }
 };
+
 let usrname;
 
 start=async ()=> {
@@ -85,7 +85,6 @@ async function bank_transaction(bankkey,usrname,usrnamekey,quancity) {
     }finally {
         console.log("=========="+JSON.stringify(result));
     }
-
 }
 async function transaction(usrname,usrnamekey, bankaccount,quancity) {
     //获取价格
@@ -115,9 +114,7 @@ async function transaction(usrname,usrnamekey, bankaccount,quancity) {
     }finally {
         console.log("=========="+JSON.stringify(result));
     }
-
 }
-
 
 //转账给账户
 test=async ()=> {
