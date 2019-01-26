@@ -5,7 +5,7 @@ let Sleep = require('../utils/sleep'); //
 
 //获取进行中的游戏列表
 getGameTable = async () => {
-    // console.log("test========begin");
+    // console.log("robot========begin");
     let promise = new Promise(async resolve => {
         await request.post(constants.url1 + '/v1/chain/get_table_rows').timeout({
             deadline: constants.deadlineTime,
@@ -56,7 +56,7 @@ getPlayerTable = async () => {
     return promise;
 };
 baccarat_getGameTable = async () => {
-    // console.log("test========begin");
+    // console.log("robot========begin");
     let promise = new Promise(async resolve => {
         await request.post(constants.url1 + '/v1/chain/get_table_rows').timeout({
             deadline: constants.deadlineTime,
