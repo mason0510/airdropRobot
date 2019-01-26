@@ -32,6 +32,13 @@ router.get("/:name",async(req,res,next)=>{
     }else if(req.params.name==="redvsblue"){
         await RedBlue.start();
         res.send("redvsblue success");
+    }else if(req.params.name==="baccarat"){
+        let arrInternal=await Iemainder_redis.getRobotAccounts();
+        console.log("arrInternal:==========",arrInternal);
+        if (arrInternal==="undefined"){return}
+        console.log("=========prepare"+arrInternal);
+        await Bacarrat_internal.start(arrInternal);
+        res.send("baccarat_internal success");
     }
 });
 module.exports=router;
