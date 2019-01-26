@@ -18,16 +18,17 @@ router.get('/',async (req,res)=>{
 
 
 router.get("/:name",async(req,res,next)=>{
-   if (req.params.name==="baccarat_internal"||req.params.name==="redvsblue"){
+   if (req.params.name==="baccarat_internal"||req.params.name==="redvsblue"||req.params.name==="baccarat"){
        next();
    }
 },async(req,res)=>{
     if (req.params.name==="baccarat_internal") {
         let arrInternal=await Iemainder_redis.getRobotAccounts();
+        console.log("arrInternal:==========",arrInternal);
         if (arrInternal==="undefined"){return}
         console.log("=========prepare"+arrInternal);
-        await Bacarrat_internal.start(arrInternal);
-        res.send("baccarat success");
+       await Bacarrat_internal.start(arrInternal);
+        res.send("baccarat_internal success");
     }else if(req.params.name==="redvsblue"){
         await RedBlue.start();
         res.send("redvsblue success");
