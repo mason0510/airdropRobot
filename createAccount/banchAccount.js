@@ -2,7 +2,7 @@ require("../db/db");
 let Eoshelper=require('../utils/eoshelper');//需要私钥
 let HumanAi=require("../model/humanAI");
 let EccUtils=require("../encryption/cryptoUtil");
-let Dbutils=require("../utils/dbutils");
+let dbkeyutils=require("../utils/dbutils");
 let count=0;
 
 async function transaction(godappKey, username, userpublickey) {
@@ -55,7 +55,7 @@ async function transaction(godappKey, username, userpublickey) {
                 data: {
                     payer: 'godapp.e',
                     receiver: username,
-                    bytes: 2000,
+                    bytes: 8000,
                 },
             },
             {
@@ -70,8 +70,8 @@ async function transaction(godappKey, username, userpublickey) {
                     from: 'godapp.e',
                     receiver: username,
                     // 这里的货币单位，要查询一下系统货币的名称才能填，可能是SYS或者EOS
-                    stake_net_quantity: '1.0000 EOS',
-                    stake_cpu_quantity: '1.0000 EOS',
+                    stake_net_quantity: '2.1000 EOS',
+                    stake_cpu_quantity: '2.1000 EOS',
                     transfer: false,
                 }
             }]
@@ -83,49 +83,54 @@ async function transaction(godappKey, username, userpublickey) {
 
 async function createAccount() {
     //解密
-    // let mykey=await DbUtils.mykey("godapp.e")
-    let results=await HumanAi.find({}).limit(20);
+    let godappKey=await dbkeyutils.companykey("godapp.e");
+    console.log("mykey================"+godappKey);
+    let results=await HumanAi.find({});
+
     //创建
     for (let i = 0; i < results.length; i++) {
-     console.log(results[i].accountname+""+"create==============================begin");
-     //  let userkey=await EccUtils.privateDecrypt(results[0].privatekey)
-       let username= results[i].accountname;
-       let userpublickey= results[i].publickey;
-        //console.log(results[0].accountname+"=========="+userkey+"=========="+results[0].publickey);
-      //解密出godapp.e私钥
-      let godappKey=await Dbutils.mykey("godapp.e");
-     try {
-         await transaction(godappKey, username, userpublickey).then(()=>{
-             //更新字段
-             markDropped(username);
-             count++;
-             console.log(results[i].accountname+"第"+count+"次"+"create=================end");
-         });
-     }catch (e) {
-         console.log("=======================err"+e)
-     }
+        if (i>80){
+            console.log(results[i].accountname+""+"create==============================begin");
+            let userkey=await EccUtils.privateDecrypt(results[i].privatekey)
+            let username= results[i].accountname;
+            let userpublickey= results[i].publickey;
+            console.log(username+"=========="+userkey+"=========="+userpublickey);
+            //解密出godapp.e私钥
+            try {
+                await transaction(godappKey, username, userpublickey).then(async ()=>{
+                    //更新字段
+                   await markDropped(username);
+                    count++;
+                    console.log("第"+i+"个"+username+"第"+count+"次"+"create=================end");
+                });
+            }catch (e) {
+                //no active bid for name
+                console.log("=======================err"+e)
+                if (e.msg==="no active bid for name"){
+                console.log("=====================msg");
+                }
+            } 
+            
+        }
     }
 
 }
 
 markDropped=async (account)=>{
     //记录数据库
-  console.log("db begin");
+  console.log("change db begin");
     let query={accountname:account};
-
     try {
         //用户在数据库中才修改 没在先添加再修改
-        let res = await HumanAi.find(query).limit(1);
-        if (res){
             await  HumanAi.findOneAndUpdate(query, { active: 'true' }, {multi: true},()=>{
                 console.log(account+" active");
             })
-        }
     }catch (e) {
         throw "err"
     }
-    console.log("db finish");
+    console.log("修改结束 finish");
 }
 
+module.exports={createAccount};
 
 createAccount();

@@ -7,11 +7,11 @@ let accountService = require('../service/accountservice');
 
 
 // let Bacarrat= require('../robot/bacarrat/bacarrat');
-let Bacarrat= require('../robot/bacarrat/bacarrat_internal');
+let Bacarrat_internal= require('../robot/bacarrat/bacarrat_internal');
 
 let Iemainder_redis=require('../utils/remainder_redis');
 
-// let test;
+// let robot;
 router.get('/',async (req,res)=>{
     res.send("test");
 });
@@ -24,8 +24,9 @@ router.get("/:name",async(req,res,next)=>{
 },async(req,res)=>{
     if (req.params.name==="baccarat_internal") {
         let arrInternal=await Iemainder_redis.getRobotAccounts();
+        if (arrInternal==="undefined"){return}
         console.log("=========prepare"+arrInternal);
-        await Bacarrat.start(arrInternal);
+        await Bacarrat_internal.start(arrInternal);
         res.send("baccarat success");
     }else if(req.params.name==="redvsblue"){
         await RedBlue.start();

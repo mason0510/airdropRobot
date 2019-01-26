@@ -89,16 +89,16 @@ async function get_verify(){
 // save();
 // get();
 module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify};
-set_verify(false);
-get_verify();
+// set_verify(false);
+// get_verify();
 
 // set_count(1);
 
-// test=async ()=>{
+// robot=async ()=>{
 //   let aa=await get_count();
 //   console.log("================",aa);
 // };
-// test();
+// robot();
 
 // client.on("error", function (err) {
 //     console.log("Error " + err);

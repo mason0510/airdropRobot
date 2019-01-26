@@ -23,7 +23,7 @@ task=async ()=> {
     //  转化成小时
     let internalTime = parseInt(networkTime / 1000) - parseInt(begin_time);
     console.log("internalTime:", internalTime);
-    if (internalTime >= 5) {
+    if (internalTime >= 3600) {
         //间隔了200秒
         i++;
         //重置开始时间
@@ -35,7 +35,7 @@ task=async ()=> {
         if (i >= 24) {
             console.log("i的值又到新的一轮=========="+i);
             //业务代码
-            arr=RobotAccountConstants.arr24;
+            arr=RobotAccountConstants.arr2;
             await Internal.set_count(1).then(() => {
                 console.log("count:保存成功", 1);
             });
@@ -59,117 +59,117 @@ task=async ()=> {
     if (i===3){
         console.log("最后执行3"+i);
         //业务代码
-        arr=RobotAccountConstants.arr3;
+        arr=RobotAccountConstants.arr1;
         console.log("最后执行arr"+"=========="+arr);
     }
     if (i===4){
         console.log("最后执行4"+i);
         //业务代码
-        arr=RobotAccountConstants.arr4;
+        arr=RobotAccountConstants.arr2;
         console.log("最后执行arr"+"=========="+arr);
     }
     if (i===5){
         console.log("最后执行5"+i);
         //业务代码
-        arr=RobotAccountConstants.arr5;
+        arr=RobotAccountConstants.arr1;
         console.log("最后执行arr"+"=========="+arr);
     }
     if (i===6){
             console.log("最后执行6"+i);
             //业务代码
-        arr=RobotAccountConstants.arr6;
+        arr=RobotAccountConstants.arr2;
         console.log("最后执行arr"+"=========="+arr);
         }
         if (i===7){
             //首次执行
             console.log("最后执行7"+"=========="+i);
             //业务代码
-            arr=RobotAccountConstants.arr7;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===8){
             //首次执行
             console.log("最后执行8"+"=========="+i);
             //业务代码
-            arr=RobotAccountConstants.arr8;
+            arr=RobotAccountConstants.arr2;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===9){
             console.log("最后执行9"+i);
             //业务代码
-            arr=RobotAccountConstants.arr9;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===10){
             console.log("最后执行10"+i);
             //业务代码
-            arr=RobotAccountConstants.arr10;
+            arr=RobotAccountConstants.arr2;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===11){
             console.log("最后执行11"+i);
             //业务代码
-            arr=RobotAccountConstants.arr11;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===12){
             console.log("最后执行12"+i);
             //业务代码
-            arr=RobotAccountConstants.arr12;
+            arr=RobotAccountConstants.arr2;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===13){
             console.log("最后执行13"+i);
             //业务代码
-            arr=RobotAccountConstants.arr13;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行arr"+"=========="+arr);
         }    if (i===14){
             //首次执行
             console.log("最后执行14"+"=========="+i);
             //业务代码
-            arr=RobotAccountConstants.arr14;
+            arr=RobotAccountConstants.arr2;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===15){
             console.log("最后执行15"+i);
             //业务代码
-            arr=RobotAccountConstants.arr15;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===16){
             console.log("最后执行16"+i);
             //业务代码
-            arr=RobotAccountConstants.arr16;
+            arr=RobotAccountConstants.arr2;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===17){
             console.log("最后执行17"+i);
             //业务代码
-            arr=RobotAccountConstants.arr17;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===18){
             console.log("最后执行18"+i);
             //业务代码
-            arr=RobotAccountConstants.arr18;
+            arr=RobotAccountConstants.arr2;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===19){
             console.log("最后执行19"+i);
             //业务代码
-            arr=RobotAccountConstants.arr19;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===20){
             //首次执行
-            arr=RobotAccountConstants.arr20;
+            arr=RobotAccountConstants.arr2;
             console.log("最后执行20"+"=========="+i);
             //业务代码
             arr=[1];
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===21){
-            arr=RobotAccountConstants.arr21;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行21"+i);
             //业务代码
             console.log("最后执行arr"+"=========="+arr);
@@ -177,13 +177,13 @@ task=async ()=> {
         if (i===22){
             console.log("最后执行22"+i);
             //业务代码
-            arr=RobotAccountConstants.arr22;
+            arr=RobotAccountConstants.arr2;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===23){
             console.log("最后执行23"+i);
             //业务代码
-            arr=RobotAccountConstants.arr23;
+            arr=RobotAccountConstants.arr1;
             console.log("最后执行arr"+"=========="+arr);
         }
     // if (count===24){
@@ -222,17 +222,17 @@ task=async ()=> {
  * @param begin_time
  */
 let getRobotAccounts=async ()=>{
-    console.log("getRobotAccounts");
     //获取账户
     let accountArr=await task();
-    for (let i = 0; i <accountArr.length ; i++) {
-        console.log(accountArr[i]);
-    }
+    // for (let i = 0; i <accountArr.length ; i++) {
+    //     console.log(accountArr[i]);
+    // }
     // setTimeout(getRobotAccounts,1000);
+    return accountArr;
 };
 module.exports={getRobotAccounts};
 
-getRobotAccounts();
+// getRobotAccounts();
 // let db=async ()=>{
 //   //创建数据库
 //     let intervalTime=new IntervalTime({

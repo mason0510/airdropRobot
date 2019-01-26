@@ -44,10 +44,10 @@ module.exports={randANumber,norepeatNumber,random_different_probability}
 // }
 // testRandom()
 
-// let test=async()=>{
+// let robot=async()=>{
 // let arr=await norepeatNumber(5);
 // for (let i = 0; i <arr.length ; i++) {
 //    console.log("=========="+arr[i]);
 // }
 // }
-// test()
+// robot()

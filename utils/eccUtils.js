@@ -1,14 +1,17 @@
 let ecc=require("eosjs-ecc")
-let
+let arr=[]
 
-pairkey=ecc.randomKey().then(async privateKey => {
-   // console.log('Private Key:\t', privateKey) // wif
-   // console.log('Public Key:\t', ecc.privateToPublic(privateKey)) // EOSkey...
-    let publicKey = await ecc.privateToPublic(privateKey);
-    return [privateKey,publicKey]
-})
-module.exports={pairkey}
-
+let randomKey=()=>{ecc.randomKey().then(async privateKey => {
+   console.log('Private Key:\t', privateKey) // wif
+   console.log('Public Key:\t', ecc.privateToPublic(privateKey)) // EOSkey..
+   return new Promise(async (resolve)=>{
+       let publicKey = await ecc.privateToPublic(privateKey);
+       resolve ([privateKey,publicKey])
+   });
+})}
+// module.exports={pairkey}
+arr=randomKey();
+console.log("arr:",arr);
 
 //查看公钥
 contrast=()=>{

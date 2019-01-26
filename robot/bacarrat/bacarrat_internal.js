@@ -57,7 +57,7 @@ let promise;
 let privatekey0;
 let newarr = [];
 let bet_result;
-
+let res;
 start = async (arrInternal) => {
     let gameTablePromise = TableInfo.baccarat_getGameTable();
     let playerInfosPromise = TableInfo.baccarat_getPlayerTable();
@@ -71,7 +71,8 @@ start = async (arrInternal) => {
     let end_time = gameTable.rows[0].end_time;
     let allres = await HumanAi.find({}).limit(33);
     //give value
-    let res = newarr = arrInternal;
+     newarr = arrInternal;
+     console.log(newarr);
     let quantity1 = RandomNumber.random_different_probability(bet_amount, bet_probability_realPlayer);
     let realPlayer_amount = parseFloat(quantity1) * 10000;
     //console.log(quantity1);
@@ -88,9 +89,13 @@ start = async (arrInternal) => {
                 //console.log(realPlayer);
                 //只包含名字的新数组
                     if (newarr===null||playerInfos===null){return }
-                    let res = newarr[j].includes(realPlayer);
-                    console.log("res:=================================="+res);
-                    if (res) {
+                console.log("res:=================================="+res);
+                console.log("realPlayer:=================================="+realPlayer);
+                console.log("newarr:=================================="+newarr);
+                    if (realPlayer!=null){
+                         res = newarr.indexOf(realPlayer);
+                    }
+                    if (res!==-1) {
                         await Internal.set_verify(true);
                         console.log("==================================有新玩家" + realPlayer)
                     } 
@@ -106,6 +111,7 @@ start = async (arrInternal) => {
                 privatekey0 = await allres[i].privatekey;
             }
         }
+        if (privatekey0==="undefined") {return}
         console.log("==========" + new Date()  + "==========" + "status:" + status);
         promise = new Promise(async (resolve, reject) => {
             if (await Internal.get_verify()) {

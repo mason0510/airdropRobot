@@ -40,7 +40,7 @@ module.exports={nowTime,networktime};
 // networktime();
 // nowTime(); //1548408093 1548408860
 //networktime 1548408447211
-// test=async ()=>{
+// robot=async ()=>{
 //     //获取时间差
 //      begintime=await networktime();
 //     let now=new Date().getTime();
@@ -96,7 +96,7 @@ module.exports={nowTime,networktime};
 //     test1();
 //     setTimeout(start,1000);
 // };
-// test();
+// robot();
 // start();
 // networktime();
 //标记当前时间
