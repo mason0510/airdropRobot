@@ -85,10 +85,25 @@ async function get_verify(){
         })
     })
 }
+async function  set_position(num) {
+    let key="position";
+    await client.set(key,num,redis.print)
+}
+
+async function get_position(){
+    return new Promise(async (resolve)=>{
+        await client.get("position", async (err,reply)=>{
+            // console.log("reply"+reply);
+            //获取时间
+            console.log("position:"+reply);
+            resolve (reply);
+        })
+    })
+}
 
 // save();
 // get();
-module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify};
+module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify,get_position,set_position};
 // set_verify(false);
 // get_verify();
 
