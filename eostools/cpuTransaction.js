@@ -81,17 +81,9 @@ _airdrop=async (account,memo)=>{
 
 };
 
-
-
 // let transfer=async ()=>{
 //   await
 // };
-
-
-
-
-
-
 
 
 module.exports = {querycpuPrice};

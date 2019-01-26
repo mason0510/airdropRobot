@@ -38,7 +38,7 @@ let eosio='eosio.token';
 
 //rent cpu账户 bankofstaked
 let rent_cpu=["bankofstaked"];
-let eos_quancity=["1.0000 EOS"];
+let eos_quancity=["1.0000 EOS","0.2000 EOS","5.0000 EOS"];
 
 //contracts
 let contractAccount=["warofstar.e","baccarat.e"];

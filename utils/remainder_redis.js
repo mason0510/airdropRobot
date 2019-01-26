@@ -33,9 +33,9 @@ task=async ()=> {
         //设置当前的count
         console.log("更换账户前最后检查count:", i);
         if (i >= 24) {
-            console.log("i的值又到新的一轮=========="+i);
+            console.log("i的值又到新的一轮循环==================================================="+i);
             //业务代码
-            arr=RobotAccountConstants.arr2;
+            arr=RobotAccountConstants.arr24;
             await Internal.set_count(1).then(() => {
                 console.log("count:保存成功", 1);
             });
@@ -59,49 +59,49 @@ task=async ()=> {
     if (i===3){
         console.log("最后执行3"+i);
         //业务代码
-        arr=RobotAccountConstants.arr1;
+        arr=RobotAccountConstants.arr3;
         console.log("最后执行arr"+"=========="+arr);
     }
     if (i===4){
         console.log("最后执行4"+i);
         //业务代码
-        arr=RobotAccountConstants.arr2;
+        arr=RobotAccountConstants.arr4;
         console.log("最后执行arr"+"=========="+arr);
     }
     if (i===5){
         console.log("最后执行5"+i);
         //业务代码
-        arr=RobotAccountConstants.arr1;
+        arr=RobotAccountConstants.arr5;
         console.log("最后执行arr"+"=========="+arr);
     }
     if (i===6){
             console.log("最后执行6"+i);
             //业务代码
-        arr=RobotAccountConstants.arr2;
+        arr=RobotAccountConstants.arr6;
         console.log("最后执行arr"+"=========="+arr);
         }
         if (i===7){
             //首次执行
             console.log("最后执行7"+"=========="+i);
             //业务代码
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr7;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===8){
             //首次执行
             console.log("最后执行8"+"=========="+i);
             //业务代码
-            arr=RobotAccountConstants.arr2;
+            arr=RobotAccountConstants.arr8;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===9){
             console.log("最后执行9"+i);
             //业务代码
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr9;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===10){
-            console.log("最后执行10"+i);
+            console.log("最后执行10"+10);
             //业务代码
             arr=RobotAccountConstants.arr2;
             console.log("最后执行arr"+"=========="+arr);
@@ -109,67 +109,67 @@ task=async ()=> {
         if (i===11){
             console.log("最后执行11"+i);
             //业务代码
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr11;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===12){
             console.log("最后执行12"+i);
             //业务代码
-            arr=RobotAccountConstants.arr2;
+            arr=RobotAccountConstants.arr12;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===13){
             console.log("最后执行13"+i);
             //业务代码
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr13;
             console.log("最后执行arr"+"=========="+arr);
         }    if (i===14){
             //首次执行
             console.log("最后执行14"+"=========="+i);
             //业务代码
-            arr=RobotAccountConstants.arr2;
+            arr=RobotAccountConstants.arr14;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===15){
             console.log("最后执行15"+i);
             //业务代码
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr15;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===16){
             console.log("最后执行16"+i);
             //业务代码
-            arr=RobotAccountConstants.arr2;
+            arr=RobotAccountConstants.arr16;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===17){
             console.log("最后执行17"+i);
             //业务代码
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr17;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===18){
             console.log("最后执行18"+i);
             //业务代码
-            arr=RobotAccountConstants.arr2;
+            arr=RobotAccountConstants.arr18;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===19){
             console.log("最后执行19"+i);
             //业务代码
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr19;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===20){
             //首次执行
-            arr=RobotAccountConstants.arr2;
+            arr=RobotAccountConstants.arr20;
             console.log("最后执行20"+"=========="+i);
             //业务代码
             arr=[1];
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===21){
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr21;
             console.log("最后执行21"+i);
             //业务代码
             console.log("最后执行arr"+"=========="+arr);
@@ -177,13 +177,13 @@ task=async ()=> {
         if (i===22){
             console.log("最后执行22"+i);
             //业务代码
-            arr=RobotAccountConstants.arr2;
+            arr=RobotAccountConstants.arr22;
             console.log("最后执行arr"+"=========="+arr);
         }
         if (i===23){
             console.log("最后执行23"+i);
             //业务代码
-            arr=RobotAccountConstants.arr1;
+            arr=RobotAccountConstants.arr23;
             console.log("最后执行arr"+"=========="+arr);
         }
     // if (count===24){
