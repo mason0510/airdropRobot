@@ -1,5 +1,5 @@
 require('./db/db');
-require('express-async-errors');
+//require('express-async-errors');
 const config = require('./config/configdb');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -45,4 +45,4 @@ if (cluster.isMaster) {
 }
 
 
-
+// app.listen(config.PORT);

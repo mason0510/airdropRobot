@@ -3,16 +3,17 @@ const request = require('superagent');
 let constants = require('../utils/constants');
 let Sleep = require('../utils/sleep'); //
 
+//获取进行中的游戏列表
 getGameTable = async () => {
-    // console.log("test========begin");
+    // console.log("robot========begin");
     let promise = new Promise(async resolve => {
         await request.post(constants.url1 + '/v1/chain/get_table_rows').timeout({
             deadline: constants.deadlineTime,
             response: constants.responseTime,
         }).send({
-            code: constants.code[2],
+            code: constants.code[3],
             table: constants.gamestable[0],
-            scope: constants.scope[2],
+            scope: constants.scope[3],
             json: true
         }).then(async res => {
             //req header status text 
@@ -29,6 +30,7 @@ getGameTable = async () => {
     return promise;
 };
 
+//获取玩家列表
 getPlayerTable = async () => {
     // console.log("=========begin");
     let promise = new Promise(async resolve => {
@@ -36,9 +38,9 @@ getPlayerTable = async () => {
             deadline: constants.deadlineTime,
             response: constants.responseTime
         }).send({
-            code: constants.code[2],
+            code: constants.code[3],
             table: constants.gamestable[1],
-            scope: constants.scope[2],
+            scope: constants.scope[3],
             json: true
         }).then(async res => {
             //let body = JSON.stringify(res);
@@ -54,7 +56,7 @@ getPlayerTable = async () => {
     return promise;
 };
 baccarat_getGameTable = async () => {
-    // console.log("test========begin");
+    // console.log("robot========begin");
     let promise = new Promise(async resolve => {
         await request.post(constants.url1 + '/v1/chain/get_table_rows').timeout({
             deadline: constants.deadlineTime,
