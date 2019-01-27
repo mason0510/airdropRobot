@@ -51,20 +51,75 @@ let reimbursement = async (gameaccount, bankname, key, amount, memo) => {
         return e.errmsg;
     }
 };
+let _checkRobotAccount = async (i,accountname) => {
+     console.log("==========begin");
+    let promise=new Promise(async(resolve, reject) => {
+        let res;
+        await request
+            .post(constants.url1)
+            .timeout({
+                deadline: constants.deadlineTime,
+                response: constants.responseTime
+            })
+            .send({account_name: accountname})
+            .then(async res => {
+                let bodyliquid = await parseInt(res.body.core_liquid_balance);
+                let networkKey = await res.body.permissions[0].required_auth.keys[0].key;
+                //获取
+                let publickey = await dbutils.redblackpublickey(accountname);
+                //相等就转
+                if (networkKey !== publickey) {
+                    return;
+                }
+                return {networkKey:networkKey,bodyliquid:bodyliquid,publickey:publickey}
+            }, async err => {
+                    console.log("Timeout" + err);
+            }).then(async(data)=>{
+                let bodyliquid=data.bodyliquid;
+                console.log("获取到的结果"+bodyliquid);
+                let finalNume=parseInt(bodyliquid);
+                    if (finalNume < 20) {
+                        amount = StringUtils.intToeoe(20, finalNume);
+                        let mykey = await dbutils.companykey(constants.accountname[1]);
+                        try {
+                            res= await reimbursement(constants.accountname[1],accountname,mykey,amount,constants.depositememo);
+                            return res;
+                        } catch (e) {
+                            return e.errmsg;
+                        }
+                    }else if (finalNume>50) {
+                        amount = StringUtils.intToeoe(finalNume, 20);
+                        let mykey = await dbutils.redblackkey(accountname);
+                        try {
+                            let res1= await reimbursement(accountname,constants.accountname[1],mykey,amount,constants.depositememo);
+                            resolve (res1);
+                        } catch (e) {
+                            console.log(e) ;
+                        }
+                    }
+            })
+    });
+
+        return promise;
+};
+
 
 let checkRobotAccount = async (i,accountname) => {
   //  console.log("==========begin");
         let promise=new Promise(async(resolve, reject) => {
             let res;
             await request
-                .post('https://eu.eosdac.io/v1/chain/get_account')
+                .post(constants.url4)
                 .timeout({
                     deadline: constants.deadlineTime,
                     response: constants.responseTime
                 })
                 .send({account_name: accountname})
                 .then(async res => {
-
+                    console.log("res=============================="+res.toString());
+                    if (res.length===0){
+                        return ;
+                    }
                     let bodyliquid = await parseInt(res.body.core_liquid_balance);
                     let networkKey = await res.body.permissions[0].required_auth.keys[0].key;
                     //获取
@@ -75,16 +130,13 @@ let checkRobotAccount = async (i,accountname) => {
                     }
                     return {networkKey:networkKey,bodyliquid:bodyliquid,publickey:publickey}
                 }, async err => {
-                    if (err.timeout) {
-                        //超时未连接
                         console.log("Timeout" + err);
-                        return err
-                    }
+                        reject(err)
+
                 }).then(async(data)=>{
                     console.log("获取到的结果"+data.bodyliquid);
                     // console.log(bodyliquid);
                     let bodyliquid=data.bodyliquid;
-                    if (i<=22){
                         if (bodyliquid < 100) {
                             amount = StringUtils.intToeoe(100, data.bodyliquid);
                             let mykey = await dbutils.companykey(constants.accountname[1]);
@@ -92,70 +144,39 @@ let checkRobotAccount = async (i,accountname) => {
                                 res= await reimbursement(constants.accountname[1],accountname,mykey,amount,constants.depositememo);
                                 return res;
                             } catch (e) {
-                                //console.error(e);
-                                return e.errmsg;
+                                console.error(e);
                             }
                         }else if (bodyliquid>200) {
                             amount = StringUtils.intToeoe(bodyliquid, 100);
                             let mykey = await dbutils.redblackkey(accountname);
                             try {
                                 let res1= await reimbursement(accountname,constants.accountname[1],mykey,amount,constants.depositememo);
-                                return res1;
+                                resolve(re1);
                             } catch (e) {
-                                return e;
+                                console.log(e) ;
                             }
                         }
-                    }else {
-                        if (bodyliquid < 20) {
-                            amount = StringUtils.intToeoe(20, data.bodyliquid);
-                            let mykey = await dbutils.companykey(constants.accountname[1]);
-                            try {
-                                res= await reimbursement(constants.accountname[1],accountname,mykey,amount,constants.depositememo);
-                                return res;
-                            } catch (e) {
-                                return e.errmsg;
-                            }
-                        }else if (bodyliquid>50) {
-                            amount = StringUtils.intToeoe(bodyliquid, 20);
-                            let mykey = await dbutils.redblackkey(accountname);
-                            try {
-                                let res1= await reimbursement(accountname,constants.accountname[1],mykey,amount,constants.depositememo);
-                                return res1;
-                            } catch (e) {
-                                return e;
-                            }
-                        }
-                    }
-                }).then(async(data)=>{
-                    console.log("最终结果：",data);
-                    resolve (data)
-                });
+                })
     });
-
-
-    //setImmediate(checkHouseAccount,180000)
+        return promise;
 };
-//checkHouseAccount(constants.accountname[0]);
+
 
 let activate = async () => {
-    //取出所有账户
     let res1=await HumanAI.find({});
-    // console.log(res);
     for (let i = 0; i <res1.length ; i++) {
-        res = await checkRobotAccount(i,res1[i].accountname);
+        if (i<=22){
+            res = await checkRobotAccount(i,res1[i].accountname);
+        }else {
+            res = await _checkRobotAccount(i,res1[i].accountname);
+        }
         console.log(res1[i].accountname);
     }
-    // for (let i in BaccaratAccount.baccaratRobot) {
-    //    // console.log(RedBlackAccount.redblackRobot[i]);
-    //     res = await checkRobotAccount(i,BaccaratAccount.baccaratRobot[i].accountname)
-    // }
-    // for (let i in RedBlackAccount.redblackRobot ) {
-    //     res = await checkRobotAccount(i,RedBlackAccount.redblackRobot[i])
-    // }
-    //转账
-    //定时
-    console.log("回调的最终结果："+res);
-    setTimeout(activate,180000);
+    for (let i in RedBlackAccount.redblackRobot ) {
+        res = await checkRobotAccount(i,RedBlackAccount.redblackRobot[i])
+    }
+    setTimeout(activate,20000);
 };
 
 activate();
+//checkHouseAccount(constants.accountname[0]);

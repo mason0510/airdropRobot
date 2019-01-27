@@ -19,20 +19,26 @@ let save = async (count, newamount) => {
         }
     },async function (data,callback) {
         //表中的信息
-        let betarr=await data.toString().split(',');
-        console.log("betarr"+betarr);
-        let newbet=Number(newamount);
-        console.log("newamount:"+newbet);
-        let beforebet=Number(betarr[1]);
-        console.log("betarr"+betarr[1]);
-        console.log("=========="+typeof newbet+typeof beforebet);
-        let bet=newbet+beforebet;
-        console.log("bet:"+bet);
-        let content=count+','+bet;
-        console.log("content:"+content);
-        let result=await fs.writeFileSync(path.join(__dirname,'sample'),content);
-        //console.log("=========="+data);
-        await callback(null,result);
+        if (data==null)return;
+        try {
+            let betarr=await data.split(',');
+            console.log("betarr"+betarr);
+            let newbet=Number(newamount);
+            console.log("newamount:"+newbet);
+            let beforebet=Number(betarr[1]);
+            console.log("betarr"+betarr[1]);
+            console.log("=========="+typeof newbet+typeof beforebet);
+            let bet=newbet+beforebet;
+            console.log("bet:"+bet);
+            let content=count+','+bet;
+            console.log("content:"+content);
+            let result=await fs.writeFileSync(path.join(__dirname,'sample'),content);
+            //console.log("=========="+data);
+            await callback(null,result);
+        }catch (e) {
+          console(e);
+        }
+
     }], function (err,result) {
         if (err)console.log(err); 
         //result

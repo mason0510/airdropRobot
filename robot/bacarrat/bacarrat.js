@@ -72,7 +72,7 @@ let isRunning = false;
 let times1 = [1, 21, 41];
 
 
-let bet_amount = ['0.1000 EOS', '1.0000 EOS', '5.0000 EOS', '10.0000 EOS', '50.0000 EOS'];
+let bet_amount = ['1.0000 EOS', '1.0000 EOS', '5.0000 EOS', '10.0000 EOS', '50.0000 EOS'];
 //没有玩家
 let bet_probability = [0.38, 0.3, 0.2, 0.1, 0.02];
 //有玩家
@@ -81,7 +81,6 @@ let bet_probability_realPlayer = [0.28, 0.1, 0.2, 0.3, 0.12];
 let gettxInfo;
 let promise;
 start = async (arrInternal) => {
-    
     let gameTablePromise = TableInfo.baccarat_getGameTable();
     let playerInfosPromise = TableInfo.baccarat_getPlayerTable();
     let gameTable = await gameTablePromise;
@@ -93,25 +92,27 @@ start = async (arrInternal) => {
     let end_time = gameTable.rows[0].end_time;
     
     console.log("==========开始=========",arrInternal);
-    let res = await HumanAi.find({}).limit(23);
+    let res = await HumanAi.find({});
 
     console.log("==========结束=========",arrInternal);
     let newarr = [];
     let bet_result;
     let quantity1 = RandomNumber.random_different_probability(bet_amount, bet_probability_realPlayer);
     let realPlayer_amount = parseFloat(quantity1)*10000;
-    //console.log(quantity1);
-    //console.log(realPlayer_amount);
+    console.log(quantity1);
+    console.log(realPlayer_amount);
+
     let quantity2 = RandomNumber.random_different_probability(bet_amount, bet_probability);
     let robot_amount = parseFloat(quantity2)*10000;
-    //console.log(quantity2);
-    //console.log(robot_amount);
+    console.log(quantity2);
+    console.log(robot_amount);
+
         for (let i = 0; i < res.length; i++) {
-            if (i>=11&&i<=21){
+            // if (i>=11&&i<=21){
                 let name = await res[i].accountname;
                 //console.log("=========="+name);
                 newarr.push(res[i]);
-            }
+            // }
         }
 
     if (status === 2) {
@@ -145,6 +146,7 @@ start = async (arrInternal) => {
                 //开奖概率10 设置概率
                 let area0 = await constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
                 let memo0 = roundId + "," + newarr[resnumber].accountname + "," + area0 + "," + realPlayer_amount.toString() + ",";
+
                bet_result=await PushAcition._betBaccarat(accountname0, privatekey0, quantity1, memo0, area0, roundId, end_time, playerInfos, gameTable);
             } else {
                 //获取新一轮的,轮次
@@ -165,12 +167,14 @@ start = async (arrInternal) => {
 };
 module.exports = {start};
 
-//  async function testres(){
-//     let arr=await Iemainder_redis.getRobotAccounts();
-//     // let res= start(arr);
-//     console.log("testres============================="+res);
-//     console.log("arr=============================:",arr);
-// }
-// //
-// //
+let robotAccountConstants=require('../../utils/robotAccountConstants');
+ async function testres(){
+    // let arr=await Iemainder_redis.getRobotAccounts();
+    let arr= robotAccountConstants.arr1;
+     let res= start(arr);
+    console.log("testres============================="+res);
+    console.log("arr=============================:",arr);
+}
+//
+//
 // testres();
