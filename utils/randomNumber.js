@@ -7,15 +7,32 @@ let norepeatNumber=async (number)=>{
    let promise=new Promise(async (resolve,reject,err)=> {
        let result=[];
        for (let i = 0; i < number; i++) {
-           result[i]=await Math.floor(Math.random()*11);
+           result[i]=await Math.floor(Math.random()*9);
            for (let j = 0; j <i ; j++) {
                if (result[i]===result[j]){
                    i--;
                }
            }
        }
+       // console.log("=========="+result);
        resolve(result);
    });
+    return promise;
+};
+let _norepeatNumber=async (number)=>{
+    let promise=new Promise(async (resolve,reject,err)=> {
+        let result=[];
+        for (let i = 0; i < number; i++) {
+            result[i]=await Math.floor(Math.random()*33);
+            for (let j = 0; j <i ; j++) {
+                if (result[i]===result[j]){
+                    i--;
+                }
+            }
+        }
+        // console.log("=========="+result);
+        resolve(result);
+    });
     return promise;
 };
 let random_different_probability=(arr1, arr2)=> {
@@ -51,3 +68,4 @@ module.exports={randANumber,norepeatNumber,random_different_probability}
 // }
 // }
 // robot()
+// norepeatNumber(9)

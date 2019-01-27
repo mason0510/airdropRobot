@@ -9,12 +9,12 @@ setTimeandCount=(async ()=>{
     let time=await Time.nowTime();
     console.log("设置前的时间",time);
     await Internal.set_beginTime(time);
-    await Internal.set_count(19);
+    await Internal.set_count(4);
     let btime= await Internal.get_beginTime();
     let count= await Internal.get_count();
     console.log(btime+"=========="+count);
 });
-setTimeandCount()
+setTimeandCount();
 //24小时执行一次
 // const begintask = ()=>{
 //     //'30 1 1 * * *'  30 1 * * * *

@@ -76,7 +76,7 @@ let reimbursement = async (gameaccount,bankname,key,amount,memo) => {
 let checkHouseAccount=async()=>{
     console.log("==========begin");
     await request
-        .post('https://eu.eosdac.io/v1/chain/get_account')
+        .post(constants.url4)
         .timeout({
             deadline:constants.deadlineTime,
             response:constants.responseTime
@@ -91,8 +91,6 @@ let checkHouseAccount=async()=>{
                         amount=StringUtils.intToeoe(bodyliquid,2000);
                         let mykey=await dbutils.companykey(constants.accountname[0]);
                        await reimbursement(constants.accountname[0],constants.accountname[1],mykey,amount,constants.sendbackmemo);
-                    }else {
-                        return
                     }
         },async err=>{
             if (err.timeout){

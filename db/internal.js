@@ -57,15 +57,16 @@ async function get_count(){
 }
 async function  set_beginTime(time) {
     let key="begin_time";
+    console.log("set_beginTime"+time);
    await client.set(key,time,redis.print)
 }
 
 async function get_beginTime(){
     return new Promise(async (resolve)=>{
    await client.get("begin_time", async (err,reply)=>{
-        // console.log("reply"+reply);
+        console.log("reply"+reply);
        //获取时间
-       console.log("begin_time:"+reply);
+       console.log("get_beginTime:"+reply);
         resolve (reply);
     })
     })
@@ -100,10 +101,25 @@ async function get_position(){
         })
     })
 }
+async function  set_internal_time(internal_time) {
+    let key="internal_time";
+    await client.set(key,internal_time,redis.print)
+}
+
+async function get_internal_time(){
+    return new Promise(async (resolve)=>{
+        await client.get("internal_time", async (err,reply)=>{
+            // console.log("reply"+reply);
+            //获取时间
+            console.log("internal_time:"+reply);
+            resolve (reply);
+        })
+    })
+}
 
 // save();
 // get();
-module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify,get_position,set_position};
+module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify,get_position,set_position,set_internal_time,get_internal_time};
 // set_verify(false);
 // get_verify();
 
@@ -139,3 +155,5 @@ module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_v
 //     console.log("reply 更新后的数据:",response);
 //     }
 // );
+// set_beginTime(100);
+get_beginTime();
