@@ -179,7 +179,7 @@ start = async (arrInternal) => {
             }
         }
 
-        resnumber = await randomNumber.__norepeatNumber(5);
+        resnumber = await randomNumber._norepeatNumber(5);
         console.log("resnumber====================================="+resnumber);
     let accountname0 = await newarr[resnumber[0]];
     let accountname1 = await newarr[resnumber[1]];
@@ -235,52 +235,17 @@ start = async (arrInternal) => {
             }
 
             if (await Internal.get_verify()==="true") {
+                console.log("accountname0==============================get_verify"+accountname0);
                 //开奖概率10 设置概率
-                //await Sleep.sleep(2000);
+                await Sleep.sleep(3000);
                 let area0 = await constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
                 let memo0 = roundId + "," + newarr[resnumber] + "," + area0 + "," + realPlayer_amount.toString() + ",";
-                bet_result = await PushAcition._betBaccarat(accountname0, privatekey0, quantity0, memo0, area0, roundId, end_time, playerInfos, gameTable);
-
-                // await Sleep.sleep(2000);
-                console.log("accountname1==============================get_verify"+"==========="+accountname0);
-                let area1 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
-                let memo1 = roundId + "," + accountname1 + "," + area1 + "," + robot_amount1.toString() + ",";
-                gettxInfo = await PushAcition._betBaccarat(accountname1, privatekey1, quantity1, memo1, area1, roundId, end_time, playerInfos, gameTable).then(async (res) => {
-
-                    if (res===undefined){
-                        await PushAcition._betBaccarat(accountname1, privatekey1, quantity1, memo1 ,area1, roundId, end_time, playerInfos, gameTable)
-                    }else {
-                        bet_result = res;
-                        resolve(bet_result);
-                        //console.log("===============下注结果" + res);
-                    }
-                }).catch(err => {
-                    console.error(err);
-                    reject(err)
-                });
-
-                //await Sleep.sleep(2000);
-                console.log("accountname2==============================get_verify"+"==========="+accountname0);
-                let area2 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
-                let memo2 = roundId + "," + accountname2+ "," + area2 + "," + robot_amount2.toString() + ",";
-                gettxInfo = await PushAcition._betBaccarat(accountname2, privatekey2, quantity2, memo2, area2, roundId, end_time, playerInfos, gameTable).then(async (res) => {
-
-                    if (res===undefined){
-                        await PushAcition._betBaccarat(accountname2, privatekey2, quantity2, memo2, area2, roundId, end_time, playerInfos, gameTable)
-                    }else {
-                        bet_result = res;
-                        resolve(bet_result);
-                        //console.log("===============下注结果" + res);
-                    }
-                }).catch(err => {
-                    console.error(err);
-                    reject(err)
-                });
+                //bet_result = await PushAcition._betBaccarat(accountname0, privatekey0, quantity0, memo0, area0, roundId, end_time, playerInfos, gameTable);
             } else {
                 //获取新一轮的,轮次
                 console.log("accountname0==============================get_verify"+"==========="+accountname0);
                 let area0 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
-                let memo0 = roundId + "," + accountname0 + "," + area0 + "," + robot_amount.toString() + ",";
+                let memo0 = roundId + "," + newarr[resnumber] + "," + area0 + "," + robot_amount.toString() + ",";
                 gettxInfo = await PushAcition._betBaccarat(accountname0, privatekey0, quantity0, memo0, area0, roundId, end_time, playerInfos, gameTable).then(async (res) => {
 
                     if (res===undefined){
@@ -295,10 +260,10 @@ start = async (arrInternal) => {
                     reject(err)
                 });
 
-                //await Sleep.sleep(2000);
+                await Sleep.sleep(3000);
                 console.log("accountname1==============================get_verify"+"==========="+accountname0);
                 let area1 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
-                let memo1 = roundId + "," + accountname1+ "," + area1 + "," + robot_amount1.toString() + ",";
+                let memo1 = roundId + "," + newarr[resnumber] + "," + area1 + "," + robot_amount1.toString() + ",";
                 gettxInfo = await PushAcition._betBaccarat(accountname1, privatekey1, quantity1, memo1, area1, roundId, end_time, playerInfos, gameTable).then(async (res) => {
 
                     if (res===undefined){
@@ -313,10 +278,10 @@ start = async (arrInternal) => {
                     reject(err)
                 });
 
-               // await Sleep.sleep(2000);
+                await Sleep.sleep(3000);
                 console.log("accountname2==============================get_verify"+"==========="+accountname0);
                 let area2 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
-                let memo2 = roundId + "," + accountname2 + "," + area2 + "," + robot_amount2.toString() + ",";
+                let memo2 = roundId + "," + newarr[resnumber] + "," + area2 + "," + robot_amount2.toString() + ",";
                 gettxInfo = await PushAcition._betBaccarat(accountname2, privatekey2, quantity2, memo2, area2, roundId, end_time, playerInfos, gameTable).then(async (res) => {
 
                     if (res===undefined){
@@ -331,10 +296,10 @@ start = async (arrInternal) => {
                     reject(err)
                 });
 
-                //await Sleep.sleep(2000);
+                await Sleep.sleep(3000);
                 console.log("accountname3==============================get_verify"+"==========="+accountname0);
                 let area3 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
-                let memo3 = roundId + "," + accountname3 + "," + area3 + "," + robot_amount3.toString() + ",";
+                let memo3 = roundId + "," + newarr[resnumber] + "," + area3 + "," + robot_amount3.toString() + ",";
                 gettxInfo = await PushAcition._betBaccarat(accountname3, privatekey3, quantity3, memo3, area3, roundId, end_time, playerInfos, gameTable).then(async (res) => {
 
                     if (res===undefined){
@@ -349,10 +314,10 @@ start = async (arrInternal) => {
                     reject(err)
                 });
 
-               // await Sleep.sleep(2000);
+                await Sleep.sleep(3000);
                 console.log("accountname4==============================get_verify"+"==========="+accountname0);
                 let area4 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
-                let memo4 = roundId + "," + accountname4 + "," + area4 + "," + robot_amount4.toString() + ",";
+                let memo4 = roundId + "," + newarr[resnumber] + "," + area4 + "," + robot_amount4.toString() + ",";
                 gettxInfo = await PushAcition._betBaccarat(accountname4, privatekey4, quantity4, memo4, area4, roundId, end_time, playerInfos, gameTable).then(async (res) => {
 
                     if (res===undefined){
@@ -381,12 +346,12 @@ start = async (arrInternal) => {
 };
 module.exports = {start};
 //返回全部数据
-let arr=[]
-let test=async ()=>{
-    let arrss=await Internal.get_afterDb();
-    console.log("ss================="+typeof arrss);
-    arr=await arrss.split(',');
-    console.log("ss================="+typeof arr);
-    start(arr);
-}
-test();
+// let arr=[]
+// let test=async ()=>{
+//     let arrss=await Internal.get_beforeDb();
+//     console.log("ss================="+typeof arrss);
+//     arr=await arrss.split(',');
+//     console.log("ss================="+typeof arr);
+//     start(arr);
+// }
+// test();
