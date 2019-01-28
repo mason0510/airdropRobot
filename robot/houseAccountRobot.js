@@ -8,33 +8,33 @@ let StringUtils=require('../utils/stringUtils');
 let amount;
 let cheCount=0;
 //检查用户账户
-checkAccount=async(username,myprivatekey)=>{
-
-    console.log("==========begin");
-    await request
-        .post('https://eu.eosdac.io/v1/chain/get_account')
-        .timeout({
-            deadline:constants.deadlineTime,
-            response:constants.responseTime
-        })
-        .send({ account_name:"houseaccount"})
-        .then(async res=>{
-            let bodyliquid=await parseInt(res.body.core_liquid_balance);
-            //获取
-            if (bodyliquid-50<0){
-                await buyeos("godapp.e",username,constants.buyeosmemo);
-            }
-            if (bodyliquid-100>0) {
-                amount = StringUtils.intToeoe(bodyliquid);
-                await reimbursement(username, "godapp.e", myprivatekey, amount, constants.sendbackmemo);
-            }
-        },async err=>{
-            if (err.timeout){
-                //超时未连接
-                console.log("Timeout"+err);
-            }
-        });
-};
+// checkAccount=async(username,myprivatekey)=>{
+//
+//     console.log("==========begin");
+//     await request
+//         .post('https://eu.eosdac.io/v1/chain/get_account')
+//         .timeout({
+//             deadline:constants.deadlineTime,
+//             response:constants.responseTime
+//         })
+//         .send({ account_name:"houseaccount"})
+//         .then(async res=>{
+//             let bodyliquid=await parseInt(res.body.core_liquid_balance);
+//             //获取
+//             if (bodyliquid-50<0){
+//                 await buyeos("godapp.e",username,constants.buyeosmemo);
+//             }
+//             if (bodyliquid-100>0) {
+//                 amount = StringUtils.intToeoe(bodyliquid);
+//                 await reimbursement(username, "godapp.e", myprivatekey, amount, constants.sendbackmemo);
+//             }
+//         },async err=>{
+//             if (err.timeout){
+//                 //超时未连接
+//                 console.log("Timeout"+err);
+//             }
+//         });
+// };
 
 
 
@@ -91,8 +91,6 @@ let checkHouseAccount=async()=>{
                         amount=StringUtils.intToeoe(bodyliquid,2000);
                         let mykey=await dbutils.companykey(constants.accountname[0]);
                        await reimbursement(constants.accountname[0],constants.accountname[1],mykey,amount,constants.sendbackmemo);
-                    }else {
-                        return
                     }
         },async err=>{
             if (err.timeout){
@@ -101,7 +99,7 @@ let checkHouseAccount=async()=>{
             }
         });
 
-    setImmediate(checkHouseAccount,180000)
+    setTimeout(checkHouseAccount,180000)
 };
 
 checkHouseAccount();

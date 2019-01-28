@@ -81,12 +81,20 @@ _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, end
     console.log("======================当前下注"+account+"+"+quantity+"+"+memo);
     let promise;
     let status = await gameTable.rows[0].status;
-    // let currenttime = await time.networktime();
+    let currenttime = await time.networktime();
     // console.log("当前网络时间" + currenttime);
-    // let bettime = Number(endtime * 1000 - currenttime);
+    let bettime = Number(endtime * 1000 - currenttime);
+        if (bettime<5)
+        {
+            return
+        }
+        //再次检查账户是否在player中
     // let newtime=Math.abs(bettime);
-    if (status===2) {
         console.log("privatekey:======================当前私钥"+privatekey);
+        if (account==="undefined") {
+            console.log("账户获取失败======================");
+            return
+        }
         let mykey = CryptoUtil.privateDecrypt(privatekey);
         console.log("=========="+mykey);
         try {
@@ -139,9 +147,6 @@ _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, end
         } catch (e) {
             console.log("Game is no longer active")
         }
-    } else {
-        console.log("警告！！！结算中 不能下注");
-    }
     return promise;
 };
 

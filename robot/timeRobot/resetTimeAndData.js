@@ -14,7 +14,10 @@ setTimeandCount=(async ()=>{
     let count= await Internal.get_count();
     console.log(btime+"=========="+count);
 });
-setTimeandCount()
+setTimeandCount();
+
+
+
 //24小时执行一次
 // const begintask = ()=>{
 //     //'30 1 1 * * *'  30 1 * * * *

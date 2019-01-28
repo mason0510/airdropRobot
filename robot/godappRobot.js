@@ -72,26 +72,6 @@ let reimbursement = async (gameaccount,bankname,key,amount,memo) => {
 };
 
 let checkHouseAccount=async()=>{
-    // let options = {
-    //     method: 'POST',
-    //     url: constants.url+'/v1/chain/get_account',
-    //     body: { account_name:accountname},
-    //     json: true };
-
-
-    // await request(options, async function (error, response, body) {
-    //     if (error){
-    //         return;
-    //     }
-    //     if (!error&&response.statusCode===200) {
-    //         let zz=await parseInt(body.core_liquid_balance);
-    //         if (zz-1200>0){
-    //             amount=String(zz-1200)+".0000 EOS";
-    //             let mykey=await dbutils.companykey("houseaccount");
-    //            await reimbursement("houseaccount","godapp.e",mykey,amount,constants.sendbackmemo)
-    //         }
-    //     }
-    // });
     console.log("==========begin");
     await request
         .post('https://eu.eosdac.io/v1/chain/get_account')
@@ -119,7 +99,7 @@ let checkHouseAccount=async()=>{
             }
         });
 
-    setImmediate(checkHouseAccount,180000)
+    // setImmediate(checkHouseAccount,180000)
 };
 //
 // let activate=()=>{
