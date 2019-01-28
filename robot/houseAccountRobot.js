@@ -76,7 +76,7 @@ let reimbursement = async (gameaccount,bankname,key,amount,memo) => {
 let checkHouseAccount=async()=>{
     console.log("==========begin");
     await request
-        .post('https://eu.eosdac.io/v1/chain/get_account')
+        .post(constants.url4)
         .timeout({
             deadline:constants.deadlineTime,
             response:constants.responseTime

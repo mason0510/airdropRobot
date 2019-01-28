@@ -61,15 +61,16 @@ async function get_count(){
 }
 async function  set_beginTime(time) {
     let key="begin_time";
+    console.log("set_beginTime"+time);
    await client.set(key,time,redis.print)
 }
 
 async function get_beginTime(){
     return new Promise(async (resolve)=>{
    await client.get("begin_time", async (err,reply)=>{
-        // console.log("reply"+reply);
+        console.log("reply"+reply);
        //获取时间
-       console.log("begin_time:"+reply);
+       console.log("get_beginTime:"+reply);
         resolve (reply);
     })
     })
@@ -105,6 +106,7 @@ async function get_position(){
         })
     })
 }
+<<<<<<< HEAD
 async function  set_verifyres(res) {
     let key="verifyres";
     await client.set(key,res,redis.print)
@@ -137,10 +139,24 @@ async function get_PlayerInfo(){
             //获取时间
             // console.log("playerInfo:"+reply);
             // console.log(reply);
+=======
+async function  set_internal_time(internal_time) {
+    let key="internal_time";
+    await client.set(key,internal_time,redis.print)
+}
+
+async function get_internal_time(){
+    return new Promise(async (resolve)=>{
+        await client.get("internal_time", async (err,reply)=>{
+            // console.log("reply"+reply);
+            //获取时间
+            console.log("internal_time:"+reply);
+>>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
             resolve (reply);
         })
     })
 }
+<<<<<<< HEAD
 //获取数据
 async function  set_beforeDb(res) {
     let key="beforeDb";
@@ -204,6 +220,12 @@ async function get_testDb(){
 // save();
 // get();
 module.exports={set_testDb,get_testDb,get_afterDb,set_afterDb,set_beforeDb,get_beforeDb,get_verifyres,set_verifyres,get_PlayerInfo,set_playerInfo,set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify,get_position,set_position};
+=======
+
+// save();
+// get();
+module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify,get_position,set_position,set_internal_time,get_internal_time};
+>>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
 // set_verify(false);
 // get_verify();
 
@@ -241,6 +263,7 @@ module.exports={set_testDb,get_testDb,get_afterDb,set_afterDb,set_beforeDb,get_b
 //     console.log("reply 更新后的数据:",response);
 //     }
 // );
+<<<<<<< HEAD
 
 // let getPlayer=async ()=>{
 //     let obj=await get_PlayerInfo();
@@ -248,3 +271,7 @@ module.exports={set_testDb,get_testDb,get_afterDb,set_afterDb,set_beforeDb,get_b
 // };
 // getPlayer();
 
+=======
+// set_beginTime(100);
+get_beginTime();
+>>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
