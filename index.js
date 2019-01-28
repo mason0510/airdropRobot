@@ -29,8 +29,8 @@ app.use((err,req,res,next)=>{
 app.use("/api",Router);
 app.use(require("./middleware/res_md"));
 
-
-//永久开启
+//
+// //永久开启
 if (cluster.isMaster) {
     console.log('[master] ' + "start master...");
     for (let i = 0; i < numCPUs; i++) {

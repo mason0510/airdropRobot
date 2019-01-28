@@ -1,4 +1,6 @@
 let request=require("request");
+require('../db/db');
+let HumanAis=require('../model/humanAI');
 _checkHouseAccount=async(accountname)=>{
     return new Promise(async (resolve, reject) => {
         console.log("begin");
@@ -32,10 +34,10 @@ _accountInfo=async(accountname)=>{
 
         await request(options, async  (error, response, body) =>{
             if (error) {
+                console.log(error);
                 return;
             }
-
-
+            console.log(body);
                 return resolve(body);
         });
     });
@@ -44,6 +46,18 @@ _accountInfo=async(accountname)=>{
 
 
 module.exports={_checkHouseAccount,_accountInfo};
+
+
+test=async ()=>{
+    let humanAis=await HumanAis.find({});
+    for (let i = 0; i <humanAis.length ; i++) {
+        console.log(humanAis[i].accountname);
+        await _accountInfo(humanAis[i].accountname);
+    }
+
+};
+
+// test();
 
 
 

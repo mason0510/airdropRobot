@@ -36,6 +36,7 @@
     "path": "^0.12.7",
     "pug": "2.0.0-beta11",
     "redis": "^2.8.0",
+    "redis-rejson": "^1.0.0",
     "request": "^2.81.0",
     "silly-datetime": "^0.1.2",
     "superagent": "^3.5.2",
