@@ -88,7 +88,7 @@ start = async () => {
     let status = gameTable.rows[0].status;
     let roundId = gameTable.rows[0].id;
     let end_time = gameTable.rows[0].end_time;
-    let res = await HumanAi.find({}).limit(11);
+    let res = await HumanAi.find({})
     let newarr = [];
     let bet_result;
     let quantity1 = RandomNumber.random_different_probability(bet_amount, bet_probability_realPlayer);
@@ -120,7 +120,7 @@ start = async () => {
                 }
             }
         }
-        let resnumber = await randomNumber.norepeatNumber(1);
+        let resnumber = await randomNumber.__norepeatNumber(1);
         let accountname0 = res[resnumber[0]].accountname;
         let privatekey0 = res[resnumber[0]].privatekey;
 
@@ -152,11 +152,11 @@ start = async () => {
 };
 module.exports = {start};
 
-//  function testres(){
-//     let res= start();
-//     console.log("testres============================="+res);
-// }
-//
-//
-// testres();
-//start();
+ async function testres(){
+    let res= await start();
+    console.log("testres============================="+res);
+}
+
+
+testres();
+// start();

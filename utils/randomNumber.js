@@ -7,11 +7,8 @@ let norepeatNumber=async (number)=>{
    let promise=new Promise(async (resolve,reject,err)=> {
        let result=[];
        for (let i = 0; i < number; i++) {
-<<<<<<< HEAD
-           result[i]=await Math.floor(Math.random()*125);
-=======
+
            result[i]=await Math.floor(Math.random()*9);
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
            for (let j = 0; j <i ; j++) {
                if (result[i]===result[j]){
                    i--;
@@ -27,21 +24,32 @@ let _norepeatNumber=async (number)=>{
     let promise=new Promise(async (resolve,reject,err)=> {
         let result=[];
         for (let i = 0; i < number; i++) {
-<<<<<<< HEAD
-            result[i]=await Math.floor(Math.random()*62);
-=======
+
             result[i]=await Math.floor(Math.random()*33);
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
             for (let j = 0; j <i ; j++) {
                 if (result[i]===result[j]){
                     i--;
                 }
             }
         }
-<<<<<<< HEAD
-=======
-        // console.log("=========="+result);
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
+
+        resolve(result);
+    });
+    return promise;
+};
+let __norepeatNumber=async (number)=>{
+    let promise=new Promise(async (resolve,reject,err)=> {
+        let result=[];
+        for (let i = 0; i < number; i++) {
+
+            result[i]=await Math.floor(Math.random()*62);
+            for (let j = 0; j <i ; j++) {
+                if (result[i]===result[j]){
+                    i--;
+                }
+            }
+        }
+
         resolve(result);
     });
     return promise;
@@ -64,7 +72,7 @@ let random_different_probability=(arr1, arr2)=> {
 };
 
 
-module.exports={_norepeatNumber,randANumber,norepeatNumber,random_different_probability}
+module.exports={__norepeatNumber,_norepeatNumber,randANumber,norepeatNumber,random_different_probability}
 
 // let testRandom=async()=>{
 //    let res= await randANumber();

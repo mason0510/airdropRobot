@@ -150,18 +150,18 @@ start = async (arrInternal) => {
 
     //审查账户
 
-        //这里已经知道了账户名
+        //这里已经知道了账户名 这轮
         for (let i = 0; i <playerInfos.rows.length ; i++) {
             let roundply = await playerInfos.rows[i].player;
             console.log("=====================================roundply:"+roundply+"=========="+accountname0);
             if (roundply===accountname0||roundply===accountname1||roundply===accountname2||roundply===accountname3||roundply===accountname4){
                 //投注过
-               await Internal.set_verifyres("1");
-               return
+               //await Internal.set_verifyres("0");
+               //return
             }
             else {
                 //没有投注过
-                await Internal.set_verifyres("0");
+               // await Internal.set_verifyres("1");
             }
         }
         let verifyres=await Internal.get_verifyres();
@@ -326,4 +326,4 @@ let test=async ()=>{
     console.log("ss================="+typeof arr);
     start(arr);
 }
-// test();
+test();

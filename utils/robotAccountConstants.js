@@ -5,11 +5,8 @@ let arr2=['baichuanwwww','dappmao12345','simplenieeee','xihuanwan123','123tanchi
 'happylilyyyy','5jienibigwin','todayhappyww','ilovedappccc'];
 //////////////////////////////////////////////////////////////////////////////////
 // 已创建
-<<<<<<< HEAD
-let arr3=['dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-=======
+
 let arr3=['dapp1234dapp','appleday2222','bananaday111','melodymelody','eosvaecouves',"heaventohell",'happylilyyyy','5jienibigwin','todayhappyww'];
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
 ///////////////////////////////////////////////////////////////////////////////////每项10个
 //红黑 百家乐机器人 heaventohell
 let arr4=["heaventohell","sweetangeler","alfredmiller","floattegehfr","allenjohnson",'yiyiranranfc','xiaohuahuapa','crazydapp123','dappgoqqqqqq'];
@@ -22,29 +19,6 @@ let arr7=["yangefordali","chainjugeway","bankagantisk","warmdmmgige5","meeryfloa
 
 let arr8=["bitfinegoday","wintersheref","dimblueino12","hatdaliycans","airconditcti",'yiyiranranfc','xiaohuahuapa','crazydapp123','dappgoqqqqqq'];
 
-<<<<<<< HEAD
-let arr9=["hayhaymmfor1","gnjzeneyanga","fwindcandyeo","poloniexelyy","lbcardforawa",'cochain54321','happylilyyyy','5jienibigwin','todayhappyww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-let arr10=["karagendflue","findwaytobyi","pushsandcupe","readwhereway","troubletrygo",'cochain54321','happylilyyyy','5jienibigwin','todayhappyww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-let arr11=["freegostyleo","spexicaldaye","moonweiyi123","qwershusandi","cindyyohawei",'cochain54321','happylilyyyy','5jienibigwin','todayhappyww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-
-//问题账户 数据库少了 wkdalsgudeee  ,"wkdalsgudeee"
-let arr12=["blockabc1234","unlockeduser","yesterdaydad","wabawabadddd","starwars1234",'ilovedappccc','btcgateraabb','51happydapps','baichuanwwww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-let arr13=["hazdanbtgege","zbbpeos11111","mraclegogogo","cyphergalsss","eoszhouzhang",'ilovedappccc','btcgateraabb','51happydapps','baichuanwwww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-let arr14=["haimojian123","eosipreacher","gamerscenter","12345ginabil","libertyhome1",'ilovedappccc','btcgateraabb','51happydapps','baichuanwwww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-let arr15=["korearedsung","1314kazflove","nameyourmath","zoolabor55pp","housanddir1p",'ilovedappccc','btcgateraabb','51happydapps','baichuanwwww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-//补齐
-let arr16=["housanddir1p","symbolllnoon","atersecretll","sshoutfair55","apcontainetv",'ilovedappccc','btcgateraabb','51happydapps','baichuanwwww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-let arr17=["apcontainsss","ongyuhhh1312","slippedsityy","aztknzxhewgt","ddchinaeos52",'ilovedappccc','btcgateraabb','51happydapps','baichuanwwww','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-
-let arr18=["ndicateatepy","fixsometimqq","wkdalsgudwrr","snwczzr12qrs","vvchinaeos52",'baichuanwwww','dappmao12345','simplenieeee','xihuanwan123','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-let arr19=["haachinaeos5","continuedftt","eitherdonwer","climatebaroo","toppedhaseee",'baichuanwwww','dappmao12345','simplenieeee','xihuanwan123','dapp1234dapp','appleday2222','bananaday111','eosvaecouves',"heaventohell"];
-let arr20=["riginsum5oer","brougmeal5ee","michaelyur11","childrengirl","chinaeos5233",'baichuanwwww','dappmao12345','simplenieeee','xihuanwan123',];
-let arr21=["upppgiven555","dluffyshuuks","meyouistoken","mucdambygige","stopeeosiobp",'baichuanwwww','dappmao12345','simplenieeee','xihuanwan123',];
-
-let arr22=["2gqtgojsgyge","dynamitekach","tttblackkcaj","moonrivereos","gezdmnbtg532",'dapp1234dapp','appleday2222','bananaday111','eosvaecouves'];
-let arr23=["ujkuiihddmmt","gm3denbwgrdg","haytmmjrijij","hezdanbt1212","stagexchgean",'dapp1234dapp','appleday2222','bananaday111','eosvaecouves'];
-let arr24=["gu4dambygegi","jazune121212","abbeoswallmm","dexaraniizer","fuckyourdady",'dapp1234dapp','appleday2222','bananaday111','eosvaecouves'];
-=======
 let arr9=["hayhaymmfor1","gnjzeneyanga","fwindcandyeo","poloniexelyy","lbcardforawa",'cochain54321','happylilyyyy','5jienibigwin','todayhappyww'];
 
 let arr10=["karagendflue","findwaytobyi","pushsandcupe","readwhereway","troubletrygo",'cochain54321','happylilyyyy','5jienibigwin','todayhappyww'];
@@ -78,5 +52,4 @@ let arr22=["2gqtgojsgyge","dynamitekach","tttblackkcaj","moonrivereos","gezdmnbt
 let arr23=["ujkuiihddmmt","gm3denbwgrdg","haytmmjrijij","hezdanbt1212","stagexchgean",'dapp1234dapp','appleday2222','bananaday111','51happydapps'];
 
 let arr24=["gu4dambygegi","jazune121212","abbeoswallmm","dexaraniizer","fuckyourdady",'dapp1234dapp','appleday2222','bananaday111','btcgateraabb'];
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
 module.exports={arr1,arr2,arr3,arr4,arr5,arr6,arr7,arr8,arr9,arr10,arr11,arr12,arr13,arr14,arr15,arr16,arr17,arr18,arr19,arr20,arr21,arr22,arr23,arr24};

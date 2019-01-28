@@ -106,7 +106,7 @@ async function get_position(){
         })
     })
 }
-<<<<<<< HEAD
+
 async function  set_verifyres(res) {
     let key="verifyres";
     await client.set(key,res,redis.print)
@@ -127,52 +127,66 @@ async function get_verifyres(){
 
 async function  set_playerInfo(playerInfo) {
     let key="playerInfo";
-    await client.set(key,playerInfo,redis.print)
+    //报错
+    // await client.set(key,playerInfo,redis.print)
 }
 //打印
 //playerInfos[{"id":12627,"game_id":6878,"player":"dappgoqqqqqq",
 // "referer":"houseaccount","bet":"10.0000 EOS","bet_type":2}]
-async function get_PlayerInfo(){
-    return new Promise(async (resolve)=>{
-        await client.get("playerInfo", async (err,reply)=>{
-            // console.log("reply"+reply);
-            //获取时间
-            // console.log("playerInfo:"+reply);
-            // console.log(reply);
-=======
-async function  set_internal_time(internal_time) {
-    let key="internal_time";
-    await client.set(key,internal_time,redis.print)
-}
+//             async function get_PlayerInfo(){
+//                 return new Promise(async (resolve)=> {
+//                     await client.get("playerInfo", async (err, reply) => {
+//                         // console.log("reply"+reply);
+//                         //获取时间
+//                         // console.log("playerInfo:"+reply);
+//                         // console.log(reply);
+//                     )}
+//                     })
+//                 }
+//             }
+            async function get_PlayerInfo(){
+                return new Promise(async (resolve)=>{
+                    await client.get("playerInfos",async (err,reply)=>{
+                        if (err)console.log(err); 
+                        console.log(reply);
+                        resolve(reply)
+                    })
+                })
+            }
 
-async function get_internal_time(){
-    return new Promise(async (resolve)=>{
-        await client.get("internal_time", async (err,reply)=>{
-            // console.log("reply"+reply);
-            //获取时间
-            console.log("internal_time:"+reply);
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
-            resolve (reply);
-        })
-    })
-}
-<<<<<<< HEAD
+            async function set_internal_time(internal_time) {
+                let key = "internal_time";
+                await client.set(key, internal_time, redis.print)
+            }
+
+            async function get_internal_time() {
+                return new Promise(async (resolve) => {
+                    await client.get("internal_time", async (err, reply) => {
+                        // console.log("reply"+reply);
+                        //获取时间
+                        console.log("internal_time:" + reply);
+                        resolve(reply);
+                    })
+                })
+            }
+
 //获取数据
-async function  set_beforeDb(res) {
-    let key="beforeDb";
-    await client.set(key,res,redis.print)
-}
+            async function set_beforeDb(res) {
+                let key = "beforeDb";
+                await client.set(key, res, redis.print)
+            }
 
-async function get_beforeDb(){
-    return new Promise(async (resolve)=>{
-        await client.get("beforeDb", async (err,reply)=>{
-            // console.log("reply"+reply);
-            //获取时间
-            // console.log("beforeDb:"+reply);
-            resolve (reply);
-        })
-    })
-}
+            async function get_beforeDb() {
+                return new Promise(async (resolve) => {
+                    await client.get("beforeDb", async (err, reply) => {
+                        // console.log("reply"+reply);
+                        //获取时间
+                        // console.log("beforeDb:"+reply);
+                        resolve(reply);
+                    })
+                })
+            }
+
 //  get_beforeDb=()=>{
 //     return new Promise(async (resolve)=>{
 //         await client.get("beforeDb", async (err,reply)=>{
@@ -183,49 +197,62 @@ async function get_beforeDb(){
 //         })
 //     })
 // }
-async function  set_afterDb(res) {
-    let key="afterDb";
-    await client.set(key,res,redis.print)
-}
+            async function set_afterDb(res) {
+                let key = "afterDb";
+                await client.set(key, res, redis.print)
+            }
 
-async function get_afterDb(){
-    return new Promise(async (resolve)=>{
-        await client.get("afterDb", async (err,reply)=>{
-            // console.log("reply"+reply);
-            //获取时间
-            // console.log("afterDb:"+reply);
-            resolve (reply);
-        })
-    })
-}
+            async function get_afterDb() {
+                return new Promise(async (resolve) => {
+                    await client.get("afterDb", async (err, reply) => {
+                        // console.log("reply"+reply);
+                        //获取时间
+                        // console.log("afterDb:"+reply);
+                        resolve(reply);
+                    })
+                })
+            }
 
-async function  set_testDb(res) {
-    let key="testDb";
-    await client.set(key,res,redis.print)
-}
+            async function set_testDb(res) {
+                let key = "testDb";
+                await client.set(key, res, redis.print)
+            }
 
-async function get_testDb(){
-    return new Promise(async (resolve)=>{
-        await client.get("testDb", async (err,reply)=>{
-            console.log("reply"+reply);
-            //获取时间
-            console.log("testDb:"+reply);
-            resolve (reply);
-        })
-    })
-}
+            async function get_testDb() {
+                return new Promise(async (resolve) => {
+                    await client.get("testDb", async (err, reply) => {
+                        console.log("reply" + reply);
+                        //获取时间
+                        console.log("testDb:" + reply);
+                        resolve(reply);
+                    })
+                })
+            }
 
-
-
-// save();
-// get();
-module.exports={set_testDb,get_testDb,get_afterDb,set_afterDb,set_beforeDb,get_beforeDb,get_verifyres,set_verifyres,get_PlayerInfo,set_playerInfo,set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify,get_position,set_position};
-=======
 
 // save();
 // get();
-module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_verify,get_position,set_position,set_internal_time,get_internal_time};
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
+ module.exports = {
+                set_testDb,
+                get_testDb,
+                get_afterDb,
+                set_afterDb,
+                set_beforeDb,
+                get_beforeDb,
+                get_verifyres,
+                set_verifyres,
+                get_PlayerInfo,
+                set_playerInfo,
+                set_count,
+                set_beginTime,
+                get_count,
+                get_beginTime,
+                set_verify,
+                get_verify,
+                get_position,
+                set_position
+            };
+
 // set_verify(false);
 // get_verify();
 
@@ -263,15 +290,10 @@ module.exports={set_count,set_beginTime,get_count,get_beginTime,set_verify,get_v
 //     console.log("reply 更新后的数据:",response);
 //     }
 // );
-<<<<<<< HEAD
+
 
 // let getPlayer=async ()=>{
 //     let obj=await get_PlayerInfo();
 //     console.log(JSON.stringify(obj));
 // };
 // getPlayer();
-
-=======
-// set_beginTime(100);
-get_beginTime();
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
