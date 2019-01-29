@@ -28,28 +28,6 @@ let overtime;
 router.get('/baccarat_ll', async (req, res) => {
     console.log("==============================================================");
     //判断超时
-    // let overtime= await Internal.get_Internal();
-    //  if (overtime==="true"){
-    //      //或者根据时间
-    //      let time=await Internal.get_Iime();
-    //      if (time%2===0){
-    //          let db=await Internal.get_beforeDb();
-    //          let arr1= await db.split(",");
-    //          await Bacarrat_ll.start(arr1);
-    //      } else {
-    //          let db=await Internal.get_afterDb();
-    //          let arr2=await db.split(",");
-    //          await Bacarrat_ll.start(arr2);
-    //      }
-    //      //超过一小时 增大1 会导致下次结果变化
-    //      await Internal.set_Internal(false)
-    //  } else if (overtime==='false') {//1 3 5
-    //      let data=await Internal.get_afterDb();
-    //      let arr2=data.split(",");
-    //      await Bacarrat_ll.start(arr2);
-    //      // await Bacarrat_ll.start();
-    //      console.log("后一半数据库");
-    //  }
     await GetInternal.task();
     overtime = await Internal.get_Internal();
     console.log("===========overtime" + overtime);
