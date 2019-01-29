@@ -29,7 +29,8 @@ networktime=async ()=>{
                 let t=res.body.data.t;
                 // console.log(typeof t);
                 let nettime=parseInt(((res.body.data.t)));
-                console.log( parseInt(nettime/1000));
+                // console.log( parseInt(nettime/1000));
+                // console.log( parseInt(nettime.toString()));
                 resolve(nettime);
             })
     });
@@ -98,5 +99,6 @@ module.exports={nowTime,networktime};
 // };
 // robot();
 // start();
-// networktime();
+networktime();
+// nowTime();
 //标记当前时间

@@ -93,12 +93,11 @@ baccarat_getPlayerTable = async () => {
             scope: constants.scope[3],
             json: true
         }).then(async res => {
-            //let body = JSON.stringify(res);
-            //  console.log(res.body);
+            // let body = JSON.stringify(res);
+             console.log(typeof res.body);
             resolve(res.body);
         }, async err => {
             if (err.timeout) {
-                //await Sleep.sleep(1000);
             } else {                     //其他错误不处理 
             }
         })
@@ -113,3 +112,4 @@ module.exports={getGameTable,getPlayerTable,baccarat_getGameTable,baccarat_getPl
 
 
 
+baccarat_getPlayerTable()

@@ -1,0 +1,12 @@
+[{
+  "name"        : "xiaocong",
+  "script"      : "index.js",
+  "cwd"         : "/Users/michael_zhang/WebstormProjects/untitled1/airdrop/",
+  "error_file" : "app-err.log",
+  "out_file"   : "app-out.log",
+  "pid_file"   : "app.pid",
+  "one_launch_only"  : "true",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}]

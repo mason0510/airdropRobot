@@ -54,7 +54,7 @@ async function  set_count(count) {
 async function get_count(){
   return new Promise(async (resolve)=>{
         await client.get("bet_interval_count", async (err,reply)=>{
-            console.log("reply"+reply);
+            console.log("reply count"+reply);
             resolve (reply)
         })
     })
@@ -125,10 +125,10 @@ async function get_verifyres(){
 
 
 
-async function  set_playerInfo(playerInfo) {
-    let key="playerInfo";
+async function  set_playerInfo(player) {
+    let key="player";
     //报错
-    // await client.set(key,playerInfo,redis.print)
+    await client.set(key,player,redis.print)
 }
 //打印
 //playerInfos[{"id":12627,"game_id":6878,"player":"dappgoqqqqqq",
@@ -146,7 +146,7 @@ async function  set_playerInfo(playerInfo) {
 //             }
             async function get_PlayerInfo(){
                 return new Promise(async (resolve)=>{
-                    await client.get("playerInfos",async (err,reply)=>{
+                    await client.get("player",async (err,reply)=>{
                         if (err)console.log(err); 
                         console.log(reply);
                         resolve(reply)
@@ -228,11 +228,96 @@ async function  set_playerInfo(playerInfo) {
                     })
                 })
             }
+        async function set_Internal(overtime) {
+            let key = "overtime";
+            await client.set(key, overtime, redis.print)
+        }
+
+        async function get_Internal() {
+            return new Promise(async (resolve) => {
+                await client.get("overtime", async (err, reply) => {
+                    console.log("reply" + reply);
+                    //获取时间
+                    console.log("overtime:" + reply);
+                    resolve(reply);
+                })
+            })
+        }
+
+async function set_DbType(DbType) {
+    let key = "DbType";
+    await client.set(key, DbType, redis.print)
+}
+
+async function get_DbType() {
+    return new Promise(async (resolve) => {
+        await client.get("DbType", async (err, reply) => {
+            console.log("reply DbType" + reply);
+            //获取时间
+            console.log("DbType:" + reply);
+            resolve(reply);
+        })
+    })
+}
+
+async function set_Time(overtime) {
+    let key = "judgetime";
+    await client.set(key, overtime, redis.print)
+}
+
+async function get_Iime() {
+    return new Promise(async (resolve) => {
+        await client.get("judgetime", async (err, reply) => {
+            console.log("reply judgetime" + reply);
+            //获取时间
+            console.log("judgetime:" + reply);
+            resolve(reply);
+        })
+    })
+}
+async function save_playerInfos(playerInfos) {
+    let key = "playerInfos";
+    await client.set(key, playerInfos, redis.print)
+}
+
+async function fetch_playerInfos() {
+    return new Promise(async (resolve) => {
+        await client.get("playerInfos", async (err, reply) => {
+            console.log("reply playerInfos" + reply);
+            //获取时间
+            console.log("playerInfos:" + reply);
+            resolve(reply);
+        })
+    })
+}
+async function set_keys(keys) {
+    let key = "keys";
+    await client.set(key, keys, redis.print)
+}
+
+async function get_keys() {
+    return new Promise(async (resolve) => {
+        await client.get("keys", async (err, reply) => {
+            console.log("reply keys" + reply);
+            //获取时间
+            console.log("keys:" + reply);
+            resolve(reply);
+        })
+    })
+}
+
 
 
 // save();
 // get();
- module.exports = {
+ module.exports = {set_keys,get_keys,fetch_playerInfos,save_playerInfos,
+             set_playerInfo,
+                set_DbType,
+                get_DbType,
+                get_Iime,
+                set_Time,
+                set_Internal,
+                get_Internal,
                 set_testDb,
                 get_testDb,
                 get_afterDb,

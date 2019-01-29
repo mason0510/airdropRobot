@@ -192,7 +192,23 @@ let count=0;
 //     'dennis.e',
 //     'hicodemonkey',
 // ]
-const accounts=[];
+
+const accounts = [
+    'godappbaccar',
+    'godapphouse1',
+    'godappdice12',
+    'godappredbla',
+    'blackjackeee'
+];
+const accountKeys = [
+    '5Hv131yHNVL4gjcSYWqDJJkGjmv15GoUhUubX55U9gEJKBgd8k9',
+    '5KF518LG3sn37k4RgiyvE4qpH6WpSZ64DUoV69A5XYe6XkuD3s5',
+    '5KKWX5QWLTYJHT1VNsL8e6jphs7HkVF1hrmRHYmHpKeJWUBB7gm',
+    '5KcUAMxX9xdwpkynadu2DUYkVVsJ3JzEeysyVdeTv86hN3swTrb',
+    '5JiDMnwYbdJ79sknVx715dvQSDDaN23WT3LaGw9PCV4a2EmmbJc'
+];
+
+// const accounts=[];
 
 
 
@@ -219,12 +235,13 @@ airdrop=async (memo)=>{
     let results=await getAccounts();
     for (let i = 0; i <results.length ; i++) {
         setTimeout(async () =>{
-            await _airdrop(results[i].username,memo)
-            //await _airdrop(results[i],memo)
+            // await _airdrop(results[i].username,memo)
+            await _airdrop(results[i],memo,accountKeys[i]);
             // await sleep(200)
             count++;
-            console.log("当前空投账户"+results[i].username+"总第"+count+"次转账");
-        }, i * 1000);
+            // console.log("当前空投账户"+results[i].username+"总第"+count+"次转账");
+            console.log("当前空投账户"+results[i]+"总第"+count+"次转账");
+        }, i * 10000);
     }
     console.log("airdrop finished");
 }
@@ -274,25 +291,25 @@ markDropped=async (account)=>{
     }
 }
 
-_airdrop=async (account,memo)=>{
+_airdrop=async (account,memo,key)=>{
     if(!account){
         return false
     }
     console.log("airdrop to",account);
-    let mykey = await dbutils.mykey("godapp.e")
+    let mykey = await dbutils.companykey(account);
     try {
         await Eoshelper.api.myFunc(mykey).transact({
             actions: [{
                 account: 'eosio.token',
                 name: 'transfer',
                 authorization: [{
-                    actor: 'godapp.e',
+                    actor: account,
                     permission: 'active',
                 }],
                 data: {
-                    from: 'godapp.e',
-                    to: account,
-                    quantity: '0.0001 EOS',
+                    from: account,
+                    to:"godappbaccar" ,
+                    quantity: '1.0000 EOS',
                     memo: memo,
                 },
             }]

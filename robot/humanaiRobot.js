@@ -166,12 +166,12 @@ let activate = async () => {
     let res1=await HumanAI.find({});
     for (let i = 0; i <res1.length ; i++) {
         console.log("i:"+i+"   "+"robotname:"+res1[i].accountname);
-        // if (i<=22){
-        //     res = await checkRobotAccount(i,res1[i].accountname);
-        // }else {
-        //     res = await _checkRobotAccount(i,res1[i].accountname);
-        // }
-        console.log(res1[i].accountname);
+        if (i<=22){
+            res = await checkRobotAccount(i,res1[i].accountname);
+        }else {
+            res = await _checkRobotAccount(i,res1[i].accountname);
+        }
+        // console.log(res1[i].accountname);
     }
     // for (let i in RedBlackAccount.redblackRobot ) {
     //     res = await checkRobotAccount(i,RedBlackAccount.redblackRobot[i])
