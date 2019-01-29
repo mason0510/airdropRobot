@@ -15,12 +15,6 @@ setTimeandCount=(async ()=>{
     console.log(btime+"=========="+count);
 });
 setTimeandCount();
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> a84cf316b21b6c76e9ad87260427f71699186a69
 //24小时执行一次
 // const begintask = ()=>{
 //     //'30 1 1 * * *'  30 1 * * * *

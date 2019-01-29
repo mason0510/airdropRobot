@@ -9,8 +9,9 @@ let Dbutils= require('../utils/dbutils');
 let gameplayer;
 let newplayer=false;
 let InternalInfo=require('../db/internal');
-let TableInfo = require('../../eostools/tableInfo_superagent');
+let TableInfo = require('../eostools/tableInfo_superagent');
 let playerInfos=[];
+let Internal = require('../db/internal');
 
 _bet = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
     console.log("======================当前下注"+account+"+"+quantity+"+"+memo);
@@ -100,7 +101,7 @@ betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, endt
     }
     let promise;
     let status = await gameTable.rows[0].status;
-    // let currenttime = await time.networktime();
+    // let currenttime = parseInt()await Internal.get_Iime();
     // console.log("当前网络时间" + currenttime);
     // let bettime = Number(endtime * 1000 - currenttime);
     // let newtime=Math.abs(bettime);
@@ -165,23 +166,38 @@ betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, endt
 
 async function getPlayerInfo() {
     let playerInfosPromise =  TableInfo.baccarat_getPlayerTable();
-    let playerInfos = await playerInfosPromise;
-    console.log("playerInfos" + JSON.stringify(playerInfos.rows));
-    //获取玩家信息并保存到redis
-    if (playerInfos != null) {
-        await InternalInfo.set_playerInfo(playerInfos.rows);
-        for (let i = 0; i < playerInfos.rows.length; i++) {
-            let players = await playerInfos.rows[i].player;
-            console.log("players:====================" + players);
-        }
+let playerInfos = await playerInfosPromise;
+console.log("playerInfos" + JSON.stringify(playerInfos.rows));
+//获取玩家信息并保存到redis
+if (playerInfos != null) {
+    // await InternalInfo.set_playerInfo(JSON.stringify(playerInfos.rows));
+    for (let i = 0; i < playerInfos.rows.length; i++) {
+        let players = await playerInfos.rows[i].player;
+        console.log("players:====================" + players);
     }
-    return playerInfos;
+}
+return playerInfos;
 }
 let bool=false;
 let arr=[];
-async function checkPlayerInfo(account) {
-    playerInfos = await getPlayerInfo();
-    console.log("account:"+account);
+async function checkPlayerInfo(account,playerInfos) {
+    // try {
+    //     let infos= Internal.fetch_playerInfos();
+    //     if (infos==null){
+    //         playerInfos = await getPlayerInfo();
+    //     } else {
+    //         console.log(playerInfos);
+    //         //  let infos=JSON.parse(playerInfos);
+    //         // for (let i = 0; i < infos; i++) {
+    //         //
+    //         // }
+    //     }
+    // }catch (e) {
+    //     console.log(e);
+    // }
+    //
+    // console.log("account:"+account);
+    // if (playerInfos===null)return
     for (let i = 0; i < playerInfos.rows.length; i++) {
         let roundply =  playerInfos.rows[i].player;
         arr.push(roundply);
@@ -192,46 +208,43 @@ async function checkPlayerInfo(account) {
 }
 _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
     //统一再获取一次玩家信息 当前轮次 随机取三个玩家 随意下注
-    let checkInfo=await checkPlayerInfo(account);
+    let checkInfo=await checkPlayerInfo(account,playerInfos);
     console.log("=====================================  当前机器人是否投注过:" +checkInfo );
     if (checkInfo===true){
-       return;
+      // return;
     }
+
    // memo
     console.log("======================当前下注"+account+"+"+quantity+"+"+memo);
-    if (playerInfos.rows!=null){
-    for (let i = 0; i <playerInfos.rows.length ; i++) {
-        gameplayer=await playerInfos.rows[i].player;
-        console.log("gameplayer======="+gameplayer);
-        if (account===gameplayer){
-            newplayer=true;
-        }
-    }
-    }
-    if (newplayer===true){
-        return
-    }
+    // if (playerInfos.rows!=null){
+    // for (let i = 0; i <playerInfos.rows.length ; i++) {
+    //     gameplayer=await playerInfos.rows[i].player;
+    //     console.log("gameplayer======="+gameplayer);
+    //     if (account===gameplayer){
+    //         newplayer=true;
+    //     }
+    // }
+    // }
+    // if (newplayer===true){
+    //     console.log("当前玩家下过注 玩家退出");
+    //     return
+    // }
     let promise;
     // let status = await gameTable.rows[0].status;
-    let currenttime = await time.networktime();
+    let currenttime = parseInt(await Internal.get_Iime());
     // console.log("当前网络时间" + currenttime);
     let bettime = Number(endtime * 1000 - currenttime);
-        if (bettime<5)
+        if (bettime<5000)
         {
             return
         }
-        //再次检查账户是否在player中
-    // let newtime=Math.abs(bettime);
-
-        await Sleep.sleep(500);
         console.log("privatekey:======================当前加密前私钥"+privatekey);
         // let mykey = await Dbutils.myaikey(privatekey);
         let mykey = await CryptoUtil.privateDecrypt(privatekey);
         console.log("===================================================="+mykey);
         try {
-            if (playerInfos.rows.length === 0) {
+            // if (playerInfos.rows.length === 0) {
                 promise=new Promise(async (resolve,reject)=>{
-                    if (reject)
                         eoshelper.api.myFunc(mykey).transact({
                             actions: [{
                                 account: "eosio.token",
@@ -251,12 +264,11 @@ _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, end
                             blocksBehind: 3,
                             expireSeconds: 30,
                         }, function (error) {
-                            if (error) return reject(error);
+                            if (error)  reject(error);
                         }).then(async result=>{
                             // await save(quantity);
                             let bet_result=await JSON.stringify(result);
                             console.log("bet_result:"+bet_result);
-                            console.log("result:"+bet_result);
                             //保存结果
                             count++;
                             console.log("=============" + count + quantity);
@@ -267,16 +279,16 @@ _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, end
 
                 });
 
-            } else {
-                for (let i = 0; i < playerInfos.rows.length; i++) {
-                    let item=playerInfos.rows[i];
-                    if (item.player === account && item.bet_type !== betarea) {
-                        return
-                    }
-                }
-            }
+            // } else {
+            //     for (let i = 0; i < playerInfos.rows.length; i++) {
+            //         let item=playerInfos.rows[i];
+            //         if (item.player === account && item.bet_type !== betarea) {
+            //             return
+            //         }
+            //     }
+            // }
         } catch (e) {
-            console.log("Game is no longer active"+e)
+            console.log("下注失败  RpcError"+e)
         }
     newplayer=false;
     return promise;
@@ -290,4 +302,4 @@ let aa=async ()=>{
     return test
 }
 
-aa();
+// aa();

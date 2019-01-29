@@ -31,6 +31,13 @@ task=async ()=> {
         console.log("当前已超1小时");
         //返回true
         overtime=true;
+        //超过一小时 增大1 会导致下次结果变化
+        let i=await Internal.get_count();
+        console.log('当前所保留的i'+i);
+        i++;
+        console.log("执行后所保留的i"+i);
+        await Internal.set_count(i);
+
         return overtime;
     }else {
         console.log("当前未超时1小时");
@@ -76,14 +83,8 @@ task2=async ()=> {
  */
 let timeout=async ()=>{
     //获取账户
-    let i=await Internal.get_count();
-    console.log('当前所保留的i'+i);
-
     let overtime=await task();
     console.log("====="+overtime);
-    i++;
-    console.log("执行后所保留的i"+i);
-    await Internal.set_count(i);
 
     return overtime;
 };
@@ -102,7 +103,7 @@ let timeout2=async ()=>{
 };
 module.exports={timeout,timeout2};
 
-timeout();
+// timeout();
 
 
 
