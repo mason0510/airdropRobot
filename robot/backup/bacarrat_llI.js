@@ -129,6 +129,7 @@ async function checkPlayerInfo(accountname0, accountname1, accountname2, account
 
     for (let i = 0; i < playerInfos.rows.length; i++) {
         let roundply = await playerInfos.rows[i].player;
+        console.log("=====================================roundply:" + roundply + "==========" + accountname0);
             if (roundply === accountname0){
                 await Internal.set_verifyres("1");
                 //相等 让当前局失败
@@ -155,53 +156,80 @@ async function checkPlayerInfo(accountname0, accountname1, accountname2, account
 }
 
 start = async (arrInternal) => {
+//先随机5个玩家
+     // newarr = allres;
+     // console.log(newarr);
     let quantityr = RandomNumber.random_different_probability(constants.bet_amount, constants.bet_probability);
     let realPlayer_amount = parseFloat(quantityr) * 10000;
+    //console.log(quantity1);
+    //console.log(realPlayer_amount);
+
+
     let quantity0 = RandomNumber.random_different_probability(constants.bet_amount, constants.bet_probability);
     let quantity1 = RandomNumber.random_different_probability(constants.bet_amount, constants.bet_probability);
     let quantity2 = RandomNumber.random_different_probability(constants.bet_amount, constants.bet_probability);
     let quantity3 = RandomNumber.random_different_probability(constants.bet_amount, constants.bet_probability);
     let quantity4 = RandomNumber.random_different_probability(constants.bet_amount, constants.bet_probability);
+
     let robot_amount = parseFloat(quantity0) * 10000;
     let robot_amount1 = parseFloat(quantity1) * 10000;
     let robot_amount2 = parseFloat(quantity2) * 10000;
     let robot_amount3 = parseFloat(quantity3) * 10000;
     let robot_amount4 = parseFloat(quantity4) * 10000;
-    //发起两次网络请求
+
+
     let gameTable = await getGameTable();
     let playerInfos = await getPlayerInfo();
 
-    newarr=arrInternal;
-    resnumber = await randomNumber.__norepeatNumber(5);
+    //保存玩家信息
+    // try {
+    //     await Internal.save_playerInfos(playerInfos.toString());
+    // }catch (e) {
+    //     console.log(e);
+    // }
+
+
+    let status = gameTable.rows[0].status;
+    let roundId = gameTable.rows[0].id;
+    let end_time = gameTable.rows[0].end_time;
+
+    if (status !== 2) {return console.log("游戏不活跃");}
+
+    let db=await HumanAi.find({});//改为从redis获取
+
+
+    let allres = arrInternal;
+    console.log("allres:======================"+allres);
+    //give value
+    for (let i = 0; i < allres.length; i++) {
+        newarr.push(allres[i]);
+    }
+
+        console.log("====================baccarat====================begin");
+        if (playerInfos.rows.length !== 0 || playerInfos != null) {
+            for (let j = 0; j < playerInfos.rows.length; j++) {
+                let realPlayer = playerInfos.rows[j].player;
+                        for (let i = 0; i <allres.length ; i++) {
+                           let dbres = allres[i];
+                           if (realPlayer===dbres){
+                               await Internal.set_verify("false");
+                               console.log("==================================没有有新玩家 全部是机器人" + realPlayer)
+                           }
+                        }
+            }
+        }
+        resnumber = await randomNumber.__norepeatNumber(5);
+        console.log("resnumber====================================="+resnumber);
     let accountname0 = await newarr[resnumber[0]];
     let accountname1 = await newarr[resnumber[1]];
     let accountname2 = await newarr[resnumber[2]];
     let accountname3 = await newarr[resnumber[3]];
     let accountname4 = await newarr[resnumber[4]];
 
-    let status = gameTable.rows[0].status;
-    let roundId = gameTable.rows[0].id;
-    let end_time = gameTable.rows[0].end_time;
-
-
-    let db=await HumanAi.find({});//改为从redis获取
-
-        console.log("====================baccarat=======================================begin");
-        if (playerInfos != null) {
-          for (let i = 0; i <arrInternal.length; i++) {
-                            for (let j = 0; j < playerInfos.rows.length; j++) {
-                                let realPlayer = playerInfos.rows[j].player;
-                           let dbres = arrInternal[i];
-                           if (realPlayer===dbres){
-                               await Internal.set_verify("false");
-                           }
-                        }
-            }
-        }
-
-
     await checkPlayerInfo(accountname0, accountname1, accountname2, accountname3, accountname4, playerInfos);
 
+    let verifyres=await Internal.get_verifyres();
+        console.log("accountname0:"+verifyres+"========="+accountname0);
 
         //根据账户名查找加密私钥
         for (let i = 0; i < db.length; i++) {
@@ -221,23 +249,25 @@ start = async (arrInternal) => {
                 privatekey4 = await db[i].privatekey;
             }
         }
+        console.log("==========" + new Date()  + "==========" + "status:" + status);
+
     // console.log("accountname0:"+verifyres+"========="+accountname0+"========="+privatekey0);
     // console.log("accountname1:"+verifyres+"========="+accountname1+"========="+privatekey1);
     // console.log("accountname2:"+verifyres+"========="+accountname2+"========="+privatekey2);
     // console.log("accountname3:"+verifyres+"========="+accountname3+"========="+privatekey3);
     // console.log("accountname4:"+verifyres+"========="+accountname4+"========="+privatekey4);
 
-    if (await Internal.get_verifyres()==="0"){
+    if (verifyres==="0"){
         promise = new Promise(async (resolve, reject) => {
-            console.log("============================================开始下注"+ new Date()  + "==========" + "status:" + status);
+            console.log("============================================开始下注");
             if (accountname0===undefined) {
                 //重试
                  resnumber = await randomNumber.norepeatNumber(1);
                 console.log("resnumber====================================="+resnumber);
                  accountname0 = await newarr[resnumber];
-                for (let i = 0; i < arrInternal.length; i++) {
-                    if (accountname0 === arrInternal[i]) {
-                        privatekey0 = await arrInternal[i].privatekey;
+                for (let i = 0; i < allres.length; i++) {
+                    if (accountname0 === allres[i]) {
+                        privatekey0 = await allres[i].privatekey;
                     }
                 }
             }

@@ -181,23 +181,6 @@ return playerInfos;
 let bool=false;
 let arr=[];
 async function checkPlayerInfo(account,playerInfos) {
-    // try {
-    //     let infos= Internal.fetch_playerInfos();
-    //     if (infos==null){
-    //         playerInfos = await getPlayerInfo();
-    //     } else {
-    //         console.log(playerInfos);
-    //         //  let infos=JSON.parse(playerInfos);
-    //         // for (let i = 0; i < infos; i++) {
-    //         //
-    //         // }
-    //     }
-    // }catch (e) {
-    //     console.log(e);
-    // }
-    //
-    // console.log("account:"+account);
-    // if (playerInfos===null)return
     for (let i = 0; i < playerInfos.rows.length; i++) {
         let roundply =  playerInfos.rows[i].player;
         arr.push(roundply);
@@ -207,44 +190,12 @@ async function checkPlayerInfo(account,playerInfos) {
     return result !== -1;
 }
 _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
-    //统一再获取一次玩家信息 当前轮次 随机取三个玩家 随意下注
-    let checkInfo=await checkPlayerInfo(account,playerInfos);
-    console.log("=====================================  当前机器人是否投注过:" +checkInfo );
-    if (checkInfo===true){
-      // return;
-    }
-
-   // memo
     console.log("======================当前下注"+account+"+"+quantity+"+"+memo);
-    // if (playerInfos.rows!=null){
-    // for (let i = 0; i <playerInfos.rows.length ; i++) {
-    //     gameplayer=await playerInfos.rows[i].player;
-    //     console.log("gameplayer======="+gameplayer);
-    //     if (account===gameplayer){
-    //         newplayer=true;
-    //     }
-    // }
-    // }
-    // if (newplayer===true){
-    //     console.log("当前玩家下过注 玩家退出");
-    //     return
-    // }
-    let promise;
-    // let status = await gameTable.rows[0].status;
-    let currenttime = parseInt(await Internal.get_Iime());
-    // console.log("当前网络时间" + currenttime);
-    let bettime = Number(endtime * 1000 - currenttime);
-        if (bettime<5000)
-        {
-            return
-        }
-        console.log("privatekey:======================当前加密前私钥"+privatekey);
-        // let mykey = await Dbutils.myaikey(privatekey);
         let mykey = await CryptoUtil.privateDecrypt(privatekey);
-        console.log("===================================================="+mykey);
         try {
-            // if (playerInfos.rows.length === 0) {
-                promise=new Promise(async (resolve,reject)=>{
+            let checkInfo=await checkPlayerInfo(account,playerInfos);
+            // if (checkInfo) {
+              let  promise=new Promise(async (resolve,reject)=>{
                         eoshelper.api.myFunc(mykey).transact({
                             actions: [{
                                 account: "eosio.token",
@@ -276,10 +227,11 @@ _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, end
                             // await Fileoperation.saveBetData(count, parseInt(quantity));
                             resolve(bet_result);
                         });
-
                 });
-
-            // } else {
+              return promise;
+            // // }
+            // else {
+            //     //判断下注区域和玩家姓名是否是新玩家
             //     for (let i = 0; i < playerInfos.rows.length; i++) {
             //         let item=playerInfos.rows[i];
             //         if (item.player === account && item.bet_type !== betarea) {
@@ -290,8 +242,6 @@ _betBaccarat = async (account, privatekey, quantity, memo, betarea, roundId, end
         } catch (e) {
             console.log("下注失败  RpcError"+e)
         }
-    newplayer=false;
-    return promise;
 };
 
 module.exports={_bet,betBaccarat,_betBaccarat};
