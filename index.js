@@ -21,8 +21,6 @@ app.use((err,req,res,next)=>{
 app.use("/api",Router);
 app.use(require("./middleware/res_md"));
 
-activate=async ()=>{
-
     if (cluster.isMaster) {
         console.log('[master] ' + "start master...");
         for (let i = 0; i < numCPUs; i++) {
@@ -33,7 +31,5 @@ activate=async ()=>{
         });
     } else if (cluster.isWorker) {
         console.log('[worker] ' + "start worker ..." + cluster.worker.id);
-        await app.listen(config.PORT);
+         app.listen(config.PORT);
     }
-};
-activate();

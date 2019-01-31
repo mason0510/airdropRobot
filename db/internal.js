@@ -187,16 +187,6 @@ async function  set_playerInfo(player) {
                 })
             }
 
-//  get_beforeDb=()=>{
-//     return new Promise(async (resolve)=>{
-//         await client.get("beforeDb", async (err,reply)=>{
-//             // console.log("reply"+reply);
-//             //获取时间
-//             // console.log("beforeDb:"+reply);
-//             resolve (reply);
-//         })
-//     })
-// }
             async function set_afterDb(res) {
                 let key = "afterDb";
                 await client.set(key, res, redis.print)
@@ -305,12 +295,28 @@ async function get_keys() {
         })
     })
 }
+async function set_humanais(humanais) {
+    let key = "humanais";
+    await client.set(key, humanais, redis.print)
+}
+
+async function get_humanais() {
+    return new Promise(async (resolve) => {
+        await client.get("humanais", async (err, reply) => {
+            if (err)console.log(err);
+            console.log(reply);
+            resolve(reply);
+        })
+    })
+}
 
 
 
 // save();
 // get();
- module.exports = {set_keys,get_keys,fetch_playerInfos,save_playerInfos,
+ module.exports = {
+     set_humanais,get_humanais,
+    set_keys,get_keys,fetch_playerInfos,save_playerInfos,
              set_playerInfo,
                 set_DbType,
                 get_DbType,
