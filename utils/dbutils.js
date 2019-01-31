@@ -55,18 +55,6 @@ myaikey=async (accountname)=>{
     }
     return key
 }
-// myaipublickey=async (accountname)=>{
-//     results=await humanAiAccount.find({});
-//     if (results.length===0)return
-//     for (let i = 0; i < results.length; i++) {
-//         if (results[i].accountname===accountname){
-//             key=await cryptoUtil.privateDecrypt(results[i].privatekey)
-//             //console.log("=========="+key);
-//         }
-//     }
-//     return key
-// }
-
 
 preserveKey=async (newaccountname,privateKey,publicKey)=>{
     console.log("begin");

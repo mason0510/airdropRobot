@@ -12,4 +12,8 @@ log4js.configure({
 let logger = log4js.getLogger('cheese');
 
 module.exports = logger;
+<<<<<<< HEAD
+// logger.debug("aaaa")
+=======
 logger.debug("aaaa")
+>>>>>>> d38da3035aaf8501c258928302d18c36b2320fe7
