@@ -19,7 +19,6 @@ app.use((err,req,res,next)=>{
     next();
 });
 app.use("/api",Router);
-app.use(require("./middleware/res_md"));
 
 activate=async ()=>{
 
@@ -33,7 +32,7 @@ activate=async ()=>{
         });
     } else if (cluster.isWorker) {
         console.log('[worker] ' + "start worker ..." + cluster.worker.id);
-        await app.listen(config.PORT);
+        await app.listen("3005");
     }
 };
 activate();

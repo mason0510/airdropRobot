@@ -306,12 +306,26 @@ async function get_keys() {
     })
 }
 
+async function set_humanais(humanais) {
+    let key = "humanais";
+    await client.set(key, humanais, redis.print)
+}
+
+async function get_humanais() {
+    return new Promise(async (resolve) => {
+        await client.get("humanais", async (err, reply) => {
+            if (err)console.log(err); 
+            console.log(reply);
+            resolve(reply);
+        })
+    })
+}
 
 
 // save();
 // get();
- module.exports = {set_keys,get_keys,fetch_playerInfos,save_playerInfos,
-             set_playerInfo,
+ module.exports = {set_humanais,get_humanais,set_keys,get_keys,fetch_playerInfos,save_playerInfos,
+                set_playerInfo,
                 set_DbType,
                 get_DbType,
                 get_Iime,
