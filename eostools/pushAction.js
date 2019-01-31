@@ -182,8 +182,6 @@ return playerInfos;
 Baccarat = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
     let mykey = await CryptoUtil.privateDecrypt(privatekey);
     logger.debug("======================当前下注"+account+"+"+quantity+"+"+memo+"mykey:"+mykey);
-    if (mykey===null)return;
-    try {
         const result=eoshelper.api.myFunc(mykey).transact({
             actions: [{
                 account: "eosio.token",
@@ -202,91 +200,17 @@ Baccarat = async (account, privatekey, quantity, memo, betarea, roundId, endtime
         }, {
             blocksBehind: 3,
             expireSeconds: 30,
+        }).then((data)=>{
+            Logger.debug(data)
+        }).catch(err=>{
+            logger.debug(err)
         });
-        logger.debug(result);
-    }catch (e) {
-       let object = JSON.parse(e);
-       let result;
-       let code=object.error.code;
-        switch (code) {
-            case 3010001:
-                result = "Invalid name";
-                break;
-            case 3010004:
-                result = "Invalid authority";
-                break;
-            case 3010011:
-                result = "Invalid asset";
-                break;
-            case 3040000:
-                result = "Transaction exception";
-                break;
-            case 3040005:
-                result = "Expired Transaction";
-                break;
-            case 3040008:
-                result =  "Duplicate transaction";
-                break;
-            case 3040009:
-                result = "Duplicate deferred transaction";
-                break;
-            case 3050001:
-                result = "Account name already exists";
-                break;
-            case 3050003:
-                result = "eosio_assert_message assertion failure";
-                break;
-            case 3050004:
-                result = "eosio_assert_code assertion failure";
-                break;
-            case 3080001:
-                result =  "Account using more than allotted RAM usage";
-                break;
-            case 3080002:
-                result =  "Transaction exceeded the current network usage limit imposed on the transaction";
-                break;
-            case 3080003:
-                result = "Transaction network usage is too much for the remaining allowable usage of the current block";
-                break;
-            case 3080004:
-                result = "Transaction exceeded the current CPU usage limit imposed on the transaction";
-                break;
-            case 3080005:
-                result =  "Transaction CPU usage is too much for the remaining allowable usage of the current block";
-                break;
-            case 3080007:
-                result ="Transaction exceeded the current greylisted account network usage limit";
-                break;
-            case 3081001:
-                result ="Transaction reached the deadline set due to leeway on account CPU limits";
-                break;
-            case 3090000:
-                result = "Authorization exception";
-                break;
-            case 3090003:
-                result =  "Provided keys, permissions, and delays do not satisfy declared authorizations";
-                break;
-            case 3230002:
-                result = "Database API Exception";
-                break;
-
-            default:
-                result = code + " " + message;
-                break;
-        }
-        Logger.debug(result)
     }
 };
 ////497,undefined,24,1000,
 Roulette = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
     logger.debug("======================当前下注"+account+"+"+quantity+"+"+memo);
     let mykey = await CryptoUtil.privateDecrypt(privatekey);
-    console.log(mykey);
-    //需处理异常
-    // process.on('unhandledRejection', async (reason, promise) => {
-    //     console.log('Unhandled Rejection at:', reason.stack || reason)
-    // Recommended: send the information to sentry.io
-    // or whatever crash reporting service you use
     const result=eoshelper.api.myFunc(mykey).transact({
         actions: [{
             account: "eosio.token",
@@ -305,8 +229,12 @@ Roulette = async (account, privatekey, quantity, memo, betarea, roundId, endtime
     }, {
         blocksBehind: 3,
         expireSeconds: 30,
+    }).then((data)=>{
+        console.log(data);
+    }).catch(err=>{
+        logger.debug(err);
     });
-    logger.debug(result);
+
 };
 
 
