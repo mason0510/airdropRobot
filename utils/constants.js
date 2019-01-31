@@ -1,6 +1,10 @@
 
+
 let sendbackmemo="sendback eos";
-let depositememo="deposit";
+let robotdepositememo="robot,deposit";
+
+let godappdepositememo="godapp,deposit";
+
 let buyeosmemo="buyeos ";
 let undelegatebwmemo="undelegatebw eos"
 let url='https://proxy.eosnode.tools/v1/chain/get_account'
@@ -76,6 +80,11 @@ let clasicbaccarat_probability = [0.05,0.05, 0.01, 0.02, 0.13, 0.05,0.2,0.01,0.1
 let bet_probability_realPlayer = [0.28, 0.1, 0.2, 0.3, 0.12];
 
 
+<<<<<<< HEAD
+module.exports={godappdepositememo,robotdepositememo,bet_amount,bet_probability,timeurl,baccarat_area,rent_cpu,eos_quancity,contractAccount,sendbackmemo,url,betarea,betnumber,arr,undelegatebwmemo,buyeosmemo,url1,url2,url3,deadlineTime,responseTime,eosio,
+gamestable,code,scope,accountname,redblackRobot,baccaratRobot,url4
+=======
 module.exports={roulette_area,clasicbaccarat_probability,clasicbaccarat_amount,roulette_probability,rouletteamount,bet_amount,bet_probability,timeurl,baccarat_area,rent_cpu,eos_quancity,contractAccount,sendbackmemo,url,betarea,betnumber,arr,undelegatebwmemo,buyeosmemo,url1,url2,url3,deadlineTime,responseTime,eosio,
 gamestable,code,scope,accountname,depositememo,redblackRobot,baccaratRobot,url4
+>>>>>>> d38da3035aaf8501c258928302d18c36b2320fe7
 };
