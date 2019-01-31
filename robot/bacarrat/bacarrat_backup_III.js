@@ -313,19 +313,7 @@ start = async (arrInternal) => {
                 console.log("accountname0==============================get_verify"+"==========="+accountname0);
                 let area0 = constants.baccarat_area[Math.floor(Math.random() * constants.baccarat_area.length)];
                 let memo0 = roundId + "," + accountname0 + "," + area0 + "," + robot_amount.toString() + ",";
-                gettxInfo = await PushAcition.Baccarat(accountname0, privatekey0, quantity0, memo0, area0, roundId, end_time, playerInfos, gameTable).then(async (res) => {
-
-                    if (res===undefined){
-                        await PushAcition.Baccarat(accountname0, privatekey0, quantity0, memo0, area0, roundId, end_time, playerInfos, gameTable)
-                    }else {
-                        bet_result = res;
-                        resolve(bet_result);
-                       // console.log("===============下注结果" + res);
-                    }
-                }).catch(err => {
-                    console.error(err);
-                    reject(err)
-                });
+                gettxInfo = await PushAcition.Baccarat(accountname0, privatekey0, quantity0, memo0, area0, roundId, end_time, playerInfos, gameTable)
 
                 //await Sleep.sleep(2000);
                 // console.log("accountname1==============================get_verify"+"==========="+accountname0);
