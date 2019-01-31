@@ -42,22 +42,30 @@ _accountInfo=async(accountname)=>{
         });
     });
 };
+robotBalance=async(accountname)=>{
+    return new Promise(async (resolve, reject) => {
+        console.log("begin");
+        let options = { method: 'POST',
+            url: 'https://proxy.eosnode.tools/v1/chain/get_account',
+            body: { account_name: accountname},
+            json: true };
 
-
-
-module.exports={_checkHouseAccount,_accountInfo};
-
-
-test=async ()=>{
-    let humanAis=await HumanAis.find({});
-    for (let i = 0; i <humanAis.length ; i++) {
-        console.log(humanAis[i].accountname);
-        await _accountInfo(humanAis[i].accountname);
-    }
-
+        await request(options, async  (error, response, body) =>{
+            if (error) {
+                console.log(error);
+                return;
+            }
+            console.log(parseInt(body.core_liquid_balance));
+            return resolve(parseInt(body.core_liquid_balance));
+        });
+    });
 };
 
-// test();
+
+
+module.exports={_checkHouseAccount,_accountInfo,robotBalance};
+
+
 
 
 

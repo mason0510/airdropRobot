@@ -1,31 +1,16 @@
 let express = require('express');
 let RedBlue = require('../robot/redblack/redBlack');
 let router = express.Router();
-let robotAccountConstants = require('../utils/robotAccountConstants');
-let Bacarrat = require('../robot/bacarrat/bacarrat');
-let Bacarrat_internal = require('../robot/bacarrat/bacarrat_llI');
+let Bacarrat_ll = require('../robot/bacarrat/bacarrat_backup_III');
 
-
-let Bacarrat_ll = require('../robot/bacarrat/bacarrat_llI');
-
-
-let Iemainder_redis = require('../utils/remainder_redis');
-
-
-let robotConstants = require('../utils/robotAccountConstants');
-
-let Timeout = require("../router/devidedb");
 
 let Internal = require('../db/internal');
 let HumanAis = require('../model/humanAI');
 let GetInternal = require('../robot/parameterSet/getInternal');
 
-// let robot;
-let predata;
-let db1 = [];
-let db2 = [];
 let overtime;
-router.get('/baccarat_ll', async (req, res) => {
+
+router.get('/baccarat', async (req, res) => {
     console.log("==============================================================");
     //判断超时
     await GetInternal.task();
