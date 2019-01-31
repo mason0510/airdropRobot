@@ -328,15 +328,11 @@ async function get_humanais() {
 
 // save();
 // get();
-<<<<<<< HEAD
- module.exports = {set_humanais,get_humanais,set_keys,get_keys,fetch_playerInfos,save_playerInfos,
-                set_playerInfo,
-=======
+
  module.exports = {
      set_humanais,get_humanais,
     set_keys,get_keys,fetch_playerInfos,save_playerInfos,
              set_playerInfo,
->>>>>>> d38da3035aaf8501c258928302d18c36b2320fe7
                 set_DbType,
                 get_DbType,
                 get_Iime,

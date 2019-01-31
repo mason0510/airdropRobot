@@ -11,7 +11,6 @@ app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use((err,req,res,next)=>{
-    console.log(err);
     res.send({
         code:-1,
         msg:err.toString()
@@ -19,23 +18,17 @@ app.use((err,req,res,next)=>{
     next();
 });
 app.use("/api",Router);
+app.use(require("./middleware/res_md"));
 
-    if (cluster.isMaster) {
-        console.log('[master] ' + "start master...");
-        for (let i = 0; i < numCPUs; i++) {
-            cluster.fork();
-        }
-        cluster.on('listening', function (worker, address) {
-            console.log('[master] ' + 'listening: worker' + worker.id + ',pid:' + worker.process.pid + ', Address:' + address.address + ":" + address.port);
-        });
-    } else if (cluster.isWorker) {
-        console.log('[worker] ' + "start worker ..." + cluster.worker.id);
-<<<<<<< HEAD
-        await app.listen("3005");
+if (cluster.isMaster) {
+    console.log('[master] ' + "start master...");
+    for (let i = 0; i < numCPUs; i++) {
+        cluster.fork();
     }
-};
-activate();
-=======
-         app.listen(config.PORT);
-    }
->>>>>>> d38da3035aaf8501c258928302d18c36b2320fe7
+    cluster.on('listening', function (worker, address) {
+        // console.log('[master] ' + 'listening: worker' + worker.id + ',pid:' + worker.process.pid + ', Address:' + address.address + ":" + address.port);
+    });
+} else if (cluster.isWorker) {
+    //console.log('[worker] ' + "start worker ..." + cluster.worker.id);
+    app.listen("3000");
+}
