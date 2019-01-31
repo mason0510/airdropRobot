@@ -11,9 +11,9 @@ getGameTable = async () => {
             deadline: constants.deadlineTime,
             response: constants.responseTime,
         }).send({
-            code: constants.code[3],
+            code: constants.code[4],
             table: constants.gamestable[0],
-            scope: constants.scope[3],
+            scope: constants.scope[4],
             json: true
         }).then(async res => {
             //req header status text 
@@ -38,9 +38,9 @@ getPlayerTable = async () => {
             deadline: constants.deadlineTime,
             response: constants.responseTime
         }).send({
-            code: constants.code[3],
+            code: constants.code[4],
             table: constants.gamestable[1],
-            scope: constants.scope[3],
+            scope: constants.scope[4],
             json: true
         }).then(async res => {
             //let body = JSON.stringify(res);
@@ -104,6 +104,8 @@ baccarat_getPlayerTable = async () => {
     });
     return promise;
 };
+
+
 
 
 module.exports={getGameTable,getPlayerTable,baccarat_getGameTable,baccarat_getPlayerTable};

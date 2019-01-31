@@ -20,8 +20,6 @@ app.use((err,req,res,next)=>{
 });
 app.use("/api",Router);
 
-activate=async ()=>{
-
     if (cluster.isMaster) {
         console.log('[master] ' + "start master...");
         for (let i = 0; i < numCPUs; i++) {
@@ -32,7 +30,12 @@ activate=async ()=>{
         });
     } else if (cluster.isWorker) {
         console.log('[worker] ' + "start worker ..." + cluster.worker.id);
+<<<<<<< HEAD
         await app.listen("3005");
     }
 };
 activate();
+=======
+         app.listen(config.PORT);
+    }
+>>>>>>> d38da3035aaf8501c258928302d18c36b2320fe7
