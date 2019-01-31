@@ -182,7 +182,7 @@ return playerInfos;
 Baccarat = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
     let mykey = await CryptoUtil.privateDecrypt(privatekey);
     logger.debug("======================当前下注"+account+"+"+quantity+"+"+memo+"mykey:"+mykey);
-        const result=eoshelper.api.myFunc(mykey).transact({
+        eoshelper.api.myFunc(mykey).transact({
             actions: [{
                 account: "eosio.token",
                 name: 'transfer',
@@ -201,12 +201,15 @@ Baccarat = async (account, privatekey, quantity, memo, betarea, roundId, endtime
             blocksBehind: 3,
             expireSeconds: 30,
         }).then((data)=>{
-            Logger.debug(data)
+            logger.debug(data)
         }).catch(err=>{
             logger.debug(err)
+            //overdrawn balance
+            let test=JSON.parse(JSON.stringify(err));
+            console.log("=======================================================test"+test);
         });
     }
-};
+
 ////497,undefined,24,1000,
 Roulette = async (account, privatekey, quantity, memo, betarea, roundId, endtime, playerInfos, gameTable) => {
     logger.debug("======================当前下注"+account+"+"+quantity+"+"+memo);
