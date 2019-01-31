@@ -27,6 +27,6 @@ task=async ()=> {
         console.log("当前未超时1小时");
     }
 };
-task();
+// task();
 
 module.exports={task};
